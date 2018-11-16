@@ -30,7 +30,6 @@
         {
             this.lbldanhsachnv = new System.Windows.Forms.Label();
             this.grbdstknv = new System.Windows.Forms.GroupBox();
-            this.ckb_tinhtrang = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtp_thoiGianBatDau = new System.Windows.Forms.DateTimePicker();
             this.btn_them = new System.Windows.Forms.Button();
@@ -62,6 +61,8 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_InHD = new System.Windows.Forms.Button();
+            this.btn_thanhtoan = new System.Windows.Forms.Button();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +81,6 @@
             // grbdstknv
             // 
             this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grbdstknv.Controls.Add(this.ckb_tinhtrang);
             this.grbdstknv.Controls.Add(this.label7);
             this.grbdstknv.Controls.Add(this.dtp_thoiGianBatDau);
             this.grbdstknv.Controls.Add(this.btn_them);
@@ -111,16 +111,6 @@
             this.grbdstknv.Text = "Thông tin";
             this.grbdstknv.Enter += new System.EventHandler(this.grbdstknv_Enter);
             // 
-            // ckb_tinhtrang
-            // 
-            this.ckb_tinhtrang.AutoSize = true;
-            this.ckb_tinhtrang.Location = new System.Drawing.Point(473, 294);
-            this.ckb_tinhtrang.Name = "ckb_tinhtrang";
-            this.ckb_tinhtrang.Size = new System.Drawing.Size(124, 21);
-            this.ckb_tinhtrang.TabIndex = 24;
-            this.ckb_tinhtrang.Text = "Tình Trạng HD";
-            this.ckb_tinhtrang.UseVisualStyleBackColor = true;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -138,7 +128,7 @@
             this.dtp_thoiGianBatDau.Name = "dtp_thoiGianBatDau";
             this.dtp_thoiGianBatDau.Size = new System.Drawing.Size(182, 22);
             this.dtp_thoiGianBatDau.TabIndex = 22;
-            this.dtp_thoiGianBatDau.Value = new System.DateTime(2018, 11, 14, 14, 38, 30, 0);
+            this.dtp_thoiGianBatDau.Value = new System.DateTime(2018, 11, 16, 15, 29, 36, 0);
             // 
             // btn_them
             // 
@@ -355,11 +345,35 @@
             this.lv_HoaDonChuaThanhToan.UseCompatibleStateImageBehavior = false;
             this.lv_HoaDonChuaThanhToan.SelectedIndexChanged += new System.EventHandler(this.lv_HoaDonChuaThanhToan_SelectedIndexChanged);
             // 
+            // btn_InHD
+            // 
+            this.btn_InHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_InHD.Location = new System.Drawing.Point(1038, 435);
+            this.btn_InHD.Name = "btn_InHD";
+            this.btn_InHD.Size = new System.Drawing.Size(96, 52);
+            this.btn_InHD.TabIndex = 44;
+            this.btn_InHD.Text = "In Hóa Đơn";
+            this.btn_InHD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_InHD.UseVisualStyleBackColor = true;
+            this.btn_InHD.Click += new System.EventHandler(this.btn_InHD_Click);
+            // 
+            // btn_thanhtoan
+            // 
+            this.btn_thanhtoan.Location = new System.Drawing.Point(915, 435);
+            this.btn_thanhtoan.Name = "btn_thanhtoan";
+            this.btn_thanhtoan.Size = new System.Drawing.Size(106, 52);
+            this.btn_thanhtoan.TabIndex = 45;
+            this.btn_thanhtoan.Text = "Thanh Toán";
+            this.btn_thanhtoan.UseVisualStyleBackColor = true;
+            this.btn_thanhtoan.Click += new System.EventHandler(this.btn_thanhtoan_Click);
+            // 
             // FrmQLHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 499);
+            this.Controls.Add(this.btn_thanhtoan);
+            this.Controls.Add(this.btn_InHD);
             this.Controls.Add(this.lv_HoaDonChuaThanhToan);
             this.Controls.Add(this.lbldanhsachnv);
             this.Controls.Add(this.grbdstknv);
@@ -396,7 +410,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtp_thoiGianBatDau;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox ckb_tinhtrang;
         private System.Windows.Forms.ListView lv_HoaDonChuaThanhToan;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -408,5 +421,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Button btn_thanhtoan;
+        private System.Windows.Forms.Button btn_InHD;
     }
 }

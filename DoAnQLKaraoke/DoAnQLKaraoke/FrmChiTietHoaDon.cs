@@ -180,14 +180,18 @@ namespace DoAnQLKaraoke
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
-            HoaDonBUS hdBUS = new HoaDonBUS();
-            HoaDonDTO a = FrmQLHoaDon.hdHienHanh;
-            bool ktThanhToan = hdBUS.ThanhToan(a);
-            if (ktThanhToan)
-            {
-                FrmInHoaDon f = new FrmInHoaDon();
-                f.Show();
-            }
+            //FrmXemBaoCao f = new FrmXemBaoCao();
+            //HoaDonBUS hdBUS = new HoaDonBUS();
+            //HoaDonDTO a = FrmQLHoaDon.hdHienHanh;
+
+            //bool ktThanhToan = hdBUS.ThanhToan(a);
+            //if (ktThanhToan)
+            //{
+              
+            //    f.XemHoaDon(a);
+            //}
+            //f.Show();
+            
 
 
         }

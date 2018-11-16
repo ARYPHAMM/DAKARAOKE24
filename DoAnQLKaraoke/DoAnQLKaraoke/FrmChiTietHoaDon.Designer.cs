@@ -58,8 +58,6 @@
             this.txt_thanhTien = new System.Windows.Forms.TextBox();
             this.btn_them = new System.Windows.Forms.Button();
             this.btn_InHD = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_huy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CTHD)).BeginInit();
             this.SuspendLayout();
@@ -313,7 +311,7 @@
             // 
             this.btn_InHD.Image = global::DoAnQLKaraoke.Properties.Resources.save;
             this.btn_InHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_InHD.Location = new System.Drawing.Point(1081, 403);
+            this.btn_InHD.Location = new System.Drawing.Point(1081, 378);
             this.btn_InHD.Name = "btn_InHD";
             this.btn_InHD.Size = new System.Drawing.Size(121, 52);
             this.btn_InHD.TabIndex = 43;
@@ -321,22 +319,6 @@
             this.btn_InHD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_InHD.UseVisualStyleBackColor = true;
             this.btn_InHD.Click += new System.EventHandler(this.btn_InHD_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(984, 375);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 17);
-            this.label9.TabIndex = 44;
-            this.label9.Text = "Tổng Tiền";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(1063, 372);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 22);
-            this.textBox1.TabIndex = 45;
             // 
             // btn_huy
             // 
@@ -356,8 +338,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 515);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.btn_InHD);
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.btn_them);
@@ -421,8 +401,6 @@
         private System.Windows.Forms.TextBox txt_thanhTien;
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.Button btn_InHD;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btn_huy;
     }
 }

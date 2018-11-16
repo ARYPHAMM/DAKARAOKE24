@@ -193,12 +193,6 @@
     <Compile Include="FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmInHoaDon.Designer.cs">
-      <DependentUpon>FrmInHoaDon.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmQLHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,9 +293,6 @@
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInHoaDon.resx">
-      <DependentUpon>FrmInHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmQLHoaDon.resx">
       <DependentUpon>FrmQLHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +350,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="RptHoaDon.rdlc" />
     <None Include="csdlDAKARAOKEDataSet.xsc">
       <DependentUpon>csdlDAKARAOKEDataSet.xsd</DependentUpon>
     </None>

@@ -53,13 +53,14 @@ namespace DoAnQLKaraoke
             cbo_loaiPhong.ValueMember = "MALOAIPHONG";
             cbo_loaiPhong.DisplayMember = "TENLOAIPHONG";
             cbo_loaiPhong.SelectedIndex = -1;
+            
 
             HoaDonBUS hdBus = new HoaDonBUS();
             lsHoaDonHienHanh = hdBus.DanhSachHoaDon().FindAll(o=>o.TINHTRANG == false);
             foreach (HoaDonDTO a in lsHoaDonHienHanh)
             {
                 PhongBUS pBus = new PhongBUS();
-                PhongDTO pDTO = pBus.DanhSachPhong().Find(o => o.MAPHONG == a.MAPHONG);
+                PhongDTO pDTO = pBus.DanhSachPhong().Find(o => o.MAPHONG == a.MAPHONG );
                 ListViewItem item = new ListViewItem(pDTO.TENPHONG);
                 item.SubItems.Add(a.MAHD);
                 item.SubItems.Add(a.MAPHONG);
@@ -85,7 +86,7 @@ namespace DoAnQLKaraoke
             {
                 case 1: // mac dinh
                     {
-
+                        btn_traCuuSDT.Enabled = false;
                         btn_luu.Text = "Lưu";
                         btn_luu.Image = Properties.Resources.save;
                         btn_them.Enabled = true;
@@ -99,10 +100,9 @@ namespace DoAnQLKaraoke
                         txt_gia.Enabled = false;
                         txt_tenPhong.Enabled = false;
                         txt_tenKH.Enabled = false;
-
+                        btn_capNhat.Enabled = false;
                         cbo_loaiPhong.Enabled = true;
                         txt_sdt.Enabled = false;
-                        ckb_tinhtrang.Enabled = false;
                         dtp_thoiGianBatDau.Enabled = false;
                         //Bind();
 
@@ -110,6 +110,7 @@ namespace DoAnQLKaraoke
                     break;
                 case 2: // them moi
                     {
+                        btn_traCuuSDT.Enabled = true;
                         btn_them.Enabled = true;
                         btn_them.Text = "Hủy";
                         btn_them.Image = Properties.Resources.cancel;
@@ -121,13 +122,13 @@ namespace DoAnQLKaraoke
                         txt_gia.Enabled = false;
                         cbo_loaiPhong.Enabled = true;
                         txt_sdt.Enabled = true;
-                        ckb_tinhtrang.Enabled = true;
                         dtp_thoiGianBatDau.Enabled = true;
                         //Bind();
                     }
                     break;
                 case 3: // chinh sua
                     {
+                        btn_traCuuSDT.Enabled = false;
                         btn_them.Enabled = false;
                         btn_luu.Visible = true;
                         btn_capNhat.Enabled = true;
@@ -138,7 +139,6 @@ namespace DoAnQLKaraoke
                         txt_gia.Enabled = false;
                         cbo_loaiPhong.Enabled = false;
                         txt_sdt.Enabled = false;
-                        ckb_tinhtrang.Enabled = false;
                         dtp_thoiGianBatDau.Enabled = false;
                         btn_traCuuSDT.Enabled = false;
                         txt_sdt.Enabled = false;
@@ -185,10 +185,32 @@ namespace DoAnQLKaraoke
         private void cbo_loaiPhong_SelectionChangeCommitted(object sender, EventArgs e)
         {
             PhongBUS a = new PhongBUS();
-            List<PhongDTO> b = new List<PhongDTO>();
-            b = a.DanhSachPhong().FindAll(o => o.LOAIPHONG == int.Parse(cbo_loaiPhong.SelectedValue.ToString()) && o.TINHTRANG == 2);
-            txt_tenPhong.Text = b[0].TENPHONG != string.Empty ? b[0].TENPHONG : "Không còn phòng";
-            txt_gia.Text = b[0].GIAPHONG.ToString();
+            PhongDTO b = new PhongDTO();
+
+
+         
+                b = a.DanhSachPhong().Find(o => o.LOAIPHONG == int.Parse(cbo_loaiPhong.SelectedValue.ToString()) && o.TINHTRANG == 2);
+
+            if (b != null)
+            {
+                txt_tenPhong.Text = b.TENPHONG != string.Empty ? b.TENPHONG : "Không còn phòng";
+                txt_gia.Text = b.GIAPHONG.ToString();
+            }
+            else
+            {
+                txt_tenPhong.Text = "Không còn phòng";
+                txt_gia.Text = string.Empty;
+            }
+
+
+
+
+
+
+
+
+
+
         }
 
         private void txt_sdt_TextChanged(object sender, EventArgs e)
@@ -338,7 +360,9 @@ namespace DoAnQLKaraoke
                     SDT = khDTO.SDT
 
                 };
+          
             }
+   
             Bind();
 
         }
@@ -390,6 +414,27 @@ namespace DoAnQLKaraoke
             //Bind();
             //trThai = 1;
             //TrangThai();
+        }
+
+        private void btn_InHD_Click(object sender, EventArgs e)
+        {
+            FrmXemBaoCao f = new FrmXemBaoCao();
+            f.XemHoaDon(hdHienHanh);
+            f.Show();
+        }
+
+        private void btn_thanhtoan_Click(object sender, EventArgs e)
+        {
+            FrmXemBaoCao f = new FrmXemBaoCao();
+            HoaDonBUS hdBUS = new HoaDonBUS();
+            bool ktThanhToan = hdBUS.ThanhToan(hdHienHanh);
+            if (ktThanhToan)
+            {
+
+                f.XemHoaDon(hdHienHanh);
+                loaddata();
+            }
+            f.Show();
         }
     }
 

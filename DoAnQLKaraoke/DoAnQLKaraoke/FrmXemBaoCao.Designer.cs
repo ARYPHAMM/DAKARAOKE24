@@ -28,19 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.rpcBaoCao = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
+            // 
+            // rpcBaoCao
+            // 
+            this.rpcBaoCao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rpcBaoCao.Location = new System.Drawing.Point(12, 12);
+            this.rpcBaoCao.Name = "rpcBaoCao";
+            this.rpcBaoCao.Size = new System.Drawing.Size(762, 478);
+            this.rpcBaoCao.TabIndex = 0;
             // 
             // FrmXemBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 502);
+            this.Controls.Add(this.rpcBaoCao);
             this.Name = "FrmXemBaoCao";
             this.Text = "FrmXemBaoCao";
+            this.Load += new System.EventHandler(this.FrmXemBaoCao_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer rpcBaoCao;
     }
 }

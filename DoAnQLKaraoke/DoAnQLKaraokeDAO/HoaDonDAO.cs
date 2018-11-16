@@ -52,6 +52,7 @@ namespace DoAnQLKaraokeDAO
             DateTime aDateTime = DateTime.Now;
 
 
+            //MessageBox.Show(aDateTime.ToString("dd/MM/yyyy HH:mm:ss.fff"));
             DateTime y2K = hd.THOIGIANBATDAU;
 
 
@@ -60,7 +61,7 @@ namespace DoAnQLKaraokeDAO
 
             SqlConnection con = DataProvider.TaoKetNoi();
             int gio = interval.Hours;
-            if(gio > 2)
+            if (gio > 1)
             {
                 gio = gio - 1; // neu hat tren 2h
             }
@@ -68,10 +69,11 @@ namespace DoAnQLKaraokeDAO
             {
                 gio = 0; // hat chua den 1h
             }
-            string capnhatphong = "UPDATE PHONG SET TINHTRANG = 1 where MAPHONG = '" + hd.MAPHONG.Trim() + "'";
-            bool thucthip = DataProvider.ThucThi(capnhatphong, con);
+            MessageBox.Show(gio.ToString());
 
-            string updateHD = "UPDATE HOADON SET TONGTHANHTOAN = TONGTHANHTOAN +(GIAPHONG * " + gio + "), TINHTRANG = 1 where MAHD = '" + hd.MAHD.Trim()+"'";
+            string capnhatphong = "UPDATE PHONG SET TINHTRANG = 2 where MAPHONG = '" + hd.MAPHONG + "'";
+            bool thucthip = DataProvider.ThucThi(capnhatphong, con);
+            string updateHD = "UPDATE HOADON SET TONGTHANHTOAN = TONGTHANHTOAN + (GIAPHONG * "+gio+"),THOIGIANKETTHUC = '" + DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss") + "', TINHTRANG = 1 where MAHD = '" + hd.MAHD.Trim()+"'";
             bool thucthi = DataProvider.ThucThi(updateHD, con);
             return thucthi;
         }
