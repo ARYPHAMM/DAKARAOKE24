@@ -26,31 +26,22 @@ namespace DoAnQLKaraoke
             HoaDonBUS dhBUS = new HoaDonBUS();
             if (rad_ngay.Checked)
             {                                     
-                List<HoaDonDTO> ngay = dhBUS.DanhSachHoaDon().FindAll(o => o.THOIGIANKETTHUC == dtp_hoadon.Value);
-                f.XemThongKeTheoNgay(ngay);
+                hoadon = dhBUS.DanhSachHoaDon().FindAll(o => o.THOIGIANKETTHUC.ToString("dd/MM/yyyy") == dtp_hoadon.Value.ToString("dd/MM/yyyy"));
+                f.XemThongKe(hoadon);
             }
-            //if (rdbTatCa.Checked)
-            //{
-            //    f.xemtatcatruyen(lstruyen);
-            //}
-            //if (rdbTheoLoai.Checked)
-            //{
-            //    NhaXuatBanDTO nxbchon = (NhaXuatBanDTO)cboNhaXB.SelectedItem;
-            //    List<TruyenDTO> truyenTheoNXB = lstruyen.FindAll(o => o.MaNXB == nxbchon.MaNXB);
-            //    f.XemDsTruyenTheoNXB(truyenTheoNXB, nxbchon);
-            //}
-            //if (rdbNhomTheoLoai.Checked)
-            //{
-            //    f.NhomTruyenTheoNXB();
-            //}
-            //if (rdbHoaDon.Checked)
-            //{
-            //    HoaDonDTO hoadon = (HoaDonDTO)cbo_hoadon.SelectedItem;
-            //    if (hoadon != null)
-            //    {
-            //        f.InHoaDon(hoadon);
-            //    }
-            //}
+            if (rad_thang.Checked)
+            {
+
+                hoadon = dhBUS.DanhSachHoaDon().FindAll(o => o.THOIGIANKETTHUC.ToString("MM/yyyy") == dtp_hoadon.Value.ToString("MM/yyyy"));
+                f.XemThongKe(hoadon);
+            }
+            if (rad_nam.Checked)
+            {
+
+                hoadon = dhBUS.DanhSachHoaDon().FindAll(o => o.THOIGIANKETTHUC.ToString("yyyy") == dtp_hoadon.Value.ToString("yyyy"));
+                f.XemThongKe(hoadon);
+            }
+
             f.ShowDialog();
         }
 

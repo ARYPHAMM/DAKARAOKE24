@@ -350,7 +350,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="RptDoanhThuTheoNgay.rdlc" />
     <EmbeddedResource Include="RptHoaDon.rdlc" />
+    <EmbeddedResource Include="RptSubTenPhong.rdlc" />
     <None Include="csdlDAKARAOKEDataSet.xsc">
       <DependentUpon>csdlDAKARAOKEDataSet.xsd</DependentUpon>
     </None>

@@ -57,8 +57,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_thanhTien = new System.Windows.Forms.TextBox();
             this.btn_them = new System.Windows.Forms.Button();
-            this.btn_InHD = new System.Windows.Forms.Button();
             this.btn_huy = new System.Windows.Forms.Button();
+            this.btn_trove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CTHD)).BeginInit();
             this.SuspendLayout();
             // 
@@ -307,19 +307,6 @@
             this.btn_them.UseVisualStyleBackColor = true;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
-            // btn_InHD
-            // 
-            this.btn_InHD.Image = global::DoAnQLKaraoke.Properties.Resources.save;
-            this.btn_InHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_InHD.Location = new System.Drawing.Point(1081, 378);
-            this.btn_InHD.Name = "btn_InHD";
-            this.btn_InHD.Size = new System.Drawing.Size(121, 52);
-            this.btn_InHD.TabIndex = 43;
-            this.btn_InHD.Text = "In Hóa Đơn";
-            this.btn_InHD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_InHD.UseVisualStyleBackColor = true;
-            this.btn_InHD.Click += new System.EventHandler(this.btn_InHD_Click);
-            // 
             // btn_huy
             // 
             this.btn_huy.Image = global::DoAnQLKaraoke.Properties.Resources.minus;
@@ -333,12 +320,25 @@
             this.btn_huy.UseVisualStyleBackColor = true;
             this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
+            // btn_trove
+            // 
+            this.btn_trove.Image = global::DoAnQLKaraoke.Properties.Resources.cancel;
+            this.btn_trove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_trove.Location = new System.Drawing.Point(1159, 13);
+            this.btn_trove.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_trove.Name = "btn_trove";
+            this.btn_trove.Size = new System.Drawing.Size(43, 37);
+            this.btn_trove.TabIndex = 43;
+            this.btn_trove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_trove.UseVisualStyleBackColor = true;
+            this.btn_trove.Click += new System.EventHandler(this.btn_trove_Click);
+            // 
             // FrmChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1258, 515);
-            this.Controls.Add(this.btn_InHD);
+            this.Controls.Add(this.btn_trove);
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.btn_them);
             this.Controls.Add(this.txt_thanhTien);
@@ -400,7 +400,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_thanhTien;
         private System.Windows.Forms.Button btn_them;
-        private System.Windows.Forms.Button btn_InHD;
         private System.Windows.Forms.Button btn_huy;
+        private System.Windows.Forms.Button btn_trove;
     }
 }

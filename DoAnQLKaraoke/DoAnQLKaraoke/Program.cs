@@ -16,7 +16,7 @@ namespace DoAnQLKaraoke
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmQLHoaDon());
+            Application.Run(new FrmThongKe());
         }
     }
 }

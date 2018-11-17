@@ -202,15 +202,6 @@ namespace DoAnQLKaraoke
                 txt_gia.Text = string.Empty;
             }
 
-
-
-
-
-
-
-
-
-
         }
 
         private void txt_sdt_TextChanged(object sender, EventArgs e)
@@ -278,47 +269,78 @@ namespace DoAnQLKaraoke
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(DateTime.ToString("MM/dd/yyyy HH:mm:ss.fff", CultureInfo.InvariantCulture).to);
-            //MessageBox.Show();
-            //DateTime timeBatDau = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy " + dtp_thoiGianBatDau.Text));
-            HoaDonDTO hd = new HoaDonDTO();
-            PhongBUS a = new PhongBUS();
-            PhongDTO pDTO = a.DanhSachPhong().Find(o => o.TENPHONG == txt_tenPhong.Text);
-            hd.MAHD = txt_maHD.Text;
+            if (txt_sdt.Text == string.Empty || txt_tenKH.Text == string.Empty || txt_sdt.Text.Length > 11 || txt_sdt.Text.Length < 10)
+            {
+                MessageBox.Show("Thông tin về khách hàng không hợp lệ !");
+            }
+            else
+            {
+  
+                KhachHangDTO khDTO;
+                if (txt_tenKH.Enabled == true)
+                {
+
+                    KhachHangBUS khBUS = new KhachHangBUS();
+                    khDTO = new KhachHangDTO()
+                    {
+                        MAKH = khBUS.MaKHMoi(),
+                        LOAIKH = 1,
+                        TENKH = txt_tenKH.Text,
+                        SDT = txt_sdt.Text,
+                        TINHTRANG = 1
+
+                    };
+
+                    bool ktkh = khBUS.ThemKH(khDTO);
+                    if (ktkh)
+                    {
+                        MessageBox.Show("Một khách hàng vừa được thêm vào hệ thống");
+                        btn_traCuuSDT_Click(sender, e);
+
+                    }
+                  }
+         
+
+                HoaDonDTO hd = new HoaDonDTO();
+                PhongBUS a = new PhongBUS();
+                PhongDTO pDTO = a.DanhSachPhong().Find(o => o.TENPHONG == txt_tenPhong.Text);
+                hd.MAHD = txt_maHD.Text;
                 hd.MAPHONG = pDTO.MAPHONG.Trim();
                 hd.MANV = "NV01";
                 hd.NGUOILAPHD = "Tiến";
-                if(khHienHanh != null)
+                if (khHienHanh != null)
                 {
-                    hd.MAKH = khHienHanh.MAKH;
-                    hd.HOTENKH = khHienHanh.TENKH;
-                    hd.THOIGIANBATDAU = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy") + " " + dtp_thoiGianBatDau.Text);
-                    hd.THOIGIANKETTHUC = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy") + " " + dtp_thoiGianBatDau.Text);
-                    hd.TONGTHANHTOAN = txt_gia.Text.Replace(".", "");
-                    hd.GIAPHONG = txt_gia.Text.Replace(".", "").Replace("VNĐ","");
-                    hd.TINHTRANG = false;
+
+                        hd.MAKH = khHienHanh.MAKH.Trim();
+                        hd.THOIGIANBATDAU = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy") + " " + dtp_thoiGianBatDau.Text);
+                        hd.THOIGIANKETTHUC = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy") + " " + dtp_thoiGianBatDau.Text);
+                        hd.TONGTHANHTOAN = txt_gia.Text.Replace(".", "").Replace("VNĐ", "");
+                        hd.GIAPHONG = txt_gia.Text.Replace(".", "").Replace("VNĐ", "");
+                        hd.TINHTRANG = false;
+                        hd.HOTENKH = txt_tenKH.Text; ;
+                        hd.SDT = txt_sdt.Text;
+
 
                 }
-            hdBUS = new HoaDonBUS();
-            if (trThai == 2)
-            {
-
-
-
-                bool kq = hdBUS.ThemHD(hd);
-                if (kq)
+                hdBUS = new HoaDonBUS();
+                if (trThai == 2)
                 {
-                   
-                    trThai = 1;
+
+                    bool kq = hdBUS.ThemHD(hd);
+                    if (kq)
+                    {
+                        MessageBox.Show("Them hoa don than cong !");
+                        trThai = 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Them that bai !");
+                    }
                 }
-                else
-                    MessageBox.Show("Them that bai !");
-
-
+                loaddata();
+                Bind();
+                TrangThai();
             }
-            loaddata();
-            Bind();
-            TrangThai();
         }
 
         private void lv_HoaDonChuaThanhToan_SelectedIndexChanged(object sender, EventArgs e)
@@ -330,15 +352,10 @@ namespace DoAnQLKaraoke
             
             if (lv_HoaDonChuaThanhToan.SelectedItems.Count > 0)
             {
-              
-
                 ListViewItem a = lv_HoaDonChuaThanhToan.SelectedItems[0];
-
                 PhongDTO pDTO = pBUS.DanhSachPhong().Find(o => o.MAPHONG.Trim() == a.SubItems[2].Text.Trim());
-                //MessageBox.Show();
                 LoaiPhongDTO lpDTO = lpBUS.DanhSachLoaiPhong().Find(o => o.MALOAIPHONG == pDTO.LOAIPHONG);
-                KhachHangDTO khDTO = khBUS.DanhSachKhachHang().Find(o => o.MAKH.Trim() == a.SubItems[5].Text.Trim());
-                MessageBox.Show(a.SubItems[5].Text);
+                KhachHangDTO khDTO = khBUS.DanhSachKhachHang().Find(o => o.MAKH.Trim() == a.SubItems[5].Text.Trim());            
                 hdHienHanh = new HoaDonDTO()
                 {
 
@@ -409,11 +426,11 @@ namespace DoAnQLKaraoke
 
         private void btn_lamMoi_Click(object sender, EventArgs e)
         {
-            //hdHienHanh = null;
-            //loaddata();
-            //Bind();
-            //trThai = 1;
-            //TrangThai();
+            hdHienHanh = null;
+            loaddata();
+            Bind();
+            trThai = 1;
+            TrangThai();
         }
 
         private void btn_InHD_Click(object sender, EventArgs e)

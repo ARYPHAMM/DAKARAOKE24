@@ -195,5 +195,12 @@ namespace DoAnQLKaraoke
 
 
         }
+
+        private void btn_trove_Click(object sender, EventArgs e)
+        {
+            FrmQLHoaDon f = new FrmQLHoaDon();
+            f.Show();
+            this.Close();
+        }
     }
 }
