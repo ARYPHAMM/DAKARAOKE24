@@ -113,6 +113,8 @@
             this.dtp_hoadon.Name = "dtp_hoadon";
             this.dtp_hoadon.Size = new System.Drawing.Size(91, 22);
             this.dtp_hoadon.TabIndex = 3;
+            this.dtp_hoadon.ValueChanged += new System.EventHandler(this.dtp_hoadon_ValueChanged);
+            this.dtp_hoadon.Leave += new System.EventHandler(this.dtp_hoadon_Leave);
             // 
             // FrmThongKe
             // 

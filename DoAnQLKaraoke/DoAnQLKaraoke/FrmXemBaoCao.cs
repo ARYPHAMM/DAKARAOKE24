@@ -24,30 +24,37 @@ namespace DoAnQLKaraoke
 
         internal void XemThongKe(List<HoaDonDTO> ngay)
         {
-           
-            ctHDbus = new ChiTietHoaDonBUS();
-            this.rpcBaoCao.LocalReport.ReportEmbeddedResource = "DoAnQLKaraoke.RptDoanhThuTheoNgay.rdlc";
-            this.rpcBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(SubTenPhong);
+            string thoigian = FrmThongKe.radio == 1 ? "Theo ngày " + ngay[0].THOIGIANBATDAU.ToString("dd/MM/yyyy").ToString() : FrmThongKe.radio == 2 ? "theo tháng " + ngay[0].THOIGIANBATDAU.ToString("MM/yyyy") : FrmThongKe.radio == 3 ? "theo năm "+ngay[0].THOIGIANBATDAU.ToString("yyyy") : "theo quý " + ngay[0].THOIGIANBATDAU.ToString("MM/yyyy");
+         
+                ctHDbus = new ChiTietHoaDonBUS();
+                this.rpcBaoCao.LocalReport.ReportEmbeddedResource = "DoAnQLKaraoke.RptDoanhThu.rdlc";
+                this.rpcBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(SubSDT);
             this.rpcBaoCao.LocalReport.DataSources.Add(new ReportDataSource("dsHoaDon", ngay));
-            this.rpcBaoCao.LocalReport.SetParameters(new ReportParameter("paNgay", ngay[0].THOIGIANBATDAU.ToString("MM/yyyy")));
+                this.rpcBaoCao.LocalReport.SetParameters(new ReportParameter("paNgay", thoigian));
+
             this.rpcBaoCao.RefreshReport();
         }
 
-        internal void XemThongKeTheoThang(List<HoaDonDTO> hoadon)
-        {
-            throw new NotImplementedException();
-        }
 
-        private void SubTenPhong(object sender, SubreportProcessingEventArgs e)
-        {
-            PhongBUS Phong = new PhongBUS();
 
-            string ma = e.Parameters["paMaPhong"].Values[0].ToString();
+        private void SubSDT(object sender, SubreportProcessingEventArgs e)
+        {
+            //PhongBUS Phong = new PhongBUS();
+            //string ma = e.Parameters["paMaPhong"].Values[0].ToString();
+            //// tim danh sach truyen theo nxb
+            ////MessageBox.Show(ma.ToString());
+            //List<PhongDTO> lsPhong = Phong.DanhSachPhong().FindAll(o => o.MAPHONG.Trim() == ma.Trim());
+            //// do vao subreport
+            //e.DataSources.Add(new ReportDataSource("dsPhong", lsPhong));
+   
+            KhachHangBUS khBUS = new KhachHangBUS();
+            string makh = e.Parameters["paSDT"].Values[0].ToString();
             // tim danh sach truyen theo nxb
             //MessageBox.Show(ma.ToString());
-            List<PhongDTO> lsPhong = Phong.DanhSachPhong().FindAll(o => o.MAPHONG.Trim() == ma.Trim());
+            List<KhachHangDTO> lsKH = khBUS.DanhSachKhachHang().FindAll(o => o.MAKH.Trim() == makh.Trim());
             // do vao subreport
-            e.DataSources.Add(new ReportDataSource("dsPhong", lsPhong));
+            e.DataSources.Add(new ReportDataSource("dsKH", lsKH));
+
         }
 
         private void FrmXemBaoCao_Load(object sender, EventArgs e)

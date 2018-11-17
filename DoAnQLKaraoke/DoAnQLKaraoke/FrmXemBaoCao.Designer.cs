@@ -33,17 +33,17 @@
             // 
             // rpcBaoCao
             // 
-            this.rpcBaoCao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rpcBaoCao.Location = new System.Drawing.Point(12, 12);
+            this.rpcBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rpcBaoCao.Location = new System.Drawing.Point(0, 0);
             this.rpcBaoCao.Name = "rpcBaoCao";
-            this.rpcBaoCao.Size = new System.Drawing.Size(762, 478);
+            this.rpcBaoCao.Size = new System.Drawing.Size(1136, 544);
             this.rpcBaoCao.TabIndex = 0;
             // 
             // FrmXemBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 502);
+            this.ClientSize = new System.Drawing.Size(1136, 544);
             this.Controls.Add(this.rpcBaoCao);
             this.Name = "FrmXemBaoCao";
             this.Text = "FrmXemBaoCao";
