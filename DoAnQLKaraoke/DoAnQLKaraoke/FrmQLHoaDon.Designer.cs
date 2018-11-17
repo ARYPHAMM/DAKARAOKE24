@@ -63,6 +63,7 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_InHD = new System.Windows.Forms.Button();
             this.btn_thanhtoan = new System.Windows.Forms.Button();
+            this.btn_TraCuu = new System.Windows.Forms.Button();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -348,7 +349,7 @@
             // btn_InHD
             // 
             this.btn_InHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_InHD.Location = new System.Drawing.Point(1038, 435);
+            this.btn_InHD.Location = new System.Drawing.Point(171, 435);
             this.btn_InHD.Name = "btn_InHD";
             this.btn_InHD.Size = new System.Drawing.Size(96, 52);
             this.btn_InHD.TabIndex = 44;
@@ -359,13 +360,28 @@
             // 
             // btn_thanhtoan
             // 
-            this.btn_thanhtoan.Location = new System.Drawing.Point(915, 435);
+            this.btn_thanhtoan.Location = new System.Drawing.Point(48, 435);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
             this.btn_thanhtoan.Size = new System.Drawing.Size(106, 52);
             this.btn_thanhtoan.TabIndex = 45;
             this.btn_thanhtoan.Text = "Thanh Toán";
             this.btn_thanhtoan.UseVisualStyleBackColor = true;
             this.btn_thanhtoan.Click += new System.EventHandler(this.btn_thanhtoan_Click);
+            // 
+            // btn_TraCuu
+            // 
+            this.btn_TraCuu.Image = global::DoAnQLKaraoke.Properties.Resources.search;
+            this.btn_TraCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_TraCuu.Location = new System.Drawing.Point(1018, 434);
+            this.btn_TraCuu.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_TraCuu.Name = "btn_TraCuu";
+            this.btn_TraCuu.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_TraCuu.Size = new System.Drawing.Size(106, 52);
+            this.btn_TraCuu.TabIndex = 20;
+            this.btn_TraCuu.Text = "Tra cứu";
+            this.btn_TraCuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_TraCuu.UseVisualStyleBackColor = true;
+            this.btn_TraCuu.Click += new System.EventHandler(this.btn_TraCuu_Click);
             // 
             // FrmQLHoaDon
             // 
@@ -375,6 +391,7 @@
             this.Controls.Add(this.btn_thanhtoan);
             this.Controls.Add(this.btn_InHD);
             this.Controls.Add(this.lv_HoaDonChuaThanhToan);
+            this.Controls.Add(this.btn_TraCuu);
             this.Controls.Add(this.lbldanhsachnv);
             this.Controls.Add(this.grbdstknv);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -423,5 +440,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.Button btn_thanhtoan;
         private System.Windows.Forms.Button btn_InHD;
+        private System.Windows.Forms.Button btn_TraCuu;
     }
 }

@@ -453,6 +453,13 @@ namespace DoAnQLKaraoke
             }
             f.Show();
         }
+
+        private void btn_TraCuu_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            FrmTraCuuHD tchd = new FrmTraCuuHD();
+            tchd.Show();
+        }
     }
 
 }
