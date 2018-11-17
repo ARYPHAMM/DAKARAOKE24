@@ -12,7 +12,7 @@ namespace DoAnQLKaraokeDAO
 {
     public class HoaDonDAO
     {
-        string chuoiketnoi = @"Data Source =DESKTOP-20TAQ02\SQLEXPRESS;Initial Catalog = csdlDAKARAOKE;Integrated Sucurity = True;";
+      
         public List<HoaDonDTO> dsHoaDon()
         {
 

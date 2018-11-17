@@ -159,6 +159,7 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLThucDon ql = new FrmQLThucDon();
+            ql.Dock = DockStyle.Fill;
             ql.Show();
         }
 

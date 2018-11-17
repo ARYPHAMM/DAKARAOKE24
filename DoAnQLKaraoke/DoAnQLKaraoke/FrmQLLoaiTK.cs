@@ -12,14 +12,20 @@ using DoAnQLKaraokeBUS;
 
 namespace DoAnQLKaraoke
 {
-    public partial class FrmQLLoaiKhachHang : Form
+    public partial class FrmQLLoaiTK : Form
     {
         public int trThai = 1;
-        public LoaiKhachHangDTO loaiKH = null;
-        public FrmQLLoaiKhachHang()
+        public LoaiTaiKhoanDTO loaiTK = null;
+        public FrmQLLoaiTK()
         {
             InitializeComponent();
         }
+        private void FrmQLLoaiTK_Load(object sender, EventArgs e)
+        {
+            LoadData();
+            TrangThai();
+        }
+
         private void TrangThai()
         {
             switch (trThai)
@@ -31,9 +37,9 @@ namespace DoAnQLKaraoke
                         btn_luu.Visible = false;
                         btn_capNhat.Text = "Cập nhật";
                         btn_capNhat.Image = Properties.Resources.edit;
-                        txt_MaLoai.Enabled = false;
-                        txt_TenLoai.Enabled = false;
-                        ckb_TinhTrang.Enabled = false;
+                        txt_maLoai.Enabled = false;
+                        txt_tenLoai.Enabled = false;
+                        ckb_tinhtrang.Enabled = false;
                     }
                     break;
                 case 2: // chinh sua
@@ -41,92 +47,70 @@ namespace DoAnQLKaraoke
                         btn_luu.Visible = true;
                         btn_capNhat.Text = "Hủy";
                         btn_capNhat.Image = Properties.Resources.cancel;
-                        txt_MaLoai.Enabled = false;
-                        txt_TenLoai.Enabled = true;
-                        ckb_TinhTrang.Enabled = true;
+                        txt_maLoai.Enabled = false;
+                        txt_tenLoai.Enabled = true;
+                        ckb_tinhtrang.Enabled = true;
                     }
                     break;
-
-
             }
         }
 
         private void LoadData()
         {
-
-            LoaiKhachHangBUS b = new LoaiKhachHangBUS();
-            dgv_LoaiKH.DataSource = b.DanhSachLoaiKH();
-
-
+            LoaiTaiKhoanBUS b = new LoaiTaiKhoanBUS();
+            dgv_dsloaiTK.DataSource = b.DanhSachLoaiTK();
         }
 
-        private void FrmQLLoaiKhachHang_Load(object sender, EventArgs e)
+        private void dgv_dsloaiTK_SelectionChanged(object sender, EventArgs e)
         {
-            LoadData();
-            TrangThai();
-        }
-        private void Bind()
-        {
-
-
-            if (loaiKH != null)
-            {
-                txt_MaLoai.Text = loaiKH.MALOAI.ToString();
-                txt_TenLoai.Text = loaiKH.TENLOAIKH;
-                ckb_TinhTrang.Checked = loaiKH.TINHTRANG;
-
-            }
-            else
-            {
-                if (dgv_LoaiKH.SelectedRows.Count == 0)
-                {
-                    txt_MaLoai.Text = string.Empty; // truong hop dang cap nhat
-                }
-                txt_TenLoai.Text = string.Empty;
-                ckb_TinhTrang.Checked = false;
-            }
-        }
-
-        private void dgv_LoaiKH_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgv_LoaiKH.SelectedRows.Count > 0)
+            if (dgv_dsloaiTK.SelectedRows.Count > 0)
             {
                 trThai = 1;
                 TrangThai();
                 btn_capNhat.Enabled = true;
-                loaiKH = (LoaiKhachHangDTO)dgv_LoaiKH.SelectedRows[0].DataBoundItem; // dgvSinhVien.CurrentRow
+                loaiTK = (LoaiTaiKhoanDTO)dgv_dsloaiTK.SelectedRows[0].DataBoundItem; // dgvSinhVien.CurrentRow
             }
             else
             {
                 btn_capNhat.Enabled = false;
-                loaiKH = null;
+                loaiTK = null;
             }
             Bind();
         }
 
-        private void btn_lamMoi_Click(object sender, EventArgs e)
+        private void Bind()
         {
-            if (trThai != 2)
+            if (loaiTK != null)
             {
-                loaiKH = null;
-                Bind();
+                txt_maLoai.Text = loaiTK.MALOAIND.ToString();
+                txt_tenLoai.Text = loaiTK.TENLOAI;
+                ckb_tinhtrang.Checked = loaiTK.TINHTRANG;
+
             }
-               
+            else
+            {
+                if (dgv_dsloaiTK.SelectedRows.Count == 0)
+                {
+                    txt_maLoai.Text = string.Empty; // truong hop dang cap nhat
+                }
+                txt_tenLoai.Text = string.Empty;
+                ckb_tinhtrang.Checked = false;
+            }
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            LoaiKhachHangBUS a = new LoaiKhachHangBUS();
+            LoaiTaiKhoanBUS a = new LoaiTaiKhoanBUS();
             if (trThai == 2)
             {
-                LoaiKhachHangDTO loai;
+                LoaiTaiKhoanDTO loai;
                 try
                 {
-                    loai = new LoaiKhachHangDTO()
+                    loai = new LoaiTaiKhoanDTO()
                     {
-                        MALOAI = int.Parse(txt_MaLoai.Text),
-                        TENLOAIKH = txt_TenLoai.Text,
-                        TINHTRANG = ckb_TinhTrang.Checked ? true : false
+                        MALOAIND = int.Parse(txt_maLoai.Text),
+                        TENLOAI = txt_tenLoai.Text,
+                        TINHTRANG = ckb_tinhtrang.Checked ? true : false
                     };
 
 
@@ -137,7 +121,7 @@ namespace DoAnQLKaraoke
                     return;
 
                 }
-                bool kt = a.CapNhatLoaiKH(loai);
+                bool kt = a.CapNhatDSLoaiTK(loai);
                 if (!kt)
                 {
                     MessageBox.Show("Cập nhật thất bại");
@@ -146,7 +130,7 @@ namespace DoAnQLKaraoke
                 {
                     MessageBox.Show("Cập nhật thành công!");
                     trThai = 1;
-                    loaiKH = null;
+                    loaiTK = null;
                 }
 
             }
@@ -170,14 +154,21 @@ namespace DoAnQLKaraoke
             }
         }
 
+        private void btn_lamMoi_Click(object sender, EventArgs e)
+        {
+            if (trThai != 2)
+            {
+                loaiTK = null;
+                Bind();
+            }
+            LoadData();
+        }
+
         private void btn_quayve_Click(object sender, EventArgs e)
         {
             this.Close();
-            FrmQLKHACHHANG ql = new FrmQLKHACHHANG();
-            ql.Dock = DockStyle.Fill;
-            ql.Show();
+            FrmQLTaiKhoan qltk = new FrmQLTaiKhoan();
+            qltk.Show();
         }
-
-
     }
 }

@@ -17,16 +17,17 @@ namespace DoAnQLKaraoke
         public FrmDangNhap dn = null;
        public FrmQLNhanVien f1 = null;
         FrmQLTaiKhoan f2;
-        //FrmQLLSuKhachHang f3;
         FrmQLThucDon f4;
         FrmQLPhong f5;
-        FrmChonBaoCao f6;
+        FrmThongKe f6;
         FrmQLKHACHHANG f8;
-        public bool isDangNhap;
-        public TaiKhoanDTO nvDangNhap;
+        FrmQLHoaDon f9;
+        public static bool isDangNhap;
+        public static TaiKhoanDTO nvDangNhap;
         public FrmChinh()
         {
             InitializeComponent();
+            menuStrip1.Enabled = false;
         }
 
         private void nHÂNVIÊNToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,6 +45,40 @@ namespace DoAnQLKaraoke
             f2.MdiParent = this;
             f2.Dock = DockStyle.Fill;
             f2.Show();
+        }
+
+        internal void XetTruyCap(int lOAIND)
+        {
+            menuStrip1.Enabled = true;
+            tAIKHOANCUATÔIToolStripMenuItem.Text = FrmChinh.nvDangNhap.TAIKHOAN.Trim();
+            if (lOAIND == 2)
+            {
+                kHACHHANGToolStripMenuItem.Enabled = true;
+                hOAĐƠNToolStripMenuItem.Enabled = true;
+                tHƯCĐƠNToolStripMenuItem.Enabled = true;
+                pHONGToolStripMenuItem.Enabled =true;
+                nHÂNVIÊNToolStripMenuItem.Enabled = false;
+                tAIKHOANNGƯƠIDUNGToolStripMenuItem.Enabled = false;
+
+               
+
+            }
+            else if(lOAIND == 1)
+            {
+                kHACHHANGToolStripMenuItem.Enabled = true;
+                hOAĐƠNToolStripMenuItem.Enabled = true;
+                tHƯCĐƠNToolStripMenuItem.Enabled = true;
+                pHONGToolStripMenuItem.Enabled = true;
+                nHÂNVIÊNToolStripMenuItem.Enabled = true;
+                tAIKHOANNGƯƠIDUNGToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                 menuStrip1.Enabled = true;
+            }
+            
+            đĂNGNHÂPToolStripMenuItem.Visible = false;
+            đĂNGXUÂTToolStripMenuItem.Visible = true;
         }
 
         private void kHACHHANGToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,7 +109,7 @@ namespace DoAnQLKaraoke
 
         private void bAOCAOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            f6 = new FrmChonBaoCao();
+            f6 = new FrmThongKe();
             f6.MdiParent = this;
             f6.Dock = DockStyle.Fill;
             f6.Show();
@@ -90,12 +125,45 @@ namespace DoAnQLKaraoke
 
         private void FrmChinh_Load(object sender, EventArgs e)
         {
-            
+            if (isDangNhap == false)
+            {
+                FrmDangNhap fdn = new FrmDangNhap();
+                fdn.MdiParent = this;
+                fdn.Dock = DockStyle.Fill;
+                fdn.Show();
+            }
+            else
+            {
+
+            }
+
+        }
+
+        private void đĂNGNHÂPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void đĂNGXUÂTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+                  dn = null;
+                 f1 = null;
             FrmDangNhap fdn = new FrmDangNhap();
             fdn.MdiParent = this;
             fdn.Dock = DockStyle.Fill;
             fdn.Show();
+            đĂNGXUÂTToolStripMenuItem.Visible = false;
+            menuStrip1.Enabled = false;
+            tAIKHOANCUATÔIToolStripMenuItem.Text = "TÀI KHOẢN CỦA TÔI";
 
+        }
+
+        private void đĂTPHONGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            f9 = new FrmQLHoaDon();
+            f9.MdiParent = this;
+            f9.Dock = DockStyle.Fill;
+            f9.Show();
         }
     }
 }

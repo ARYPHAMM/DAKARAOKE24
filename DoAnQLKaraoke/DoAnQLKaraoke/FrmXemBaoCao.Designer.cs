@@ -33,7 +33,7 @@
             // 
             // rpcBaoCao
             // 
-            this.rpcBaoCao.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rpcBaoCao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rpcBaoCao.Location = new System.Drawing.Point(0, 0);
             this.rpcBaoCao.Name = "rpcBaoCao";
             this.rpcBaoCao.Size = new System.Drawing.Size(1136, 544);
@@ -45,7 +45,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1136, 544);
             this.Controls.Add(this.rpcBaoCao);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmXemBaoCao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmXemBaoCao";
             this.Load += new System.EventHandler(this.FrmXemBaoCao_Load);
             this.ResumeLayout(false);

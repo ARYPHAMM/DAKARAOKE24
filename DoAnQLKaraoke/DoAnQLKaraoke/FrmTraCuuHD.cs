@@ -114,6 +114,7 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLHoaDon hd = new FrmQLHoaDon();
+            hd.Dock = DockStyle.Fill;
             hd.Show();
            
         }

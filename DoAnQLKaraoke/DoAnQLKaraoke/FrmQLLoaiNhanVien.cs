@@ -129,6 +129,7 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLNhanVien ql = new FrmQLNhanVien();
+            ql.Dock = DockStyle.Fill;
             ql.Show();
         }
 

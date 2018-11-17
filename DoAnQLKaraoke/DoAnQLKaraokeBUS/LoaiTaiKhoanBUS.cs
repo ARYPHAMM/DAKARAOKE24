@@ -8,12 +8,18 @@ using DoAnQLKaraokeDTO;
 
 namespace DoAnQLKaraokeBUS
 {
-    class LoaiTaiKhoanBUS
+   public class LoaiTaiKhoanBUS
     {
         public List<LoaiTaiKhoanDTO> DanhSachLoaiTK()
         {
             LoaiTaiKhoanDAO b = new LoaiTaiKhoanDAO();
             return b.dsloaiND();
+        }
+
+        public bool CapNhatDSLoaiTK(LoaiTaiKhoanDTO loai)
+        {
+            LoaiTaiKhoanDAO a = new LoaiTaiKhoanDAO();
+            return a.CapNhatDSLoaiTK(loai);
         }
     }
 }

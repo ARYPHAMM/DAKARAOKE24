@@ -40,10 +40,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_LoaiNV = new System.Windows.Forms.DataGridView();
-            this.btn_quayve = new System.Windows.Forms.Button();
             this.colMaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_quayve = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.grbdstknv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LoaiNV)).BeginInit();
@@ -51,6 +51,7 @@
             // 
             // grbdstknv
             // 
+            this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grbdstknv.Controls.Add(this.ckb_TinhTrang);
             this.grbdstknv.Controls.Add(this.btn_lamMoi);
             this.grbdstknv.Controls.Add(this.btn_luu);
@@ -171,6 +172,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Salmon;
@@ -183,9 +185,7 @@
             // 
             // dgv_LoaiNV
             // 
-            this.dgv_LoaiNV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_LoaiNV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgv_LoaiNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_LoaiNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_LoaiNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -199,19 +199,6 @@
             this.dgv_LoaiNV.Size = new System.Drawing.Size(1191, 212);
             this.dgv_LoaiNV.TabIndex = 30;
             this.dgv_LoaiNV.SelectionChanged += new System.EventHandler(this.dgv_LoaiNV_SelectionChanged);
-            // 
-            // btn_quayve
-            // 
-            this.btn_quayve.Image = global::DoAnQLKaraoke.Properties.Resources.DangXuat;
-            this.btn_quayve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_quayve.Location = new System.Drawing.Point(1058, -43);
-            this.btn_quayve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_quayve.Name = "btn_quayve";
-            this.btn_quayve.Size = new System.Drawing.Size(136, 41);
-            this.btn_quayve.TabIndex = 31;
-            this.btn_quayve.Text = "Trở về";
-            this.btn_quayve.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_quayve.UseVisualStyleBackColor = true;
             // 
             // colMaLoai
             // 
@@ -231,8 +218,22 @@
             this.colTINHTRANG.HeaderText = "Tình Trạng";
             this.colTINHTRANG.Name = "colTINHTRANG";
             // 
+            // btn_quayve
+            // 
+            this.btn_quayve.Image = global::DoAnQLKaraoke.Properties.Resources.DangXuat;
+            this.btn_quayve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_quayve.Location = new System.Drawing.Point(1058, -43);
+            this.btn_quayve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_quayve.Name = "btn_quayve";
+            this.btn_quayve.Size = new System.Drawing.Size(136, 41);
+            this.btn_quayve.TabIndex = 31;
+            this.btn_quayve.Text = "Trở về";
+            this.btn_quayve.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_quayve.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Image = global::DoAnQLKaraoke.Properties.Resources.DangXuat;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(1043, 24);

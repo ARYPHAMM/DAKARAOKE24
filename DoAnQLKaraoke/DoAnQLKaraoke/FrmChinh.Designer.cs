@@ -87,12 +87,14 @@
             this.đĂNGNHÂPToolStripMenuItem.Name = "đĂNGNHÂPToolStripMenuItem";
             this.đĂNGNHÂPToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
             this.đĂNGNHÂPToolStripMenuItem.Text = "ĐĂNG NHẬP";
+            this.đĂNGNHÂPToolStripMenuItem.Click += new System.EventHandler(this.đĂNGNHÂPToolStripMenuItem_Click);
             // 
             // đĂNGXUÂTToolStripMenuItem
             // 
             this.đĂNGXUÂTToolStripMenuItem.Name = "đĂNGXUÂTToolStripMenuItem";
             this.đĂNGXUÂTToolStripMenuItem.Size = new System.Drawing.Size(207, 32);
             this.đĂNGXUÂTToolStripMenuItem.Text = "ĐĂNG XUẤT";
+            this.đĂNGXUÂTToolStripMenuItem.Click += new System.EventHandler(this.đĂNGXUÂTToolStripMenuItem_Click);
             // 
             // qUANLYToolStripMenuItem
             // 
@@ -163,6 +165,7 @@
             this.đĂTPHONGToolStripMenuItem.Name = "đĂTPHONGToolStripMenuItem";
             this.đĂTPHONGToolStripMenuItem.Size = new System.Drawing.Size(159, 59);
             this.đĂTPHONGToolStripMenuItem.Text = "ĐẶT PHÒNG";
+            this.đĂTPHONGToolStripMenuItem.Click += new System.EventHandler(this.đĂTPHONGToolStripMenuItem_Click);
             // 
             // qUANLYLOAIToolStripMenuItem
             // 
@@ -210,7 +213,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmChinh";
             this.Text = "Quản Lý Karaoke 3T";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

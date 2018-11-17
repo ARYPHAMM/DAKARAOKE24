@@ -17,5 +17,12 @@ namespace DoAnQLKaraokeDTO
         public string EMAIL { get; set; }
         public string DIACHI { get; set; }
         public int TINHTRANG { get; set; }
+        public string HOTENNV
+        {
+            get
+            {
+                return HONV + " " + TENV;
+            }
+        }
     }
 }

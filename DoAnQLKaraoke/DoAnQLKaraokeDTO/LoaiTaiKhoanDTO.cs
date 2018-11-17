@@ -10,6 +10,6 @@ namespace DoAnQLKaraokeDTO
     {
         public int MALOAIND { get; set; }
         public string TENLOAI { get; set; }
-        public int TINHTRANG { get; set; }
+        public bool TINHTRANG { get; set; }
     }
 }

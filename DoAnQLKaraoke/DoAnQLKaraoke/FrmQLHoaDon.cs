@@ -41,7 +41,6 @@ namespace DoAnQLKaraoke
 
             loaddata();
             TrangThai();
-
         }
 
         private void loaddata()
@@ -306,8 +305,9 @@ namespace DoAnQLKaraoke
                 PhongDTO pDTO = a.DanhSachPhong().Find(o => o.TENPHONG == txt_tenPhong.Text);
                 hd.MAHD = txt_maHD.Text;
                 hd.MAPHONG = pDTO.MAPHONG.Trim();
-                hd.MANV = "NV01";
-                hd.NGUOILAPHD = "Tiến";
+                hd.MANV = FrmChinh.nvDangNhap.MANV.Trim();
+                NhanVienDTO nv = new NhanVienBUS().DanhSachNhanVien().Find(o => o.MANV.Trim() == FrmChinh.nvDangNhap.MANV.Trim());
+                hd.NGUOILAPHD = nv.HOTENNV;
                 if (khHienHanh != null)
                 {
 
@@ -417,9 +417,11 @@ namespace DoAnQLKaraoke
     
             if (hdHienHanh != null)
             {
-                this.Visible = false;
+                
                 FrmChiTietHoaDon cthd = new FrmChiTietHoaDon();
+                cthd.Dock = DockStyle.Fill;
                 cthd.Show();
+                this.Visible = false;
             }
     
         }

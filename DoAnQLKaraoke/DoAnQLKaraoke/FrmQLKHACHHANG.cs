@@ -29,6 +29,19 @@ namespace DoAnQLKaraoke
 
             txt_MaKH.Enabled = false;
             TrangThai();
+            kiemtraquyen();
+
+        }
+
+        private void kiemtraquyen()
+        {
+            if (FrmChinh.nvDangNhap.LOAIND != 1)
+            {
+              
+                btn_qlLoaiKH.Enabled = false;
+               
+
+            }
         }
         private void TrangThai()
         {
@@ -289,6 +302,7 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmQLLoaiKhachHang ql = new FrmQLLoaiKhachHang();
+            ql.Dock = DockStyle.Fill;
             ql.Show();
         }
 

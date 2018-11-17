@@ -170,6 +170,7 @@
     <Compile Include="TinhTrangPhongBUS.cs" />
     <Compile Include="TinhTrangTDBUS.cs" />
     <Compile Include="TinhTrangNVBUS.cs" />
+    <Compile Include="TinhTrangTKBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DoAnQLKaraokeDAO\DoAnQLKaraokeDAO.csproj">

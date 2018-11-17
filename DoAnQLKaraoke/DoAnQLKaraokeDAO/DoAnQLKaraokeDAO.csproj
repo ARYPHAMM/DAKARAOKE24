@@ -171,6 +171,8 @@
     <Compile Include="TinhTrangNVDAO.cs" />
     <Compile Include="TinhTrangPhongDAO.cs" />
     <Compile Include="TinhTrangTDDAO.cs" />
+    <Compile Include="TinhTrangTKDAO.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DoAnQLKaraokeDTO\DoAnQLKaraokeDTO.csproj">

@@ -34,6 +34,21 @@ namespace DoAnQLKaraoke
             LoadData();
             txt_maPhong.Enabled = false;
             TrangThai();
+            kiemtraquyen();
+
+        }
+
+        private void kiemtraquyen()
+        {
+            if (FrmChinh.nvDangNhap.LOAIND != 1)
+            {
+                btn_them.Enabled = false;
+                btn_capNhat.Enabled = false;
+                btn_luu.Enabled = false;
+                btn_qlLoaiPhong.Enabled = false;
+                btn_lamMoi.Enabled = false;
+                
+            }
         }
         private void TrangThai()
         {

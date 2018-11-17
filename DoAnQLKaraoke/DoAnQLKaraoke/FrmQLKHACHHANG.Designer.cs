@@ -47,6 +47,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgv_KhachHang = new System.Windows.Forms.DataGridView();
+            this.colMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLOAI = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSDTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTT = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colMAKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLOAIKH = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colHOKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,11 +59,6 @@
             this.colNAMSINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colMA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLOAI = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colTEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSDTKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTT = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.grbdstknv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_KhachHang)).BeginInit();
             this.SuspendLayout();
@@ -211,7 +211,7 @@
             // 
             // lbldanhsachnv
             // 
-            this.lbldanhsachnv.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbldanhsachnv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldanhsachnv.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldanhsachnv.ForeColor = System.Drawing.Color.Salmon;
             this.lbldanhsachnv.Location = new System.Drawing.Point(121, 23);
@@ -223,6 +223,7 @@
             // 
             // grbdstknv
             // 
+            this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grbdstknv.Controls.Add(this.cbo_TinhTrang);
             this.grbdstknv.Controls.Add(this.cbo_LoaiKH);
             this.grbdstknv.Controls.Add(this.btn_qlLoaiKH);
@@ -280,9 +281,7 @@
             // 
             // dgv_KhachHang
             // 
-            this.dgv_KhachHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_KhachHang.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgv_KhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_KhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_KhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -298,6 +297,36 @@
             this.dgv_KhachHang.Size = new System.Drawing.Size(1364, 247);
             this.dgv_KhachHang.TabIndex = 18;
             this.dgv_KhachHang.SelectionChanged += new System.EventHandler(this.dgv_KhachHang_SelectionChanged);
+            // 
+            // colMA
+            // 
+            this.colMA.DataPropertyName = "MAKH";
+            this.colMA.HeaderText = "MAKH";
+            this.colMA.Name = "colMA";
+            // 
+            // colLOAI
+            // 
+            this.colLOAI.DataPropertyName = "LOAIKH";
+            this.colLOAI.HeaderText = "LOAIKH";
+            this.colLOAI.Name = "colLOAI";
+            // 
+            // colTEN
+            // 
+            this.colTEN.DataPropertyName = "TENKH";
+            this.colTEN.HeaderText = "TENKH";
+            this.colTEN.Name = "colTEN";
+            // 
+            // colSDTKH
+            // 
+            this.colSDTKH.DataPropertyName = "SDT";
+            this.colSDTKH.HeaderText = "SDT";
+            this.colSDTKH.Name = "colSDTKH";
+            // 
+            // colTT
+            // 
+            this.colTT.DataPropertyName = "TINHTRANG";
+            this.colTT.HeaderText = "TINHTRANG";
+            this.colTT.Name = "colTT";
             // 
             // colMAKH
             // 
@@ -345,46 +374,19 @@
             this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // colMA
-            // 
-            this.colMA.DataPropertyName = "MAKH";
-            this.colMA.HeaderText = "MAKH";
-            this.colMA.Name = "colMA";
-            // 
-            // colLOAI
-            // 
-            this.colLOAI.DataPropertyName = "LOAIKH";
-            this.colLOAI.HeaderText = "LOAIKH";
-            this.colLOAI.Name = "colLOAI";
-            // 
-            // colTEN
-            // 
-            this.colTEN.DataPropertyName = "TENKH";
-            this.colTEN.HeaderText = "TENKH";
-            this.colTEN.Name = "colTEN";
-            // 
-            // colSDTKH
-            // 
-            this.colSDTKH.DataPropertyName = "SDT";
-            this.colSDTKH.HeaderText = "SDT";
-            this.colSDTKH.Name = "colSDTKH";
-            // 
-            // colTT
-            // 
-            this.colTT.DataPropertyName = "TINHTRANG";
-            this.colTT.HeaderText = "TINHTRANG";
-            this.colTT.Name = "colTT";
-            // 
             // FrmQLKHACHHANG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1421, 588);
             this.Controls.Add(this.lbldanhsachnv);
             this.Controls.Add(this.grbdstknv);
             this.Controls.Add(this.dgv_KhachHang);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQLKHACHHANG";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmQLKHACHHANG";
             this.Load += new System.EventHandler(this.FrmQLKHACHHANG_Load);
             this.grbdstknv.ResumeLayout(false);

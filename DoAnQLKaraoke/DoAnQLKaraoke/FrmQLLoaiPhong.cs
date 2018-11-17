@@ -179,6 +179,7 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLPhong qlphong = new FrmQLPhong();
+            qlphong.Dock = DockStyle.Fill;
             qlphong.Show();
 
         }

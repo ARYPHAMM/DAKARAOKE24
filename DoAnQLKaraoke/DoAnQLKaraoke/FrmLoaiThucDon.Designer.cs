@@ -50,9 +50,7 @@
             // 
             // dgv_LoaiTD
             // 
-            this.dgv_LoaiTD.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_LoaiTD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgv_LoaiTD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_LoaiTD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_LoaiTD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -87,7 +85,7 @@
             // 
             // lbldanhsachnv
             // 
-            this.lbldanhsachnv.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbldanhsachnv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldanhsachnv.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldanhsachnv.ForeColor = System.Drawing.Color.Salmon;
             this.lbldanhsachnv.Location = new System.Drawing.Point(61, 32);
@@ -99,6 +97,7 @@
             // 
             // grbdstknv
             // 
+            this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grbdstknv.Controls.Add(this.ckb_TinhTrang);
             this.grbdstknv.Controls.Add(this.btn_luu);
             this.grbdstknv.Controls.Add(this.btn_lamMoi);
@@ -121,7 +120,7 @@
             // 
             this.ckb_TinhTrang.AutoSize = true;
             this.ckb_TinhTrang.Location = new System.Drawing.Point(604, 39);
-            this.ckb_TinhTrang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckb_TinhTrang.Margin = new System.Windows.Forms.Padding(4);
             this.ckb_TinhTrang.Name = "ckb_TinhTrang";
             this.ckb_TinhTrang.Size = new System.Drawing.Size(18, 17);
             this.ckb_TinhTrang.TabIndex = 26;
@@ -146,7 +145,7 @@
             this.btn_lamMoi.Image = global::DoAnQLKaraoke.Properties.Resources.refresh;
             this.btn_lamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_lamMoi.Location = new System.Drawing.Point(1076, 116);
-            this.btn_lamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_lamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_lamMoi.Name = "btn_lamMoi";
             this.btn_lamMoi.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_lamMoi.Size = new System.Drawing.Size(107, 52);
@@ -162,7 +161,7 @@
             this.btn_capNhat.Image = global::DoAnQLKaraoke.Properties.Resources.edit;
             this.btn_capNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_capNhat.Location = new System.Drawing.Point(907, 116);
-            this.btn_capNhat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_capNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_capNhat.Name = "btn_capNhat";
             this.btn_capNhat.Size = new System.Drawing.Size(107, 52);
             this.btn_capNhat.TabIndex = 23;
@@ -241,7 +240,7 @@
             this.Controls.Add(this.lbldanhsachnv);
             this.Controls.Add(this.grbdstknv);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLoaiThucDon";
             this.Text = "FrmLoaiThucDon";
             this.Load += new System.EventHandler(this.FrmLoaiThucDon_Load);

@@ -133,6 +133,7 @@
             // 
             // btn_them
             // 
+            this.btn_them.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_them.Image = global::DoAnQLKaraoke.Properties.Resources.add;
             this.btn_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_them.Location = new System.Drawing.Point(116, 259);
@@ -147,6 +148,7 @@
             // 
             // btn_lamMoi
             // 
+            this.btn_lamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_lamMoi.Image = global::DoAnQLKaraoke.Properties.Resources.refresh;
             this.btn_lamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_lamMoi.Location = new System.Drawing.Point(328, 263);
@@ -173,6 +175,7 @@
             // 
             // btn_luu
             // 
+            this.btn_luu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_luu.Image = global::DoAnQLKaraoke.Properties.Resources.save;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_luu.Location = new System.Drawing.Point(29, 263);
@@ -328,6 +331,7 @@
             // 
             // lv_HoaDonChuaThanhToan
             // 
+            this.lv_HoaDonChuaThanhToan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lv_HoaDonChuaThanhToan.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -348,6 +352,7 @@
             // 
             // btn_InHD
             // 
+            this.btn_InHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_InHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_InHD.Location = new System.Drawing.Point(171, 435);
             this.btn_InHD.Name = "btn_InHD";
@@ -360,6 +365,7 @@
             // 
             // btn_thanhtoan
             // 
+            this.btn_thanhtoan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_thanhtoan.Location = new System.Drawing.Point(48, 435);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
             this.btn_thanhtoan.Size = new System.Drawing.Size(106, 52);
@@ -370,6 +376,7 @@
             // 
             // btn_TraCuu
             // 
+            this.btn_TraCuu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TraCuu.Image = global::DoAnQLKaraoke.Properties.Resources.search;
             this.btn_TraCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_TraCuu.Location = new System.Drawing.Point(1018, 434);
@@ -394,6 +401,7 @@
             this.Controls.Add(this.btn_TraCuu);
             this.Controls.Add(this.lbldanhsachnv);
             this.Controls.Add(this.grbdstknv);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQLHoaDon";
             this.Text = "FormQLHoaDon";

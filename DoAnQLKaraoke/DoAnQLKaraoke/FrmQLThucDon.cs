@@ -28,6 +28,21 @@ namespace DoAnQLKaraoke
             LoadData();
             txt_MaTD.Enabled = false;
             TrangThai();
+            kiemtraquyen();
+
+        }
+
+        private void kiemtraquyen()
+        {
+            if (FrmChinh.nvDangNhap.LOAIND != 1)
+            {
+                btn_them.Enabled = false;
+                btn_capNhat.Enabled = false;
+                btn_luu.Enabled = false;
+                btn_qlLoai.Enabled = false;
+                btn_lamMoi.Enabled = false;
+
+            }
         }
 
         private void TrangThai()
@@ -294,6 +309,7 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmLoaiThucDon qllp = new FrmLoaiThucDon();
+            qllp.Dock = DockStyle.Fill;
             qllp.Show();
         }
 
