@@ -305,8 +305,10 @@ namespace DoAnQLKaraoke
                 PhongDTO pDTO = a.DanhSachPhong().Find(o => o.TENPHONG == txt_tenPhong.Text);
                 hd.MAHD = txt_maHD.Text;
                 hd.MAPHONG = pDTO.MAPHONG.Trim();
-                hd.MANV = FrmChinh.nvDangNhap.MANV.Trim();
-                NhanVienDTO nv = new NhanVienBUS().DanhSachNhanVien().Find(o => o.MANV.Trim() == FrmChinh.nvDangNhap.MANV.Trim());
+
+                FrmChinh frmchinh = (FrmChinh)this.MdiParent;
+                hd.MANV = frmchinh.nvDangNhap.MANV.Trim();
+                NhanVienDTO nv = new NhanVienBUS().DanhSachNhanVien().Find(o => o.MANV.Trim() == frmchinh.nvDangNhap.MANV.Trim());
                 hd.NGUOILAPHD = nv.HOTENNV;
                 if (khHienHanh != null)
                 {
@@ -419,9 +421,12 @@ namespace DoAnQLKaraoke
             {
                 
                 FrmChiTietHoaDon cthd = new FrmChiTietHoaDon();
+                cthd.MdiParent = FrmChinh.ActiveForm;
                 cthd.Dock = DockStyle.Fill;
+                cthd.FormBorderStyle = FormBorderStyle.None;
+                cthd.WindowState = FormWindowState.Maximized;
+                cthd.StartPosition = FormStartPosition.CenterScreen;
                 cthd.Show();
-                this.Visible = false;
             }
     
         }
@@ -460,6 +465,11 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmTraCuuHD tchd = new FrmTraCuuHD();
+            tchd.MdiParent = FrmChinh.ActiveForm;
+            tchd.Dock = DockStyle.Fill;
+            tchd.FormBorderStyle = FormBorderStyle.None;
+            tchd.WindowState = FormWindowState.Maximized;
+            tchd.StartPosition = FormStartPosition.CenterScreen;
             tchd.Show();
         }
     }

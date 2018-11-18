@@ -108,6 +108,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dtp_thoiGianBatDau);
             this.groupBox1.Controls.Add(this.txt_maHD);

@@ -106,6 +106,7 @@ namespace DoAnQLKaraoke
              
                 if (KiemTraTDbiTrung(ctHDHienHanh))
                 {
+                    ctHDHienHanh.THANHTIEN = (double.Parse(txt_soLuong.Text) * double.Parse(txt_gia.Text)).ToString();
                     bool ktcn = ctHdBUS.CapNhatSLCTHD(ctHDHienHanh);
                     if(ktcn)
                     {

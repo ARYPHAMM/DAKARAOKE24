@@ -26,18 +26,35 @@ namespace DoAnQLKaraoke
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            FrmChinh frmchinh = (FrmChinh)this.MdiParent;
             TaiKhoanBUS taikhoan = new TaiKhoanBUS();
-            FrmChinh.nvDangNhap = taikhoan.LayThongTinTaiKhoan(txtTaiKhoan.Text.Trim(), Utils.MaHoaMD5(txtMatKhau.Text.Trim()));
+            frmchinh.nvDangNhap = taikhoan.LayThongTinTaiKhoan(txtTaiKhoan.Text.Trim(), Utils.MaHoaMD5(txtMatKhau.Text.Trim()));
             MessageBox.Show(Utils.MaHoaMD5(txtMatKhau.Text.Trim()));
 
-            FrmChinh.isDangNhap = true;
-            if (FrmChinh.nvDangNhap != null)
+            frmchinh.isDangNhap = true;
+            if (frmchinh.nvDangNhap != null)
             {
-                FrmChinh frmchinh = new FrmChinh();
-                frmchinh.XetTruyCap(FrmChinh.nvDangNhap.LOAIND);
+
                 this.Close();
-                
+               
+
+                frmchinh.XetTruyCap(frmchinh.nvDangNhap.LOAIND);
                 frmchinh.Show();
+
+                //frmchinh.XetTruyCap(FrmChinh.nvDangNhap.LOAIND);
+
+
+
+
+
+                //frmchinh.MdiParent = FrmChinh.ActiveForm;
+                //frmchinh.Dock = DockStyle.Fill;
+                //frmchinh.FormBorderStyle = FormBorderStyle.None;
+                //frmchinh.WindowState = FormWindowState.Maximized;
+                //frmchinh.StartPosition = FormStartPosition.CenterScreen;
+
+
+                //frmchinh.Show();
 
 
             }

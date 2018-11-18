@@ -319,7 +319,11 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmQLLoaiNhanVien ql = new FrmQLLoaiNhanVien();
+            ql.MdiParent = FrmChinh.ActiveForm;
             ql.Dock = DockStyle.Fill;
+            ql.FormBorderStyle = FormBorderStyle.None;
+            ql.WindowState = FormWindowState.Maximized;
+            ql.StartPosition = FormStartPosition.CenterScreen;
             ql.Show();
         }
     }

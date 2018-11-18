@@ -114,9 +114,13 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLHoaDon hd = new FrmQLHoaDon();
+            hd.MdiParent = FrmChinh.ActiveForm;
             hd.Dock = DockStyle.Fill;
+            hd.FormBorderStyle = FormBorderStyle.None;
+            hd.WindowState = FormWindowState.Maximized;
+            hd.StartPosition = FormStartPosition.CenterScreen;
             hd.Show();
-           
+
         }
     }
 }

@@ -37,15 +37,10 @@
             this.nHÂNVIÊNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kHACHHANGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHONGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hOAĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tHƯCĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAOCAOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đĂTPHONGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.qUANLYLOAIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOAINHÂNVIÊNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOAIKHACHHANGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOAIPHONGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOAITHƯCĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hOAĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,8 +57,7 @@
             this.tAIKHOANCUATÔIToolStripMenuItem,
             this.qUANLYToolStripMenuItem,
             this.bAOCAOToolStripMenuItem,
-            this.đĂTPHONGToolStripMenuItem,
-            this.qUANLYLOAIToolStripMenuItem});
+            this.đĂTPHONGToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 2);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -138,12 +132,6 @@
             this.pHONGToolStripMenuItem.Text = "PHÒNG";
             this.pHONGToolStripMenuItem.Click += new System.EventHandler(this.pHONGToolStripMenuItem_Click);
             // 
-            // hOAĐƠNToolStripMenuItem
-            // 
-            this.hOAĐƠNToolStripMenuItem.Name = "hOAĐƠNToolStripMenuItem";
-            this.hOAĐƠNToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
-            this.hOAĐƠNToolStripMenuItem.Text = "HÓA ĐƠN";
-            // 
             // tHƯCĐƠNToolStripMenuItem
             // 
             this.tHƯCĐƠNToolStripMenuItem.Name = "tHƯCĐƠNToolStripMenuItem";
@@ -167,43 +155,12 @@
             this.đĂTPHONGToolStripMenuItem.Text = "ĐẶT PHÒNG";
             this.đĂTPHONGToolStripMenuItem.Click += new System.EventHandler(this.đĂTPHONGToolStripMenuItem_Click);
             // 
-            // qUANLYLOAIToolStripMenuItem
+            // hOAĐƠNToolStripMenuItem
             // 
-            this.qUANLYLOAIToolStripMenuItem.BackColor = System.Drawing.Color.Salmon;
-            this.qUANLYLOAIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lOAINHÂNVIÊNToolStripMenuItem,
-            this.lOAIKHACHHANGToolStripMenuItem,
-            this.lOAIPHONGToolStripMenuItem,
-            this.lOAITHƯCĐƠNToolStripMenuItem});
-            this.qUANLYLOAIToolStripMenuItem.Image = global::DoAnQLKaraoke.Properties.Resources.LoaiSua;
-            this.qUANLYLOAIToolStripMenuItem.Name = "qUANLYLOAIToolStripMenuItem";
-            this.qUANLYLOAIToolStripMenuItem.Size = new System.Drawing.Size(177, 59);
-            this.qUANLYLOAIToolStripMenuItem.Text = "QUẢN LÝ LOẠI";
-            // 
-            // lOAINHÂNVIÊNToolStripMenuItem
-            // 
-            this.lOAINHÂNVIÊNToolStripMenuItem.Name = "lOAINHÂNVIÊNToolStripMenuItem";
-            this.lOAINHÂNVIÊNToolStripMenuItem.Size = new System.Drawing.Size(269, 32);
-            this.lOAINHÂNVIÊNToolStripMenuItem.Text = "LOẠI NHÂN VIÊN";
-            this.lOAINHÂNVIÊNToolStripMenuItem.Click += new System.EventHandler(this.lOAINHÂNVIÊNToolStripMenuItem_Click);
-            // 
-            // lOAIKHACHHANGToolStripMenuItem
-            // 
-            this.lOAIKHACHHANGToolStripMenuItem.Name = "lOAIKHACHHANGToolStripMenuItem";
-            this.lOAIKHACHHANGToolStripMenuItem.Size = new System.Drawing.Size(269, 32);
-            this.lOAIKHACHHANGToolStripMenuItem.Text = "LOẠI KHÁCH HÀNG";
-            // 
-            // lOAIPHONGToolStripMenuItem
-            // 
-            this.lOAIPHONGToolStripMenuItem.Name = "lOAIPHONGToolStripMenuItem";
-            this.lOAIPHONGToolStripMenuItem.Size = new System.Drawing.Size(269, 32);
-            this.lOAIPHONGToolStripMenuItem.Text = "LOẠI PHÒNG";
-            // 
-            // lOAITHƯCĐƠNToolStripMenuItem
-            // 
-            this.lOAITHƯCĐƠNToolStripMenuItem.Name = "lOAITHƯCĐƠNToolStripMenuItem";
-            this.lOAITHƯCĐƠNToolStripMenuItem.Size = new System.Drawing.Size(269, 32);
-            this.lOAITHƯCĐƠNToolStripMenuItem.Text = "LOẠI THỰC ĐƠN";
+            this.hOAĐƠNToolStripMenuItem.Name = "hOAĐƠNToolStripMenuItem";
+            this.hOAĐƠNToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
+            this.hOAĐƠNToolStripMenuItem.Text = "HÓA ĐƠN";
+            this.hOAĐƠNToolStripMenuItem.Click += new System.EventHandler(this.hOAĐƠNToolStripMenuItem_Click);
             // 
             // FrmChinh
             // 
@@ -235,15 +192,10 @@
         private System.Windows.Forms.ToolStripMenuItem nHÂNVIÊNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kHACHHANGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pHONGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hOAĐƠNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tHƯCĐƠNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bAOCAOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đĂTPHONGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem qUANLYLOAIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lOAINHÂNVIÊNToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lOAIKHACHHANGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lOAIPHONGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lOAITHƯCĐƠNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hOAĐƠNToolStripMenuItem;
     }
 }
 

@@ -35,7 +35,9 @@ namespace DoAnQLKaraoke
 
         private void kiemtraquyen()
         {
-            if (FrmChinh.nvDangNhap.LOAIND != 1)
+
+            FrmChinh frmchinh = (FrmChinh)this.MdiParent;
+            if (frmchinh.nvDangNhap.LOAIND != 1)
             {
               
                 btn_qlLoaiKH.Enabled = false;
@@ -302,7 +304,11 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmQLLoaiKhachHang ql = new FrmQLLoaiKhachHang();
+            ql.MdiParent = FrmChinh.ActiveForm;
             ql.Dock = DockStyle.Fill;
+            ql.FormBorderStyle = FormBorderStyle.None;
+            ql.WindowState = FormWindowState.Maximized;
+            ql.StartPosition = FormStartPosition.CenterScreen;
             ql.Show();
         }
 

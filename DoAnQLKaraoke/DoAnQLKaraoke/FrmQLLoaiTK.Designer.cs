@@ -50,6 +50,7 @@
             // 
             // grbdstknv
             // 
+            this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grbdstknv.BackColor = System.Drawing.SystemColors.Control;
             this.grbdstknv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.grbdstknv.Controls.Add(this.label1);

@@ -446,8 +446,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgv_NhanVien);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQLNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm quan ly nhan vien";
             this.Load += new System.EventHandler(this.FrmQLNhanVien_Load);
             this.groupBox1.ResumeLayout(false);

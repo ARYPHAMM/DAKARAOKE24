@@ -168,6 +168,11 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLTaiKhoan qltk = new FrmQLTaiKhoan();
+            qltk.MdiParent = FrmChinh.ActiveForm;
+            qltk.Dock = DockStyle.Fill;
+            qltk.FormBorderStyle = FormBorderStyle.None;
+            qltk.WindowState = FormWindowState.Maximized;
+            qltk.StartPosition = FormStartPosition.CenterScreen;
             qltk.Show();
         }
     }

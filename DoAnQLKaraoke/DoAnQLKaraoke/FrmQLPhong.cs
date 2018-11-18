@@ -40,7 +40,9 @@ namespace DoAnQLKaraoke
 
         private void kiemtraquyen()
         {
-            if (FrmChinh.nvDangNhap.LOAIND != 1)
+
+            FrmChinh frmchinh = (FrmChinh)this.MdiParent;
+            if (frmchinh.nvDangNhap.LOAIND != 1)
             {
                 btn_them.Enabled = false;
                 btn_capNhat.Enabled = false;
@@ -328,8 +330,13 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmQLLoaiPhong qllp = new FrmQLLoaiPhong();
+            qllp.MdiParent = FrmChinh.ActiveForm;
+            qllp.Dock = DockStyle.Fill;
+            qllp.FormBorderStyle = FormBorderStyle.None;
+            qllp.WindowState = FormWindowState.Maximized;
+            qllp.StartPosition = FormStartPosition.CenterScreen;
             qllp.Show();
-           
+
         }
     }
 }

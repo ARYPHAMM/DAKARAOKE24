@@ -33,6 +33,7 @@
             this.colTENLOAIPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grbdstknv = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_luu = new System.Windows.Forms.Button();
             this.btn_lamMoi = new System.Windows.Forms.Button();
             this.btn_capNhat = new System.Windows.Forms.Button();
@@ -42,16 +43,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_quayve = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_loaiphong)).BeginInit();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_loaiphong
             // 
-            this.dgv_loaiphong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_loaiphong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgv_loaiphong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_loaiphong.BackgroundColor = System.Drawing.Color.GhostWhite;
             this.dgv_loaiphong.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -90,6 +88,7 @@
             // 
             // grbdstknv
             // 
+            this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grbdstknv.BackColor = System.Drawing.Color.MintCream;
             this.grbdstknv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.grbdstknv.Controls.Add(this.label1);
@@ -110,6 +109,17 @@
             this.grbdstknv.Size = new System.Drawing.Size(975, 202);
             this.grbdstknv.TabIndex = 12;
             this.grbdstknv.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.Location = new System.Drawing.Point(19, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 32);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Loại Phòng";
             // 
             // btn_luu
             // 
@@ -202,6 +212,7 @@
             // 
             // btn_quayve
             // 
+            this.btn_quayve.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_quayve.Image = global::DoAnQLKaraoke.Properties.Resources.DangXuat;
             this.btn_quayve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_quayve.Location = new System.Drawing.Point(896, 12);
@@ -212,17 +223,6 @@
             this.btn_quayve.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_quayve.UseVisualStyleBackColor = true;
             this.btn_quayve.Click += new System.EventHandler(this.btn_quayve_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(19, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 32);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Loại Phòng";
             // 
             // FrmQLLoaiPhong
             // 

@@ -303,8 +303,13 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmQLLoaiTK qlltk = new FrmQLLoaiTK();
+            qlltk.MdiParent = FrmChinh.ActiveForm;
             qlltk.Dock = DockStyle.Fill;
+            qlltk.FormBorderStyle = FormBorderStyle.None;
+            qlltk.WindowState = FormWindowState.Maximized;
+            qlltk.StartPosition = FormStartPosition.CenterScreen;
             qlltk.Show();
+
         }
     }
 }

@@ -22,8 +22,8 @@ namespace DoAnQLKaraoke
         FrmThongKe f6;
         FrmQLKHACHHANG f8;
         FrmQLHoaDon f9;
-        public static bool isDangNhap;
-        public static TaiKhoanDTO nvDangNhap;
+        public  bool isDangNhap;
+        public  TaiKhoanDTO nvDangNhap;
         public FrmChinh()
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace DoAnQLKaraoke
 
         private void nHÂNVIÊNToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
             f1 = new FrmQLNhanVien();
             f1.MdiParent = this;
             f1.Dock = DockStyle.Fill;
@@ -41,16 +42,19 @@ namespace DoAnQLKaraoke
 
         private void tAIKHOANNGƯƠIDUNGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
             f2 = new FrmQLTaiKhoan();
             f2.MdiParent = this;
             f2.Dock = DockStyle.Fill;
             f2.Show();
         }
 
-        internal void XetTruyCap(int lOAIND)
+       public  void XetTruyCap(int lOAIND)
         {
+
+
             menuStrip1.Enabled = true;
-            tAIKHOANCUATÔIToolStripMenuItem.Text = FrmChinh.nvDangNhap.TAIKHOAN.Trim();
+            tAIKHOANCUATÔIToolStripMenuItem.Text = nvDangNhap.TAIKHOAN.Trim();
             if (lOAIND == 2)
             {
                 kHACHHANGToolStripMenuItem.Enabled = true;
@@ -83,6 +87,7 @@ namespace DoAnQLKaraoke
 
         private void kHACHHANGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
             f8 = new FrmQLKHACHHANG();
             f8.MdiParent = this;
             f8.Dock = DockStyle.Fill;
@@ -93,6 +98,7 @@ namespace DoAnQLKaraoke
 
         private void tHƯCĐƠNToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
             f4 = new FrmQLThucDon();
             f4.MdiParent = this;
             f4.Dock = DockStyle.Fill;
@@ -101,6 +107,7 @@ namespace DoAnQLKaraoke
 
         private void pHONGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
             f5 = new FrmQLPhong();
             f5.MdiParent = this;
             f5.Dock = DockStyle.Fill;
@@ -109,6 +116,7 @@ namespace DoAnQLKaraoke
 
         private void bAOCAOToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
             f6 = new FrmThongKe();
             f6.MdiParent = this;
             f6.Dock = DockStyle.Fill;
@@ -146,7 +154,8 @@ namespace DoAnQLKaraoke
 
         private void đĂNGXUÂTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                  dn = null;
+            DongFrmCon();
+            dn = null;
                  f1 = null;
             FrmDangNhap fdn = new FrmDangNhap();
             fdn.MdiParent = this;
@@ -160,6 +169,23 @@ namespace DoAnQLKaraoke
 
         private void đĂTPHONGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
+            f9 = new FrmQLHoaDon();
+            f9.MdiParent = this;
+            f9.Dock = DockStyle.Fill;
+            f9.Show();
+        }
+        private void DongFrmCon()
+        {
+            foreach (Form a in this.MdiChildren)
+            {
+                a.Close();
+            }
+        }
+
+        private void hOAĐƠNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DongFrmCon();
             f9 = new FrmQLHoaDon();
             f9.MdiParent = this;
             f9.Dock = DockStyle.Fill;

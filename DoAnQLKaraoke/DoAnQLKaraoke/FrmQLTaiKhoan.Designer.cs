@@ -362,6 +362,7 @@
             this.Controls.Add(this.lbldanhsachnv);
             this.Controls.Add(this.dgv_TaiKhoan);
             this.Controls.Add(this.grbdstknv);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmQLTaiKhoan";
             this.Text = "FrmQLTaiKhoan";
             this.Load += new System.EventHandler(this.FrmQLTaiKhoan_Load);
