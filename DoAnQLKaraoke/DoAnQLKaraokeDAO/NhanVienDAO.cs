@@ -19,7 +19,7 @@ namespace DoAnQLKaraokeDAO
             List<NhanVienDTO> ds = new List<NhanVienDTO>();
             SqlConnection conn = DataProvider.TaoKetNoi();
 
-            SqlCommand com = new SqlCommand("select * from NHANVIEN where TinhTrang=1", conn);
+            SqlCommand com = new SqlCommand("select * from NHANVIEN", conn);
             SqlDataReader sdr = com.ExecuteReader();
             while (sdr.Read())
             {
@@ -151,7 +151,7 @@ namespace DoAnQLKaraokeDAO
             {
                 try
                 {
-                    ma = sdr["MANV"].ToString();
+                    ma = sdr.GetString(0);
                 }
                 catch
                 {

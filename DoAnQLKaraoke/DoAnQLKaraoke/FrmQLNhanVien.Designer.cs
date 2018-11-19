@@ -241,6 +241,7 @@
             this.txt_TenNV.Name = "txt_TenNV";
             this.txt_TenNV.Size = new System.Drawing.Size(200, 22);
             this.txt_TenNV.TabIndex = 18;
+            this.txt_TenNV.TextChanged += new System.EventHandler(this.txt_TenNV_TextChanged);
             // 
             // txt_HoNV
             // 
@@ -249,6 +250,7 @@
             this.txt_HoNV.Name = "txt_HoNV";
             this.txt_HoNV.Size = new System.Drawing.Size(200, 22);
             this.txt_HoNV.TabIndex = 18;
+            this.txt_HoNV.TextChanged += new System.EventHandler(this.txt_HoNV_TextChanged);
             // 
             // txt_SDT
             // 

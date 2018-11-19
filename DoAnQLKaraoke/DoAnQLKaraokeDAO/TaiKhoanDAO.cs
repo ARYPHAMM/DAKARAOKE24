@@ -45,7 +45,7 @@ namespace DoAnQLKaraokeDAO
         {
             string insert = "Update NGUOIDUNG"
                           + " Set TAIKHOAN = @TAIKHOAN,"
-                         + "MATKHAU = @MATKHAU, LOAIND =  @LOAIND , TINHTRANG = @TINHTRANG"
+                         + "MATKHAU = @MATKHAU, LOAIND =  @LOAIND , MANV = @MANV, TINHTRANG = @TINHTRANG"
                                    + " where  MAND = @MAND";
 
             List<SqlParameter> lsparams = new List<SqlParameter>();
@@ -53,6 +53,7 @@ namespace DoAnQLKaraokeDAO
             lsparams.Add(new SqlParameter("@TAIKHOAN", taikhoan.TAIKHOAN));
             lsparams.Add(new SqlParameter("@MATKHAU", Utils.MaHoaMD5(taikhoan.MATKHAU)));
             lsparams.Add(new SqlParameter("@LOAIND", taikhoan.LOAIND));
+            lsparams.Add(new SqlParameter("@MANV", taikhoan.MANV));
             lsparams.Add(new SqlParameter("@TINHTRANG", taikhoan.TINHTRANG));
 
             //lsparams.Add(new SqlParameter("@TrangThai", nvmoi.TrangThai));
@@ -75,7 +76,7 @@ namespace DoAnQLKaraokeDAO
             lsparams.Add(new SqlParameter("@MAND", tkmoi.MAND.Trim()));
             lsparams.Add(new SqlParameter("@TAIKHOAN", tkmoi.TAIKHOAN));
             lsparams.Add(new SqlParameter("@MATKHAU", Utils.MaHoaMD5(tkmoi.MATKHAU)));
-            lsparams.Add(new SqlParameter("@MANV", "NV01"));
+            lsparams.Add(new SqlParameter("@MANV", tkmoi.MANV));
             lsparams.Add(new SqlParameter("@LOAIND", tkmoi.LOAIND));
             lsparams.Add(new SqlParameter("@TINHTRANG", tkmoi.TINHTRANG));
             //lsparams.Add(new SqlParameter("@TrangThai", nvmoi.TrangThai));

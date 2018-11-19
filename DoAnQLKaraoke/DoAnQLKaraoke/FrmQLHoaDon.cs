@@ -291,12 +291,21 @@ namespace DoAnQLKaraoke
                     };
 
                     bool ktkh = khBUS.ThemKH(khDTO);
-                    if (ktkh)
+                    try
                     {
-                        MessageBox.Show("Một khách hàng vừa được thêm vào hệ thống");
-                        btn_traCuuSDT_Click(sender, e);
 
+                        if (ktkh)
+                        {
+                            MessageBox.Show("Một khách hàng vừa được thêm vào hệ thống");
+                            btn_traCuuSDT_Click(sender, e);
+
+                        }
                     }
+                    catch
+                    {
+                        MessageBox.Show("SĐT khách hàng này đã có trong hệ thống !");
+                    }
+                    
                   }
          
 

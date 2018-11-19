@@ -172,6 +172,7 @@
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.Size = new System.Drawing.Size(200, 22);
             this.txt_SDT.TabIndex = 1;
+            this.txt_SDT.TextChanged += new System.EventHandler(this.txt_SDT_TextChanged);
             // 
             // txt_Ten
             // 
@@ -180,6 +181,7 @@
             this.txt_Ten.Name = "txt_Ten";
             this.txt_Ten.Size = new System.Drawing.Size(223, 22);
             this.txt_Ten.TabIndex = 1;
+            this.txt_Ten.TextChanged += new System.EventHandler(this.txt_Ten_TextChanged);
             // 
             // txt_MaKH
             // 

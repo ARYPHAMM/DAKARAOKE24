@@ -31,12 +31,12 @@ namespace DoAnQLKaraoke
             trangthai();
 
             NhanVienBUS nv = new NhanVienBUS();
-            cbo_manv.DataSource = nv.DanhSachNhanVien().FindAll(o => o.TINHTRANG == 1);
+            cbo_manv.DataSource = nv.DanhSachNhanVien();
             cbo_manv.ValueMember = "MANV";
-            cbo_manv.DisplayMember = "HOTENNV";
+            cbo_manv.DisplayMember = "MANV";
 
             LoaiTaiKhoanBUS lp = new LoaiTaiKhoanBUS();
-            cbo_LoaiND.DataSource = lp.DanhSachLoaiTK().FindAll(o => o.TINHTRANG == true && o.MALOAIND != 1);
+            cbo_LoaiND.DataSource = lp.DanhSachLoaiTK().FindAll(o => o.TINHTRANG == true );
             cbo_LoaiND.ValueMember = "MALOAIND";
             cbo_LoaiND.DisplayMember = "TENLOAI";
 
@@ -57,7 +57,7 @@ namespace DoAnQLKaraoke
             dgvcb_tinhtrang.DisplayMember = "TENTTR";
             TaiKhoanBUS b = new TaiKhoanBUS();
             //dgv_nhanvien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgv_TaiKhoan.DataSource = b.DanhSachTaiKhoan().FindAll(o => o.LOAIND != 1);
+            dgv_TaiKhoan.DataSource = b.DanhSachTaiKhoan().FindAll(o => o.TINHTRANG == 1);
         }
         private void grbdstknv_Enter(object sender, EventArgs e)
         {
@@ -150,6 +150,8 @@ namespace DoAnQLKaraoke
             if (tk != null)
             {
                 txt_MaND.Text = tk.MAND;
+                cbo_manv.SelectedValue = tk.MANV.Trim();
+             
                 txt_TK.Text = tk.TAIKHOAN;
                 txtMK.Text = tk.MATKHAU;
                 cbo_LoaiND.SelectedValue = int.Parse(tk.LOAIND.ToString());
@@ -163,6 +165,7 @@ namespace DoAnQLKaraoke
                 {
                     txt_MaND.Text = manvmoi;
                 }
+                cbo_manv.SelectedIndex = -1;
                 txt_TK.Text = string.Empty;
                 txtMK.Text = string.Empty;
                 cbo_LoaiND.SelectedIndex = -1;
@@ -221,6 +224,7 @@ namespace DoAnQLKaraoke
                 taikhoan.MANV = cbo_manv.SelectedValue.ToString() ;
                 taikhoan.TAIKHOAN = txt_TK.Text.Trim();
                 taikhoan.MATKHAU = txtMK.Text.Trim();
+                taikhoan.MANV = cbo_manv.SelectedValue.ToString();
                 taikhoan.LOAIND = int.Parse(cbo_LoaiND.SelectedValue.ToString());
                 taikhoan.TINHTRANG = 1;
 
@@ -231,43 +235,67 @@ namespace DoAnQLKaraoke
                 return;
 
             }
-
-            TaiKhoanBUS a = new TaiKhoanBUS();
-            if (trThai == 2)
+            if (txt_TK.Text == string.Empty || txtMK.Text == string.Empty || txtMK.Text.Length < 6)
             {
-
-
-
-                bool kq = a.ThemTaiKhoan(taikhoan);
-                if (kq)
-                {
-                    MessageBox.Show("Them thanh cong", manvmoi);
-                    trThai = 1;
-                }
-                else
-                    MessageBox.Show("Them that bai !");
-
-
+                MessageBox.Show("Thông tin về nhân viên không hợp lệ !");
             }
             else
             {
-                taikhoan.TINHTRANG = int.Parse(cbo_TT.SelectedValue.ToString());
-                bool kt = a.CapNhatTaiKhoan(taikhoan);
-                if (!kt)
+                TaiKhoanBUS a = new TaiKhoanBUS();
+                if (trThai == 2)
                 {
-                    MessageBox.Show("Cập nhật thất bại");
+
+
+                    try
+                    {
+
+                        bool kq = a.ThemTaiKhoan(taikhoan);
+                        if (kq)
+                        {
+                            MessageBox.Show("Them thanh cong", manvmoi);
+                            trThai = 1;
+                        }
+                        else
+                            MessageBox.Show("Them that bai !");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Nhân viên này đã có tài khoản !");
+                        return;
+                    }
+
+
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thành công!");
-                }
+                    try
+                    {
+                        taikhoan.TINHTRANG = int.Parse(cbo_TT.SelectedValue.ToString());
 
-                trThai = 1;
+                        bool kt = a.CapNhatTaiKhoan(taikhoan);
+                        if (!kt)
+                        {
+                            MessageBox.Show("Cập nhật thất bại");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật thành công!");
+                            trThai = 1;
+                        }
+                    }
+                
+                      catch
+                    {
+                        MessageBox.Show("Nhân viên này đã có tài khoản !");
+                        return;
+                    }
+                }
+                tk = null;
+                trangthai();
+                Bind();
+                LoadNguoiDung();
             }
-            tk = null;
-            trangthai();
-            Bind();
-            LoadNguoiDung();
+    
 
         }
 

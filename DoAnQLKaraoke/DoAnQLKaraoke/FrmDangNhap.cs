@@ -14,6 +14,7 @@ namespace DoAnQLKaraoke
 {
     public partial class FrmDangNhap : Form
     {
+        public int solandangnhap = 0;
         public FrmDangNhap()
         {
             InitializeComponent();
@@ -26,41 +27,51 @@ namespace DoAnQLKaraoke
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            FrmChinh frmchinh = (FrmChinh)this.MdiParent;
-            TaiKhoanBUS taikhoan = new TaiKhoanBUS();
-            frmchinh.nvDangNhap = taikhoan.LayThongTinTaiKhoan(txtTaiKhoan.Text.Trim(), Utils.MaHoaMD5(txtMatKhau.Text.Trim()));
-            MessageBox.Show(Utils.MaHoaMD5(txtMatKhau.Text.Trim()));
 
-            frmchinh.isDangNhap = true;
-            if (frmchinh.nvDangNhap != null)
+            if (txtTaiKhoan.Text != string.Empty && txtMatKhau.Text != string.Empty && txtMatKhau.Text.Length >= 6)
             {
+                FrmChinh frmchinh = (FrmChinh)this.MdiParent;
+                TaiKhoanBUS taikhoan = new TaiKhoanBUS();
+                frmchinh.nvDangNhap = taikhoan.LayThongTinTaiKhoan(txtTaiKhoan.Text.Trim(), Utils.MaHoaMD5(txtMatKhau.Text.Trim()));
+                frmchinh.isDangNhap = true;
+                if (frmchinh.nvDangNhap != null && frmchinh.nvDangNhap.TINHTRANG == 1)
+                {
+                    MessageBox.Show("Đăng nhập thành công");
+                    this.Close();
+                    solandangnhap = 0;
+                    frmchinh.XetTruyCap(frmchinh.nvDangNhap.LOAIND);
+                    frmchinh.Show();
 
-                this.Close();
-               
+                }
+                else
+                {
+                    MessageBox.Show("Đăng nhập thất bại");
+                    solandangnhap++;
+                    if (solandangnhap > 6)
+                    {
+                        
+                        try
+                        {
+                            TaiKhoanBUS tkBUS = new TaiKhoanBUS();
+                            TaiKhoanDTO tk = new TaiKhoanDTO();
+                            tk = tkBUS.DanhSachTaiKhoan().Find(o => o.TAIKHOAN.Trim() == txtTaiKhoan.Text.Trim());
+                            if (tk.LOAIND != 1)
+                            {
+                                tk.TINHTRANG = 2;
+                                tkBUS.CapNhatTaiKhoan(tk);
+                            }
+                            MessageBox.Show("Tài khoản bạn đã đăng nhập quá 6 lần." + Environment.NewLine + " Hệ thống sẽ khóa tài khoản vui lòng liên hệ admin để được hổ trợ");
+                        }
+                        catch
+                        {
 
-                frmchinh.XetTruyCap(frmchinh.nvDangNhap.LOAIND);
-                frmchinh.Show();
-
-                //frmchinh.XetTruyCap(FrmChinh.nvDangNhap.LOAIND);
-
-
-
-
-
-                //frmchinh.MdiParent = FrmChinh.ActiveForm;
-                //frmchinh.Dock = DockStyle.Fill;
-                //frmchinh.FormBorderStyle = FormBorderStyle.None;
-                //frmchinh.WindowState = FormWindowState.Maximized;
-                //frmchinh.StartPosition = FormStartPosition.CenterScreen;
-
-
-                //frmchinh.Show();
-
-
+                        }
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Đăng nhập thất bại");
+                MessageBox.Show("Thiếu thông tin");
             }
         }
 

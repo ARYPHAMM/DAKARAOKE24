@@ -39,9 +39,9 @@ namespace DoAnQLKaraoke
             FrmChinh frmchinh = (FrmChinh)this.MdiParent;
             if (frmchinh.nvDangNhap.LOAIND != 1)
             {
-              
+
                 btn_qlLoaiKH.Enabled = false;
-               
+
 
             }
         }
@@ -202,47 +202,66 @@ namespace DoAnQLKaraoke
             }
             catch
             {
-                MessageBox.Show("Thieu thong tin");
+                MessageBox.Show("Thiếu thông tin");
                 return;
 
             }
 
             KhachHangBUS a = new KhachHangBUS();
-            if (trThai == 2)
+            if (txt_SDT.Text == string.Empty ||  txt_Ten.Text == string.Empty || txt_SDT.Text.Length > 11 || txt_SDT.Text.Length < 10)
             {
-
-
-
-                bool kq = a.ThemKH(khachhang);
-                if (kq)
-                {
-                    //MessageBox.Show("Them thanh cong", maKHMoi);
-                    trThai = 1;
-                }
-                else
-                    MessageBox.Show("Them that bai !");
-
-
+                MessageBox.Show("Thông tin về khách hàng không hợp lệ !");
             }
             else
             {
-                bool kt = a.CapNhatKH(khachhang);
-                if (!kt)
+                if (trThai == 2)
                 {
-                    MessageBox.Show("Cập nhật thất bại");
+
+
+                    try
+                    {
+                        bool kq = a.ThemKH(khachhang);
+                        if (kq)
+                        {
+                            //MessageBox.Show("Them thanh cong", maKHMoi);
+                            trThai = 1;
+                        }
+                        else
+                            MessageBox.Show("Them that bai !");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Trùng số điện thoại!");
+                    }
+
+
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thành công!");
+                    try
+                    {
+                        bool kt = a.CapNhatKH(khachhang);
+                        if (!kt)
+                        {
+                            MessageBox.Show("Cập nhật thất bại");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật thành công!");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Trùng số điện thoại!");
+                    }
+                    trThai = 1;
                 }
-
-                trThai = 1;
+                LoadData();
+                KHhienhanh = null;
+                TrangThai();
+                Bind();
             }
-            LoadData();
-            KHhienhanh = null;
-            TrangThai();
-            Bind();
-  
+
 
         }
 
@@ -315,6 +334,56 @@ namespace DoAnQLKaraoke
         private void btn_qlLoaiKH_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_Ten_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                long a;
+                bool kt = long.TryParse(txt_Ten.Text, out a);
+                if (kt)
+                {
+
+
+                    if (txt_Ten.TextLength > 0)
+                        txt_Ten.Text = txt_Ten.Text.Remove(txt_Ten.Text.Length - 1, 1);
+                    else
+                        txt_Ten.Text = txt_Ten.Text.Remove(0, 0);
+
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void txt_SDT_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                long a;
+                bool kt = long.TryParse(txt_SDT.Text, out a);
+                if (!kt)
+                {
+
+
+                    if (txt_SDT.TextLength > 0)
+                        txt_SDT.Text = txt_SDT.Text.Remove(txt_SDT.Text.Length - 1, 1);
+                    else
+                        txt_SDT.Text = txt_SDT.Text.Remove(0, 0);
+
+
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

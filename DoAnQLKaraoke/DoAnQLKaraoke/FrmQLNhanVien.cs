@@ -19,10 +19,12 @@ namespace DoAnQLKaraoke
         string maNVMoi;
         public FrmQLNhanVien()
         {
+
             InitializeComponent();
 
+
             dgv_NhanVien.AutoGenerateColumns = false;
-  
+
             //MessageBox.Show(maNVMoi);
         }
 
@@ -59,7 +61,8 @@ namespace DoAnQLKaraoke
                         txt_Email.Enabled = false;
                         cbo_TinhTrang.Enabled = true;
                         NVhienhanh = null;
-                        //Bind();
+
+                        Bind();
 
                     }
                     break;
@@ -79,7 +82,7 @@ namespace DoAnQLKaraoke
                         txt_Email.Enabled = true;
                         cbo_TinhTrang.Enabled = true;
                         NVhienhanh = null;
-                        //Bind();
+                        Bind();
                     }
                     break;
                 case 3: // chinh sua
@@ -248,46 +251,67 @@ namespace DoAnQLKaraoke
             }
             catch
             {
-                MessageBox.Show("Thieu thong tin");
+                MessageBox.Show("Thiếu thông tin");
                 return;
 
             }
 
             NhanVienBUS a = new NhanVienBUS();
-            if (trThai == 2)
+            if (txt_SDT.Text == string.Empty || txt_HoNV.Text == string.Empty || txt_TenNV.Text == string.Empty || txt_SDT.Text.Length > 11 || txt_SDT.Text.Length < 10)
             {
-
-
-
-                bool kq = a.ThemNV(nhanvien);
-                if (kq)
-                {
-                    MessageBox.Show("Them thanh cong", maNVMoi);
-                    trThai = 1;
-                }
-                else
-                    MessageBox.Show("Them that bai !");
-
-
+                MessageBox.Show("Thông tin về nhân viên không hợp lệ !");
             }
             else
             {
-                bool kt = a.CapNhatNV(nhanvien);
-                if (!kt)
+                if (trThai == 2)
                 {
-                    MessageBox.Show("Cập nhật thất bại");
+
+                    try
+                    {
+
+                        bool kq = a.ThemNV(nhanvien);
+                        if (kq)
+                        {
+                            MessageBox.Show("Them thanh cong", maNVMoi);
+                            trThai = 1;
+                        }
+                        else
+                            MessageBox.Show("Them that bai !");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Trùng số điện thoại!");
+
+                    }
+
+
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thành công!");
-                }
+                    try
+                    {
+                        bool kt = a.CapNhatNV(nhanvien);
+                        if (!kt)
+                        {
+                            MessageBox.Show("Cập nhật thất bại");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Cập nhật thành công!");
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Số điện thoại đã có hoặc Nhân viên sở hữu tài khoản đã nghỉ!");
+                    }
 
-                trThai = 1;
+                    trThai = 1;
+                }
+                NVhienhanh = null;
+                TrangThai();
+                Bind();
+                LoadData();
             }
-            NVhienhanh = null;
-            TrangThai();
-            Bind();
-            LoadData();
 
 
         }
@@ -312,7 +336,7 @@ namespace DoAnQLKaraoke
 
         private void btn_qlLoaiKH_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void btn_qlLoaiKH_Click_1(object sender, EventArgs e)
@@ -325,6 +349,56 @@ namespace DoAnQLKaraoke
             ql.WindowState = FormWindowState.Maximized;
             ql.StartPosition = FormStartPosition.CenterScreen;
             ql.Show();
+        }
+
+        private void txt_HoNV_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                long a;
+                bool kt = long.TryParse(txt_HoNV.Text, out a);
+                if (kt)
+                {
+
+
+                    if (txt_HoNV.TextLength > 0)
+                        txt_HoNV.Text = txt_HoNV.Text.Remove(txt_HoNV.Text.Length - 1, 1);
+                    else
+                        txt_HoNV.Text = txt_HoNV.Text.Remove(0, 0);
+
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void txt_TenNV_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                long a;
+                bool kt = long.TryParse(txt_TenNV.Text, out a);
+                if (kt)
+                {
+
+
+                    if (txt_TenNV.TextLength > 0)
+                        txt_TenNV.Text = txt_TenNV.Text.Remove(txt_TenNV.Text.Length - 1, 1);
+                    else
+                        txt_TenNV.Text = txt_TenNV.Text.Remove(0, 0);
+
+
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }
