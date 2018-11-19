@@ -54,11 +54,12 @@ namespace DoAnQLKaraoke
                         {
                             TaiKhoanBUS tkBUS = new TaiKhoanBUS();
                             TaiKhoanDTO tk = new TaiKhoanDTO();
-                            tk = tkBUS.DanhSachTaiKhoan().Find(o => o.TAIKHOAN.Trim() == txtTaiKhoan.Text.Trim());
+                            tk = tkBUS.DanhSachTaiKhoan().Find(o => o.TAIKHOAN.Trim() == txtTaiKhoan.Text.Trim());                     
                             if (tk.LOAIND != 1)
                             {
                                 tk.TINHTRANG = 2;
                                 tkBUS.CapNhatTaiKhoan(tk);
+                               
                             }
                             MessageBox.Show("Tài khoản bạn đã đăng nhập quá 6 lần." + Environment.NewLine + " Hệ thống sẽ khóa tài khoản vui lòng liên hệ admin để được hổ trợ");
                         }

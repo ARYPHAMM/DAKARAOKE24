@@ -102,7 +102,7 @@ namespace DoAnQLKaraoke
             {
 
                 ctHDHienHanh.SOLUONG = int.Parse(txt_soLuong.Text);
-                ctHDHienHanh.THANHTIEN = double.Parse(txt_thanhTien.Text).ToString();
+                ctHDHienHanh.THANHTIEN = (double.Parse(txt_soLuong.Text) * double.Parse(txt_gia.Text)).ToString();
              
                 if (KiemTraTDbiTrung(ctHDHienHanh))
                 {
@@ -158,8 +158,9 @@ namespace DoAnQLKaraoke
 
         private void btn_huy_Click(object sender, EventArgs e)
         {
-            if (dgv_CTHD.SelectedRows.Count > 0 && ctHDHienHanh != null)
+            if (dgv_CTHD.SelectedRows.Count > 0)
             {
+                ctHDHienHanh = (ChiTietHoaDonDTO)dgv_CTHD.SelectedRows[0].DataBoundItem;
                 bool kt = ctHdBUS.CapNhatCTHD(ctHDHienHanh);
                      if(kt)
                     {

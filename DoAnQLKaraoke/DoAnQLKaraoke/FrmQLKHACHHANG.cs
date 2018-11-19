@@ -311,6 +311,7 @@ namespace DoAnQLKaraoke
             try
             {
                 XuLyTraCuu(int.Parse(cbo_LoaiKH.SelectedValue.ToString()), int.Parse(cbo_TinhTrang.SelectedValue.ToString()));
+    
             }
             catch
             {
