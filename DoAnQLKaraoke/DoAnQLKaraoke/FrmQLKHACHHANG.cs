@@ -155,9 +155,9 @@ namespace DoAnQLKaraoke
             }
             else
             {
-                if (dgv_KhachHang.SelectedRows.Count == 0)
+                if (dgv_KhachHang.SelectedRows.Count == 0 || trThai == 2)
                 {
-                    //txt_MaKH.Text = maKHMoi; // truong hop dang cap nhat
+                    txt_MaKH.Text = maKHMoi; // truong hop dang cap nhat
                 }
 
 
@@ -283,6 +283,8 @@ namespace DoAnQLKaraoke
             {
                 trThai = 2;
                 TrangThai();
+                KHhienhanh = null;
+                Bind();
             }
         }
 

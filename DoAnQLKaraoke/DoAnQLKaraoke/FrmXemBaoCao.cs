@@ -24,7 +24,32 @@ namespace DoAnQLKaraoke
 
         internal void XemThongKe(List<HoaDonDTO> ngay)
         {
-            string thoigian = FrmThongKe.radio == 1 ? "Theo ngày " + ngay[0].THOIGIANBATDAU.ToString("dd/MM/yyyy").ToString() : FrmThongKe.radio == 2 ? "theo tháng " + ngay[0].THOIGIANBATDAU.ToString("MM/yyyy") : FrmThongKe.radio == 3 ? "theo năm "+ngay[0].THOIGIANBATDAU.ToString("yyyy") : "theo quý " + ngay[0].THOIGIANBATDAU.ToString("MM/yyyy");
+            string thoigian = "";
+            if (FrmThongKe.radio == 4)
+            {
+                int thang = int.Parse(ngay[0].THOIGIANBATDAU.ToString("MM"));
+                switch (thang)
+                {
+                    case 1:
+                    case 2:
+                    case 3: thoigian = "Theo quý " + 1; break;
+                    case 4:
+                    case 5:
+                    case 6: thoigian = "Theo quý " + 2; break;
+                    case 7:
+                    case 8:
+                    case 9: thoigian = "Theo quý " + 3; break;
+                    case 10:
+                    case 11:
+                    case 12: thoigian = "Theo quý " + 4; break;
+
+                }
+            }
+            else
+            {
+                thoigian = FrmThongKe.radio == 1 ? "Theo ngày " + ngay[0].THOIGIANBATDAU.ToString("dd/MM/yyyy").ToString() : FrmThongKe.radio == 2 ? "theo tháng " + ngay[0].THOIGIANBATDAU.ToString("MM/yyyy") : "theo năm " + ngay[0].THOIGIANBATDAU.ToString("yyyy");
+            }
+       
          
                 ctHDbus = new ChiTietHoaDonBUS();
                 this.rpcBaoCao.LocalReport.ReportEmbeddedResource = "DoAnQLKaraoke.RptDoanhThu.rdlc";

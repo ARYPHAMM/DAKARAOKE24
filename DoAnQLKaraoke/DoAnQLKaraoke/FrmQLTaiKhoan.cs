@@ -31,7 +31,7 @@ namespace DoAnQLKaraoke
             trangthai();
 
             NhanVienBUS nv = new NhanVienBUS();
-            cbo_manv.DataSource = nv.DanhSachNhanVien();
+            cbo_manv.DataSource = nv.DanhSachNhanVien().FindAll(o => o.LOAINV == 1 ||o.LOAINV == 2);
             cbo_manv.ValueMember = "MANV";
             cbo_manv.DisplayMember = "MANV";
 

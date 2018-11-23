@@ -61,15 +61,15 @@ namespace DoAnQLKaraokeDAO
 
             SqlConnection con = DataProvider.TaoKetNoi();
             int gio = interval.Hours;
-            if (gio > 1)
-            {
-                gio = gio - 1; // neu hat tren 2h
-            }
-            else
+            //if (gio > 1)
+            //{
+            //    gio = gio - 1; // neu hat tren 2h
+            //}
+            if (gio == 1)
             {
                 gio = 0; // hat chua den 1h
             }
-            MessageBox.Show(gio.ToString());
+            //MessageBox.Show(gio.ToString());
 
             string capnhatphong = "UPDATE PHONG SET TINHTRANG = 2 where MAPHONG = '" + hd.MAPHONG + "'";
             bool thucthip = DataProvider.ThucThi(capnhatphong, con);

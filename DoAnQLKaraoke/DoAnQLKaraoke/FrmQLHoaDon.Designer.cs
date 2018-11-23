@@ -358,7 +358,7 @@
             this.btn_InHD.Name = "btn_InHD";
             this.btn_InHD.Size = new System.Drawing.Size(96, 52);
             this.btn_InHD.TabIndex = 44;
-            this.btn_InHD.Text = "In Hóa Đơn";
+            this.btn_InHD.Text = "Xem nhanh hóa đơn";
             this.btn_InHD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_InHD.UseVisualStyleBackColor = true;
             this.btn_InHD.Click += new System.EventHandler(this.btn_InHD_Click);

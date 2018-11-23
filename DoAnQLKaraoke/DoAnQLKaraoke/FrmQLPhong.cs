@@ -15,7 +15,7 @@ namespace DoAnQLKaraoke
     public partial class FrmQLPhong : Form
     {
 
-        public int trThai = 3;
+        public int trThai = 1;
         PhongDTO phongHienHanh;
         string maPhongMoi = DoAnQLKaraokeBUS.PhongBUS.MaPhongMoi();
         public FrmQLPhong()
@@ -152,6 +152,7 @@ namespace DoAnQLKaraoke
                 trThai = 1;
                 TrangThai();
                 btn_capNhat.Enabled = true;
+                btn_them.Enabled = false;
                 phongHienHanh = (PhongDTO)dgv_phong.SelectedRows[0].DataBoundItem; // dgvSinhVien.CurrentRow
             }
             else
@@ -176,7 +177,7 @@ namespace DoAnQLKaraoke
             }
             else
             {
-                if (dgv_phong.SelectedRows.Count == 0)
+                if ( trThai == 1)
                 {
                     txt_maPhong.Text = maPhongMoi; // truong hop dang cap nhat
                 }
@@ -200,7 +201,8 @@ namespace DoAnQLKaraoke
             {
                 trThai = 1;
                 TrangThai();
-
+                phongHienHanh = null;
+                Bind();
             }
             else
             {
@@ -305,6 +307,8 @@ namespace DoAnQLKaraoke
             {
                 trThai = 1;
                 TrangThai();
+                phongHienHanh = null;
+                Bind();
 
             }
             else

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.cbo_TT = new System.Windows.Forms.ComboBox();
-            this.btnquayve = new System.Windows.Forms.Button();
             this.cbo_Loai = new System.Windows.Forms.ComboBox();
             this.txt_TenTD = new System.Windows.Forms.TextBox();
             this.txt_Gia = new System.Windows.Forms.TextBox();
@@ -65,17 +64,6 @@
             this.cbo_TT.Name = "cbo_TT";
             this.cbo_TT.Size = new System.Drawing.Size(220, 24);
             this.cbo_TT.TabIndex = 24;
-            // 
-            // btnquayve
-            // 
-            this.btnquayve.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnquayve.Location = new System.Drawing.Point(1563, 22);
-            this.btnquayve.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnquayve.Name = "btnquayve";
-            this.btnquayve.Size = new System.Drawing.Size(121, 37);
-            this.btnquayve.TabIndex = 5;
-            this.btnquayve.Text = "Quay Về";
-            this.btnquayve.UseVisualStyleBackColor = true;
             // 
             // cbo_Loai
             // 
@@ -183,7 +171,6 @@
             this.grb_TTTD.Controls.Add(this.btn_capNhat);
             this.grb_TTTD.Controls.Add(this.btn_them);
             this.grb_TTTD.Controls.Add(this.cbo_TT);
-            this.grb_TTTD.Controls.Add(this.btnquayve);
             this.grb_TTTD.Controls.Add(this.cbo_Loai);
             this.grb_TTTD.Controls.Add(this.txt_TenTD);
             this.grb_TTTD.Controls.Add(this.txt_Gia);
@@ -193,11 +180,11 @@
             this.grb_TTTD.Controls.Add(this.label1);
             this.grb_TTTD.Controls.Add(this.label6);
             this.grb_TTTD.Controls.Add(this.label5);
-            this.grb_TTTD.Location = new System.Drawing.Point(1, 159);
+            this.grb_TTTD.Location = new System.Drawing.Point(12, 159);
             this.grb_TTTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grb_TTTD.Name = "grb_TTTD";
             this.grb_TTTD.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grb_TTTD.Size = new System.Drawing.Size(1691, 174);
+            this.grb_TTTD.Size = new System.Drawing.Size(1519, 174);
             this.grb_TTTD.TabIndex = 7;
             this.grb_TTTD.TabStop = false;
             this.grb_TTTD.Text = "Thông tin";
@@ -217,7 +204,7 @@
             // 
             this.btn_lamMoi.Image = global::DoAnQLKaraoke.Properties.Resources.refresh;
             this.btn_lamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_lamMoi.Location = new System.Drawing.Point(1013, 37);
+            this.btn_lamMoi.Location = new System.Drawing.Point(1355, 37);
             this.btn_lamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_lamMoi.Name = "btn_lamMoi";
             this.btn_lamMoi.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -232,7 +219,7 @@
             // 
             this.btn_luu.Image = global::DoAnQLKaraoke.Properties.Resources.save;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_luu.Location = new System.Drawing.Point(765, 33);
+            this.btn_luu.Location = new System.Drawing.Point(1028, 37);
             this.btn_luu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(76, 52);
@@ -246,7 +233,7 @@
             // 
             this.btn_traCuu.Image = global::DoAnQLKaraoke.Properties.Resources.search;
             this.btn_traCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_traCuu.Location = new System.Drawing.Point(913, 116);
+            this.btn_traCuu.Location = new System.Drawing.Point(1355, 99);
             this.btn_traCuu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_traCuu.Name = "btn_traCuu";
             this.btn_traCuu.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -262,7 +249,7 @@
             this.btn_capNhat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_capNhat.Image = global::DoAnQLKaraoke.Properties.Resources.edit;
             this.btn_capNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_capNhat.Location = new System.Drawing.Point(1141, 37);
+            this.btn_capNhat.Location = new System.Drawing.Point(1231, 37);
             this.btn_capNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_capNhat.Name = "btn_capNhat";
             this.btn_capNhat.Size = new System.Drawing.Size(107, 52);
@@ -276,7 +263,7 @@
             // 
             this.btn_them.Image = global::DoAnQLKaraoke.Properties.Resources.add;
             this.btn_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_them.Location = new System.Drawing.Point(879, 37);
+            this.btn_them.Location = new System.Drawing.Point(1122, 37);
             this.btn_them.Margin = new System.Windows.Forms.Padding(4);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(88, 52);
@@ -362,7 +349,6 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cbo_TT;
-        private System.Windows.Forms.Button btnquayve;
         private System.Windows.Forms.ComboBox cbo_Loai;
         private System.Windows.Forms.TextBox txt_TenTD;
         private System.Windows.Forms.TextBox txt_Gia;

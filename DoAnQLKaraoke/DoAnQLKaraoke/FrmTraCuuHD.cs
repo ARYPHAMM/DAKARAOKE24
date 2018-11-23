@@ -60,25 +60,39 @@ namespace DoAnQLKaraoke
         private void btn_timtheoma_Click(object sender, EventArgs e)
         {
             
-                lsHDHienHanh = hdBus.DanhSachHoaDon().FindAll(o => o.MAHD.Trim() == txt_MAHD.Text.Trim());
+               lsHDHienHanh = hdBus.DanhSachHoaDon().FindAll(o => o.MAHD.Trim() == txt_MAHD.Text.Trim());
                dgv_hoadon.DataSource = lsHDHienHanh;
         }
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
-            if (txt_MAHD.Text.Trim() != hdHienHanh.MAHD.Trim() && txt_MAHD.Text != "")
+            try
             {
-                hdBus = new HoaDonBUS();
-                HoaDonDTO hd = hdBus.DanhSachHoaDon().Find(o => o.MAHD.Trim() == txt_MAHD.Text.Trim());
-                FrmXemBaoCao f = new FrmXemBaoCao();
-                f.XemHoaDon(hd);
-                f.Show();
+                if (txt_MAHD.Text != String.Empty)
+                {
+                    HoaDonDTO hd = hdBus.DanhSachHoaDon().Find(o => o.MAHD.Trim() == txt_MAHD.Text.Trim());
+                    FrmXemBaoCao f = new FrmXemBaoCao();
+                    f.XemHoaDon(hd);
+                    f.Show();
+                }
+                //if (txt_MAHD.Text.Trim() != hdHienHanh.MAHD.Trim() && txt_MAHD.Text != "")
+                //{
+                //    hdBus = new HoaDonBUS();
+                //    HoaDonDTO hd = hdBus.DanhSachHoaDon().Find(o => o.MAHD.Trim() == txt_MAHD.Text.Trim());
+                //    FrmXemBaoCao f = new FrmXemBaoCao();
+                //    f.XemHoaDon(hd);
+                //    f.Show();
+                //}
+                else
+                {
+                    FrmXemBaoCao f = new FrmXemBaoCao();
+                    f.XemHoaDon(hdHienHanh);
+                    f.Show();
+                }
             }
-            else
+            catch
             {
-                FrmXemBaoCao f = new FrmXemBaoCao();
-                f.XemHoaDon(hdHienHanh);
-                f.Show();
+
             }
         }
 

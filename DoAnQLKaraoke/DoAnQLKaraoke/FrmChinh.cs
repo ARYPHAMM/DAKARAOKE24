@@ -175,13 +175,14 @@ namespace DoAnQLKaraoke
             f9.Dock = DockStyle.Fill;
             f9.Show();
         }
-        private void DongFrmCon()
+       public void DongFrmCon()
         {
             foreach (Form a in this.MdiChildren)
             {
                 a.Close();
             }
         }
+
 
         private void hOAĐƠNToolStripMenuItem_Click(object sender, EventArgs e)
         {

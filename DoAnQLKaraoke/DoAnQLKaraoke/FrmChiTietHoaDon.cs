@@ -49,7 +49,7 @@ namespace DoAnQLKaraoke
             dgv_CTHD.DataSource = lsCTHDDTO;
 
             tdBUS = new ThucDonBUS();
-            lsThucDon = tdBUS.DanhSachTD();
+            lsThucDon = tdBUS.DanhSachTD().FindAll(o => o.TINHTRANG == 1);
 
             foreach (ThucDonDTO td in lsThucDon)
             {
