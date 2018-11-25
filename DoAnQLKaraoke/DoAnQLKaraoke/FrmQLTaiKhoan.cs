@@ -84,7 +84,7 @@ namespace DoAnQLKaraoke
                         txtMK.Enabled = false;
                         cbo_LoaiND.Enabled = true;
                         cbo_TT.Enabled = true;
-
+                        ckh_doimk.Enabled = false;
 
                         Bind();
                     }
@@ -101,8 +101,9 @@ namespace DoAnQLKaraoke
                         txtMK.Enabled = true;
                         cbo_LoaiND.Enabled = true;
                         cbo_TT.Enabled = false;
-
+                        txtMK.Enabled = true;
                         tk = null;
+                        ckh_doimk.Enabled = false;
                         //Bindnhanvien();
 
                     }
@@ -110,18 +111,17 @@ namespace DoAnQLKaraoke
                 case 3: // chinh sua
                     {
 
-
+                        cbo_TT.Enabled = true;
                         btn_them.Enabled = false;
                         btn_capNhat.Enabled = true;
                         btn_capNhat.Text = "Hủy";
                         btn_capNhat.Image = Properties.Resources.cancel;
                         btn_luu.Visible = true;
-
                         txt_TK.Enabled = true;
-                        txtMK.Enabled = true;
+                        txtMK.Enabled = false;
                         cbo_LoaiND.Enabled = true;
                         cbo_TT.Enabled = true;
-
+                        ckh_doimk.Enabled = true;
                     }
                     break;
 
@@ -210,6 +210,7 @@ namespace DoAnQLKaraoke
             else
             {
                 trThai = 3; // lan kich thu 1
+                txtMK.Enabled = false;
                 trangthai();
             }
         }
@@ -221,7 +222,7 @@ namespace DoAnQLKaraoke
             {
 
                 taikhoan.MAND = txt_MaND.Text.Trim();
-                taikhoan.MANV = cbo_manv.SelectedValue.ToString() ;
+                taikhoan.MANV = cbo_manv.SelectedValue.ToString();
                 taikhoan.TAIKHOAN = txt_TK.Text.Trim();
                 taikhoan.MATKHAU = txtMK.Text.Trim();
                 taikhoan.MANV = cbo_manv.SelectedValue.ToString();
@@ -235,16 +236,23 @@ namespace DoAnQLKaraoke
                 return;
 
             }
-            if (txt_TK.Text == string.Empty || txtMK.Text == string.Empty || txtMK.Text.Length < 6)
+
+
+
+            if (txt_TK.Text == string.Empty)
             {
                 MessageBox.Show("Thông tin về nhân viên không hợp lệ !");
             }
             else
             {
+
                 TaiKhoanBUS a = new TaiKhoanBUS();
                 if (trThai == 2)
                 {
-
+                    if (txtMK.Text == string.Empty || txtMK.Text.Length < 6)
+                    {
+                        MessageBox.Show("Thông tin về nhân viên không hợp lệ !");
+                    }
 
                     try
                     {
@@ -258,9 +266,10 @@ namespace DoAnQLKaraoke
                         else
                             MessageBox.Show("Them that bai !");
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Nhân viên này đã có tài khoản !");
+                        // trigger csdl kiem tra
+                        MessageBox.Show(ex.Message);
                         return;
                     }
 
@@ -270,8 +279,30 @@ namespace DoAnQLKaraoke
                 {
                     try
                     {
-                        taikhoan.TINHTRANG = int.Parse(cbo_TT.SelectedValue.ToString());
 
+                        if (txtMK.Text == string.Empty && trThai == 3 && ckh_doimk.Checked)
+                        {
+                            MessageBox.Show("Vui lòng nhập mk mới");
+                            return;
+                        }
+                        else if (txtMK.Text != string.Empty && trThai == 3 && ckh_doimk.Checked)
+                        {
+                            taikhoan.MATKHAU = txtMK.Text;
+                        }
+                        else if(ckh_doimk.Checked == false && taikhoan.MATKHAU != string.Empty)
+                        {
+                            taikhoan.MATKHAU = string.Empty;
+                        }
+
+                        taikhoan.TINHTRANG = int.Parse(cbo_TT.SelectedValue.ToString());
+                        if (taikhoan.LOAIND == 1 && taikhoan.TINHTRANG == 2 )
+                        {
+                            MessageBox.Show("Tài khoản quản lý phải luôn hoạt động");
+                            trThai = 1;
+                            trangthai();
+                            return;
+                        }
+                   
                         bool kt = a.CapNhatTaiKhoan(taikhoan);
                         if (!kt)
                         {
@@ -283,17 +314,17 @@ namespace DoAnQLKaraoke
                             trThai = 1;
                         }
                     }
-                
-                      catch
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Nhân viên này đã có tài khoản !");
+                        // trigger csdl kiem tra
+                        MessageBox.Show(ex.Message);
                         return;
                     }
                 }
-                tk = null;
-                trangthai();
+                tk = null;  
                 Bind();
                 LoadNguoiDung();
+                trangthai();
             }
     
 
@@ -334,10 +365,22 @@ namespace DoAnQLKaraoke
             qlltk.MdiParent = FrmChinh.ActiveForm;
             qlltk.Dock = DockStyle.Fill;
             qlltk.FormBorderStyle = FormBorderStyle.None;
-            qlltk.WindowState = FormWindowState.Maximized;
             qlltk.StartPosition = FormStartPosition.CenterScreen;
             qlltk.Show();
 
+        }
+
+        private void ckh_doimk_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckh_doimk.Checked)
+            {
+                txtMK.Enabled = true;
+                txtMK.Text = "";
+            }
+            else
+            {
+                txtMK.Enabled = false;
+            }
         }
     }
 }

@@ -42,11 +42,6 @@ namespace DoAnQLKaraokeBUS
             return a.CapNhatKH(khachhang);
         }
 
-        public List<KhachHangDTO> TraCuu(int x, int y)
-        {
-            KhachHangDAO a = new KhachHangDAO();
-            return a.TraCuu(x, y);
-        }
 
         public bool ThemHD(HoaDonDTO hd)
         {

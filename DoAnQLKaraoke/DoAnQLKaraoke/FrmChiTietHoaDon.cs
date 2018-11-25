@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DoAnQLKaraokeDTO;
 using DoAnQLKaraokeBUS;
+using System.IO;
 
 namespace DoAnQLKaraoke
 {
@@ -19,6 +20,7 @@ namespace DoAnQLKaraoke
         List<ChiTietHoaDonDTO> lsCTHDDTO = null;
         List<ThucDonDTO> lsThucDon = null;
         ChiTietHoaDonDTO ctHDHienHanh = null;
+        string duongdanHA = @"hinh/hinhtd/";
 
         public FrmChiTietHoaDon()
         {
@@ -36,7 +38,31 @@ namespace DoAnQLKaraoke
 
         private void FrmChiTietHoaDon_Load(object sender, EventArgs e)
         {
+            loadHinhAnh();
             LoadData();
+        }
+
+        private void loadHinhAnh()
+        {
+            if (Directory.Exists(duongdanHA))
+            {
+
+                DirectoryInfo dir = new DirectoryInfo(duongdanHA);
+                FileInfo[] isFile = dir.GetFiles("*.jpg");
+                imageList_Large.Images.Clear();
+               imageList_Large.Images.Clear();
+
+
+                foreach (FileInfo f in isFile)
+                {
+                    byte[] bHa = File.ReadAllBytes(f.FullName);
+                    MemoryStream ms = new MemoryStream(bHa);
+                    imageList_Large.Images.Add(f.Name, Image.FromStream(ms));
+                 imageList_Small.Images.Add(f.Name, Image.FromStream(ms));
+
+
+                }
+            }
         }
 
         private void LoadData()
@@ -54,7 +80,7 @@ namespace DoAnQLKaraoke
             foreach (ThucDonDTO td in lsThucDon)
             {
 
-                ListViewItem item = new ListViewItem(td.TENTHUCDON);
+                ListViewItem item = new ListViewItem(td.TENTHUCDON, td.MATD.Trim() + ".jpg");
                 item.SubItems.Add(td.MATD);
                 item.SubItems.Add(td.GIA.Replace("VNĐ", "").Replace(".", ""));
                 lv_thucDon.Items.Add(item);
@@ -202,10 +228,9 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLHoaDon f = new FrmQLHoaDon();
-            f.MdiParent = FrmChinh.ActiveForm;
+            f.MdiParent = this.MdiParent;
             f.Dock = DockStyle.Fill;
             f.FormBorderStyle = FormBorderStyle.None;
-            f.WindowState = FormWindowState.Maximized;
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Show();
 

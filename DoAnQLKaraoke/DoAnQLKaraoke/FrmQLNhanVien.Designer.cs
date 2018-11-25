@@ -64,8 +64,11 @@
             this.colEMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.pbo_hinhanh = new System.Windows.Forms.PictureBox();
+            this.ckh_doihinh = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -89,6 +92,8 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.ckh_doihinh);
+            this.groupBox1.Controls.Add(this.pbo_hinhanh);
             this.groupBox1.Controls.Add(this.btn_qlLoaiKH);
             this.groupBox1.Controls.Add(this.btn_lamMoi);
             this.groupBox1.Controls.Add(this.btn_luu);
@@ -137,7 +142,7 @@
             // 
             this.btn_lamMoi.Image = global::DoAnQLKaraoke.Properties.Resources.refresh;
             this.btn_lamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_lamMoi.Location = new System.Drawing.Point(1037, 142);
+            this.btn_lamMoi.Location = new System.Drawing.Point(850, 138);
             this.btn_lamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_lamMoi.Name = "btn_lamMoi";
             this.btn_lamMoi.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -152,7 +157,7 @@
             // 
             this.btn_luu.Image = global::DoAnQLKaraoke.Properties.Resources.save;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_luu.Location = new System.Drawing.Point(803, 75);
+            this.btn_luu.Location = new System.Drawing.Point(724, 64);
             this.btn_luu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(104, 52);
@@ -166,7 +171,7 @@
             // 
             this.btn_traCuu.Image = global::DoAnQLKaraoke.Properties.Resources.search;
             this.btn_traCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_traCuu.Location = new System.Drawing.Point(875, 143);
+            this.btn_traCuu.Location = new System.Drawing.Point(724, 143);
             this.btn_traCuu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_traCuu.Name = "btn_traCuu";
             this.btn_traCuu.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -182,7 +187,7 @@
             this.btn_capNhat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_capNhat.Image = global::DoAnQLKaraoke.Properties.Resources.edit;
             this.btn_capNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_capNhat.Location = new System.Drawing.Point(1125, 82);
+            this.btn_capNhat.Location = new System.Drawing.Point(967, 69);
             this.btn_capNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_capNhat.Name = "btn_capNhat";
             this.btn_capNhat.Size = new System.Drawing.Size(107, 52);
@@ -196,7 +201,7 @@
             // 
             this.btn_them.Image = global::DoAnQLKaraoke.Properties.Resources.add;
             this.btn_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_them.Location = new System.Drawing.Point(968, 82);
+            this.btn_them.Location = new System.Drawing.Point(850, 64);
             this.btn_them.Margin = new System.Windows.Forms.Padding(4);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(100, 52);
@@ -440,6 +445,27 @@
             this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // pbo_hinhanh
+            // 
+            this.pbo_hinhanh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pbo_hinhanh.Location = new System.Drawing.Point(1108, 17);
+            this.pbo_hinhanh.Name = "pbo_hinhanh";
+            this.pbo_hinhanh.Size = new System.Drawing.Size(196, 173);
+            this.pbo_hinhanh.TabIndex = 34;
+            this.pbo_hinhanh.TabStop = false;
+            this.pbo_hinhanh.Click += new System.EventHandler(this.pbo_hinhanh_Click);
+            // 
+            // ckh_doihinh
+            // 
+            this.ckh_doihinh.AutoSize = true;
+            this.ckh_doihinh.Location = new System.Drawing.Point(1144, 194);
+            this.ckh_doihinh.Name = "ckh_doihinh";
+            this.ckh_doihinh.Size = new System.Drawing.Size(136, 21);
+            this.ckh_doihinh.TabIndex = 35;
+            this.ckh_doihinh.Text = "Cập nhật lại hình";
+            this.ckh_doihinh.UseVisualStyleBackColor = true;
+            this.ckh_doihinh.CheckedChanged += new System.EventHandler(this.ckh_doihinh_CheckedChanged);
+            // 
             // FrmQLNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -457,6 +483,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -499,5 +526,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEMAIL;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDIACHI;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
+        private System.Windows.Forms.PictureBox pbo_hinhanh;
+        private System.Windows.Forms.CheckBox ckh_doihinh;
     }
 }

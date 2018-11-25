@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgv_LoaiTD = new System.Windows.Forms.DataGridView();
-            this.colMALOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTENLOAIPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTINHTRANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbldanhsachnv = new System.Windows.Forms.Label();
             this.grbdstknv = new System.Windows.Forms.GroupBox();
             this.ckb_TinhTrang = new System.Windows.Forms.CheckBox();
@@ -44,6 +41,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_quayve = new System.Windows.Forms.Button();
+            this.colMALOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTENLOAIPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTINHTRANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LoaiTD)).BeginInit();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
@@ -64,24 +64,6 @@
             this.dgv_LoaiTD.Size = new System.Drawing.Size(1341, 212);
             this.dgv_LoaiTD.TabIndex = 16;
             this.dgv_LoaiTD.SelectionChanged += new System.EventHandler(this.dgv_LoaiTD_SelectionChanged);
-            // 
-            // colMALOAI
-            // 
-            this.colMALOAI.DataPropertyName = "MALOAI";
-            this.colMALOAI.HeaderText = "Mã Loại ";
-            this.colMALOAI.Name = "colMALOAI";
-            // 
-            // colTENLOAIPHONG
-            // 
-            this.colTENLOAIPHONG.DataPropertyName = "TENLOAIPHONG";
-            this.colTENLOAIPHONG.HeaderText = "Tên Loại";
-            this.colTENLOAIPHONG.Name = "colTENLOAIPHONG";
-            // 
-            // colTINHTRANG
-            // 
-            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
-            this.colTINHTRANG.HeaderText = "Tình Trạng";
-            this.colTINHTRANG.Name = "colTINHTRANG";
             // 
             // lbldanhsachnv
             // 
@@ -218,6 +200,7 @@
             // 
             // btn_quayve
             // 
+            this.btn_quayve.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_quayve.Image = global::DoAnQLKaraoke.Properties.Resources.DangXuat;
             this.btn_quayve.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_quayve.Location = new System.Drawing.Point(1249, 14);
@@ -229,6 +212,24 @@
             this.btn_quayve.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_quayve.UseVisualStyleBackColor = true;
             this.btn_quayve.Click += new System.EventHandler(this.btn_quayve_Click);
+            // 
+            // colMALOAI
+            // 
+            this.colMALOAI.DataPropertyName = "MALOAITD";
+            this.colMALOAI.HeaderText = "Mã Loại ";
+            this.colMALOAI.Name = "colMALOAI";
+            // 
+            // colTENLOAIPHONG
+            // 
+            this.colTENLOAIPHONG.DataPropertyName = "TEN";
+            this.colTENLOAIPHONG.HeaderText = "Tên Loại";
+            this.colTENLOAIPHONG.Name = "colTENLOAIPHONG";
+            // 
+            // colTINHTRANG
+            // 
+            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
+            this.colTINHTRANG.HeaderText = "Tình Trạng";
+            this.colTINHTRANG.Name = "colTINHTRANG";
             // 
             // FrmLoaiThucDon
             // 
@@ -261,13 +262,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMALOAI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTENLOAIPHONG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTINHTRANG;
         private System.Windows.Forms.Button btn_quayve;
         private System.Windows.Forms.CheckBox ckb_TinhTrang;
         private System.Windows.Forms.Button btn_luu;
         private System.Windows.Forms.Button btn_lamMoi;
         private System.Windows.Forms.Button btn_capNhat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMALOAI;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTENLOAIPHONG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTINHTRANG;
     }
 }

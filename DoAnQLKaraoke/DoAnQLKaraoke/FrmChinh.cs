@@ -63,8 +63,8 @@ namespace DoAnQLKaraoke
                 pHONGToolStripMenuItem.Enabled =true;
                 nHÂNVIÊNToolStripMenuItem.Enabled = false;
                 tAIKHOANNGƯƠIDUNGToolStripMenuItem.Enabled = false;
+                bAOCAOToolStripMenuItem.Enabled = false;
 
-               
 
             }
             else if(lOAIND == 1)
@@ -75,6 +75,7 @@ namespace DoAnQLKaraoke
                 pHONGToolStripMenuItem.Enabled = true;
                 nHÂNVIÊNToolStripMenuItem.Enabled = true;
                 tAIKHOANNGƯƠIDUNGToolStripMenuItem.Enabled = true;
+                bAOCAOToolStripMenuItem.Enabled = true;
             }
             else
             {

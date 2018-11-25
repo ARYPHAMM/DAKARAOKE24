@@ -60,11 +60,11 @@ namespace DoAnQLKaraoke
                         btn_them.Image = Properties.Resources.add;
                         btn_capNhat.Image = Properties.Resources.edit;
                         btn_luu.Visible = false;
-                        txt_MaKH.Enabled = false;
+                        txt_MaKH.Enabled = true;
 
                         txt_Ten.Enabled = false;
                         cbo_LoaiKH.Enabled = true;
-                        txt_SDT.Enabled = false;
+                        txt_SDT.Enabled = true;
                         cbo_TinhTrang.Enabled = true;
                         KHhienhanh = null;
                         //Bind();
@@ -308,6 +308,18 @@ namespace DoAnQLKaraoke
             List<KhachHangDTO> lst = b.DanhSachKhachHang().FindAll(o => o.LOAIKH == loai && o.TINHTRANG == tinhTrang);
             dgv_KhachHang.DataSource = lst;
         }
+        private void XuLyTraCuu(string SDT)
+        {
+            KhachHangBUS b = new KhachHangBUS();
+            List<KhachHangDTO> lst = b.DanhSachKhachHang().FindAll(o => o.SDT.Trim() == SDT.Trim());
+            dgv_KhachHang.DataSource = lst;
+        }
+        private void XuLyTraCuu(TextBox T)
+        {
+            KhachHangBUS b = new KhachHangBUS();
+            List<KhachHangDTO> lst = b.DanhSachKhachHang().FindAll(o => o.MAKH.Trim() == T.Text.Trim());
+            dgv_KhachHang.DataSource = lst;
+        }
         private void btn_traCuu_Click_1(object sender, EventArgs e)
         {
             try
@@ -315,8 +327,15 @@ namespace DoAnQLKaraoke
                 XuLyTraCuu(int.Parse(cbo_LoaiKH.SelectedValue.ToString()), int.Parse(cbo_TinhTrang.SelectedValue.ToString()));
     
             }
-            catch
+            catch(Exception ex1)
             {
+                if (txt_SDT.Text != string.Empty)
+                    XuLyTraCuu(txt_SDT.Text);
+                else if (txt_MaKH.Text != string.Empty && maKHMoi.Trim() != txt_MaKH.Text.Trim())
+                    XuLyTraCuu(txt_MaKH);
+                else
+                    LoadData();
+
 
             }
             btn_luu.Enabled = false;
@@ -329,7 +348,6 @@ namespace DoAnQLKaraoke
             ql.MdiParent = FrmChinh.ActiveForm;
             ql.Dock = DockStyle.Fill;
             ql.FormBorderStyle = FormBorderStyle.None;
-            ql.WindowState = FormWindowState.Maximized;
             ql.StartPosition = FormStartPosition.CenterScreen;
             ql.Show();
         }

@@ -55,6 +55,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.ckh_doimk = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TaiKhoan)).BeginInit();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
@@ -272,6 +273,7 @@
             // grbdstknv
             // 
             this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbdstknv.Controls.Add(this.ckh_doimk);
             this.grbdstknv.Controls.Add(this.cbo_manv);
             this.grbdstknv.Controls.Add(this.txt_MaND);
             this.grbdstknv.Controls.Add(this.label7);
@@ -354,6 +356,17 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Tài Khoản";
             // 
+            // ckh_doimk
+            // 
+            this.ckh_doimk.AutoSize = true;
+            this.ckh_doimk.Location = new System.Drawing.Point(236, 165);
+            this.ckh_doimk.Name = "ckh_doimk";
+            this.ckh_doimk.Size = new System.Drawing.Size(75, 21);
+            this.ckh_doimk.TabIndex = 32;
+            this.ckh_doimk.Text = "Đổi MK";
+            this.ckh_doimk.UseVisualStyleBackColor = true;
+            this.ckh_doimk.CheckedChanged += new System.EventHandler(this.ckh_doimk_CheckedChanged);
+            // 
             // FrmQLTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -402,5 +415,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox ckh_doimk;
     }
 }

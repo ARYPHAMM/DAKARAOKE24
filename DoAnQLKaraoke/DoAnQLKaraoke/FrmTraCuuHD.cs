@@ -126,14 +126,14 @@ namespace DoAnQLKaraoke
 
         private void btn_trove_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Visible = false;
             FrmQLHoaDon hd = new FrmQLHoaDon();
-            hd.MdiParent = FrmChinh.ActiveForm;
+            hd.MdiParent = this.MdiParent;
             hd.Dock = DockStyle.Fill;
             hd.FormBorderStyle = FormBorderStyle.None;
-            hd.WindowState = FormWindowState.Maximized;
             hd.StartPosition = FormStartPosition.CenterScreen;
             hd.Show();
+           
 
         }
     }

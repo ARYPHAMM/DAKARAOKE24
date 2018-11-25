@@ -182,7 +182,6 @@ namespace DoAnQLKaraoke
             qlphong.MdiParent = FrmChinh.ActiveForm;
             qlphong.Dock = DockStyle.Fill;
             qlphong.FormBorderStyle = FormBorderStyle.None;
-            qlphong.WindowState = FormWindowState.Maximized;
             qlphong.StartPosition = FormStartPosition.CenterScreen;
             qlphong.Show();
 

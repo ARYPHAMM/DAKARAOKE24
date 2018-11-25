@@ -129,7 +129,10 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLNhanVien ql = new FrmQLNhanVien();
+            ql.MdiParent = FrmChinh.ActiveForm;
             ql.Dock = DockStyle.Fill;
+            ql.FormBorderStyle = FormBorderStyle.None;
+            ql.StartPosition = FormStartPosition.CenterScreen;
             ql.Show();
         }
 

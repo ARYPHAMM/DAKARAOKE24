@@ -433,7 +433,6 @@ namespace DoAnQLKaraoke
                 cthd.MdiParent = FrmChinh.ActiveForm;
                 cthd.Dock = DockStyle.Fill;
                 cthd.FormBorderStyle = FormBorderStyle.None;
-                cthd.WindowState = FormWindowState.Maximized;
                 cthd.StartPosition = FormStartPosition.CenterScreen;
                 cthd.Show();
             }
@@ -474,12 +473,12 @@ namespace DoAnQLKaraoke
         {
             this.Visible = false;
             FrmTraCuuHD tchd = new FrmTraCuuHD();
-            tchd.MdiParent = FrmChinh.ActiveForm;
+            tchd.MdiParent = this.MdiParent;
             tchd.Dock = DockStyle.Fill;
             tchd.FormBorderStyle = FormBorderStyle.None;
-            tchd.WindowState = FormWindowState.Maximized;
             tchd.StartPosition = FormStartPosition.CenterScreen;
             tchd.Show();
+        
         }
     }
 

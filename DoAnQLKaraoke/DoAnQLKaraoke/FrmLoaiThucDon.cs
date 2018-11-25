@@ -19,6 +19,7 @@ namespace DoAnQLKaraoke
         public FrmLoaiThucDon()
         {
             InitializeComponent();
+            dgv_LoaiTD.AutoGenerateColumns = true;
         }
 
         private void TrangThai()
@@ -63,6 +64,7 @@ namespace DoAnQLKaraoke
 
         private void FrmLoaiThucDon_Load(object sender, EventArgs e)
         {
+
             TrangThai();
             LoadData();
         }
@@ -159,7 +161,10 @@ namespace DoAnQLKaraoke
         {
             this.Close();
             FrmQLThucDon ql = new FrmQLThucDon();
+            ql.MdiParent = FrmChinh.ActiveForm;
             ql.Dock = DockStyle.Fill;
+            ql.FormBorderStyle = FormBorderStyle.None;
+            ql.StartPosition = FormStartPosition.CenterScreen;
             ql.Show();
         }
 

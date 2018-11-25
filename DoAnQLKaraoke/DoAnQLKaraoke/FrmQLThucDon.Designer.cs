@@ -52,8 +52,11 @@
             this.colTENTHUCDON = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ckh_doihinh = new System.Windows.Forms.CheckBox();
+            this.pbo_hinhanh = new System.Windows.Forms.PictureBox();
             this.grb_TTTD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThucDon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).BeginInit();
             this.SuspendLayout();
             // 
             // cbo_TT
@@ -154,7 +157,7 @@
             this.lbldanhsachnv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldanhsachnv.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldanhsachnv.ForeColor = System.Drawing.Color.Salmon;
-            this.lbldanhsachnv.Location = new System.Drawing.Point(351, 68);
+            this.lbldanhsachnv.Location = new System.Drawing.Point(359, 41);
             this.lbldanhsachnv.Name = "lbldanhsachnv";
             this.lbldanhsachnv.Size = new System.Drawing.Size(905, 58);
             this.lbldanhsachnv.TabIndex = 6;
@@ -164,6 +167,8 @@
             // grb_TTTD
             // 
             this.grb_TTTD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grb_TTTD.Controls.Add(this.ckh_doihinh);
+            this.grb_TTTD.Controls.Add(this.pbo_hinhanh);
             this.grb_TTTD.Controls.Add(this.btn_qlLoai);
             this.grb_TTTD.Controls.Add(this.btn_lamMoi);
             this.grb_TTTD.Controls.Add(this.btn_luu);
@@ -180,11 +185,11 @@
             this.grb_TTTD.Controls.Add(this.label1);
             this.grb_TTTD.Controls.Add(this.label6);
             this.grb_TTTD.Controls.Add(this.label5);
-            this.grb_TTTD.Location = new System.Drawing.Point(12, 159);
+            this.grb_TTTD.Location = new System.Drawing.Point(12, 129);
             this.grb_TTTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grb_TTTD.Name = "grb_TTTD";
             this.grb_TTTD.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grb_TTTD.Size = new System.Drawing.Size(1519, 174);
+            this.grb_TTTD.Size = new System.Drawing.Size(1519, 204);
             this.grb_TTTD.TabIndex = 7;
             this.grb_TTTD.TabStop = false;
             this.grb_TTTD.Text = "Thông tin";
@@ -204,7 +209,7 @@
             // 
             this.btn_lamMoi.Image = global::DoAnQLKaraoke.Properties.Resources.refresh;
             this.btn_lamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_lamMoi.Location = new System.Drawing.Point(1355, 37);
+            this.btn_lamMoi.Location = new System.Drawing.Point(935, 95);
             this.btn_lamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_lamMoi.Name = "btn_lamMoi";
             this.btn_lamMoi.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -219,7 +224,7 @@
             // 
             this.btn_luu.Image = global::DoAnQLKaraoke.Properties.Resources.save;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_luu.Location = new System.Drawing.Point(1028, 37);
+            this.btn_luu.Location = new System.Drawing.Point(810, 33);
             this.btn_luu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(76, 52);
@@ -233,7 +238,7 @@
             // 
             this.btn_traCuu.Image = global::DoAnQLKaraoke.Properties.Resources.search;
             this.btn_traCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_traCuu.Location = new System.Drawing.Point(1355, 99);
+            this.btn_traCuu.Location = new System.Drawing.Point(810, 95);
             this.btn_traCuu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_traCuu.Name = "btn_traCuu";
             this.btn_traCuu.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -249,7 +254,7 @@
             this.btn_capNhat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_capNhat.Image = global::DoAnQLKaraoke.Properties.Resources.edit;
             this.btn_capNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_capNhat.Location = new System.Drawing.Point(1231, 37);
+            this.btn_capNhat.Location = new System.Drawing.Point(1012, 33);
             this.btn_capNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_capNhat.Name = "btn_capNhat";
             this.btn_capNhat.Size = new System.Drawing.Size(107, 52);
@@ -263,7 +268,7 @@
             // 
             this.btn_them.Image = global::DoAnQLKaraoke.Properties.Resources.add;
             this.btn_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_them.Location = new System.Drawing.Point(1122, 37);
+            this.btn_them.Location = new System.Drawing.Point(907, 33);
             this.btn_them.Margin = new System.Windows.Forms.Padding(4);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(88, 52);
@@ -326,6 +331,27 @@
             this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // ckh_doihinh
+            // 
+            this.ckh_doihinh.AutoSize = true;
+            this.ckh_doihinh.Location = new System.Drawing.Point(1204, 168);
+            this.ckh_doihinh.Name = "ckh_doihinh";
+            this.ckh_doihinh.Size = new System.Drawing.Size(136, 21);
+            this.ckh_doihinh.TabIndex = 37;
+            this.ckh_doihinh.Text = "Cập nhật lại hình";
+            this.ckh_doihinh.UseVisualStyleBackColor = true;
+            this.ckh_doihinh.CheckedChanged += new System.EventHandler(this.ckh_doihinh_CheckedChanged);
+            // 
+            // pbo_hinhanh
+            // 
+            this.pbo_hinhanh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pbo_hinhanh.Location = new System.Drawing.Point(1177, 33);
+            this.pbo_hinhanh.Name = "pbo_hinhanh";
+            this.pbo_hinhanh.Size = new System.Drawing.Size(179, 133);
+            this.pbo_hinhanh.TabIndex = 36;
+            this.pbo_hinhanh.TabStop = false;
+            this.pbo_hinhanh.Click += new System.EventHandler(this.pbo_hinhanh_Click);
+            // 
             // FrmQLThucDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -334,6 +360,7 @@
             this.Controls.Add(this.lbldanhsachnv);
             this.Controls.Add(this.grb_TTTD);
             this.Controls.Add(this.dgv_ThucDon);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQLThucDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -342,6 +369,7 @@
             this.grb_TTTD.ResumeLayout(false);
             this.grb_TTTD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ThucDon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,5 +400,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTENTHUCDON;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGIA;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
+        private System.Windows.Forms.CheckBox ckh_doihinh;
+        private System.Windows.Forms.PictureBox pbo_hinhanh;
     }
 }

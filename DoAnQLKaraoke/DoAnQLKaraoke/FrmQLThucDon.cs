@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DoAnQLKaraokeBUS;
 using DoAnQLKaraokeDTO;
+using System.IO;
 
 namespace DoAnQLKaraoke
 {
@@ -16,6 +17,7 @@ namespace DoAnQLKaraoke
     {
         public int trThai = 1;
         ThucDonDTO TDhienhanh;
+        string duongDanHA = @"hinh/hinhtd/";
         string maTDMoi = DoAnQLKaraokeBUS.ThucDonBUS.MaThucDonMoi();
         public FrmQLThucDon()
         {
@@ -25,6 +27,10 @@ namespace DoAnQLKaraoke
 
         private void FrmQLThucDon_Load(object sender, EventArgs e)
         {
+            foreach (Form a in this.MdiChildren)
+            {
+                a.Close();
+            }
             LoadData();
             txt_MaTD.Enabled = false;
             TrangThai();
@@ -68,7 +74,11 @@ namespace DoAnQLKaraoke
                         cbo_Loai.Enabled = true;
                         cbo_TT.Enabled = true;
                         TDhienhanh = null;
-                        //Bind();
+                        pbo_hinhanh.Image = null;
+                        ckh_doihinh.Checked = false;
+                        ckh_doihinh.Enabled = false;
+                        pbo_hinhanh.Enabled = false;
+                        Bind();
 
                     }
                     break;
@@ -84,7 +94,11 @@ namespace DoAnQLKaraoke
                         cbo_Loai.Enabled = true;
                         cbo_TT.Enabled = true;
                         TDhienhanh = null;
-                        //Bind();
+                        pbo_hinhanh.Image = null;
+                        ckh_doihinh.Checked = true;
+                        ckh_doihinh.Enabled = false;
+                        pbo_hinhanh.Enabled = true;
+                        Bind();
                     }
                     break;
                 case 3: // chinh sua
@@ -99,6 +113,11 @@ namespace DoAnQLKaraoke
                         txt_Gia.Enabled = true;
                         cbo_Loai.Enabled = true;
                         cbo_TT.Enabled = true;
+                        pbo_hinhanh.Enabled = false;
+                        ckh_doihinh.Checked = false;
+                        ckh_doihinh.Enabled = true;
+                        pbo_hinhanh.Enabled = false;
+                        Bind();
 
                     }
                     break;
@@ -169,6 +188,18 @@ namespace DoAnQLKaraoke
                 txt_Gia.Text = TDhienhanh.GIA;
                 cbo_Loai.SelectedValue = TDhienhanh.LOAITD;
                 cbo_TT.SelectedValue = TDhienhanh.TINHTRANG;
+                try
+                {
+                    pbo_hinhanh.Image = null;
+                    byte[] hA = File.ReadAllBytes(duongDanHA + TDhienhanh.MATD.Trim() + ".jpg");
+                    MemoryStream ms = new MemoryStream(hA);
+                    pbo_hinhanh.Image = Image.FromStream(ms);
+                    pbo_hinhanh.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                catch
+                {
+                    MessageBox.Show("Thực đơn chưa có hình ảnh vui lòng cập nhật hình ảnh cho nhân viên");
+                }
 
             }
             else
@@ -256,9 +287,17 @@ namespace DoAnQLKaraoke
 
 
                 bool kq = a.Them(TD);
+                if (pbo_hinhanh.Image != null)
+                {
+                    MessageBox.Show("Vui lòng chọn hình ảnh !");
+                    return;
+                }
+
                 if (kq)
                 {
-                    MessageBox.Show("Them thanh cong",maTDMoi);
+                    pbo_hinhanh.Name = maTDMoi.Trim();
+                    MessageBox.Show(pbo_hinhanh.Name);
+                    pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
                     trThai = 1;
                 }
                 else
@@ -275,6 +314,12 @@ namespace DoAnQLKaraoke
                 }
                 else
                 {
+                    if (ckh_doihinh.Checked && pbo_hinhanh.Image != null)
+                    {
+                        pbo_hinhanh.Name = TD.MATD.Trim();
+                        MessageBox.Show(pbo_hinhanh.Name);
+                        pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
+                    }
                     MessageBox.Show("Cập nhật thành công!");
                 }
 
@@ -309,14 +354,15 @@ namespace DoAnQLKaraoke
 
         private void btn_qlLoai_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            //this.Visible = false;
+
             FrmLoaiThucDon qllp = new FrmLoaiThucDon();
-            qllp.MdiParent = FrmChinh.ActiveForm;
+            qllp.MdiParent = this.MdiParent;
             qllp.Dock = DockStyle.Fill;
             qllp.FormBorderStyle = FormBorderStyle.None;
-            qllp.WindowState = FormWindowState.Maximized;
             qllp.StartPosition = FormStartPosition.CenterScreen;
             qllp.Show();
+            this.Close();
         }
 
         private void txt_Gia_TextChanged(object sender, EventArgs e)
@@ -338,5 +384,32 @@ namespace DoAnQLKaraoke
             }
         }
 
+        private void pbo_hinhanh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = "C:\\";
+            open.Filter = "Hình Ảnh (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            DialogResult dr = open.ShowDialog();
+            if (dr != DialogResult.Cancel)
+            {
+                byte[] hA = File.ReadAllBytes(open.FileName);
+                MemoryStream ms = new MemoryStream(hA);
+                pbo_hinhanh.Image = Image.FromStream(ms);
+                pbo_hinhanh.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            }
+        }
+
+        private void ckh_doihinh_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckh_doihinh.Checked)
+            {
+                pbo_hinhanh.Enabled = true;
+            }
+            else
+            {
+                pbo_hinhanh.Enabled = false;
+            }
+        }
     }
 }

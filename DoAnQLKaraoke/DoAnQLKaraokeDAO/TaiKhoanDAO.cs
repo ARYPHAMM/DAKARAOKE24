@@ -43,10 +43,22 @@ namespace DoAnQLKaraokeDAO
 
         public bool CapNhatTaiKhoan(TaiKhoanDTO taikhoan)
         {
-            string insert = "Update NGUOIDUNG"
-                          + " Set TAIKHOAN = @TAIKHOAN,"
-                         + "MATKHAU = @MATKHAU, LOAIND =  @LOAIND , MANV = @MANV, TINHTRANG = @TINHTRANG"
-                                   + " where  MAND = @MAND";
+            string update;
+            if (taikhoan.MATKHAU != string.Empty)
+            {
+
+                update = "Update NGUOIDUNG"
+                              + " Set TAIKHOAN = @TAIKHOAN,"
+                             + "MATKHAU = @MATKHAU, LOAIND =  @LOAIND , MANV = @MANV, TINHTRANG = @TINHTRANG"
+                                       + " where  MAND = @MAND";
+            }
+            else
+            {
+                update = "Update NGUOIDUNG"
+                             + " Set TAIKHOAN = @TAIKHOAN,"
+                            + "LOAIND =  @LOAIND , MANV = @MANV, TINHTRANG = @TINHTRANG"
+                                      + " where  MAND = @MAND";
+            }
 
             List<SqlParameter> lsparams = new List<SqlParameter>();
             lsparams.Add(new SqlParameter("@MAND", taikhoan.MAND.Trim()));
@@ -59,7 +71,7 @@ namespace DoAnQLKaraokeDAO
             //lsparams.Add(new SqlParameter("@TrangThai", nvmoi.TrangThai));
 
             SqlConnection con = DataProvider.TaoKetNoi();
-            bool thucthi = DataProvider.ThucThi(insert, lsparams.ToArray(), con);
+            bool thucthi = DataProvider.ThucThi(update, lsparams.ToArray(), con);
             return thucthi;
         }
 

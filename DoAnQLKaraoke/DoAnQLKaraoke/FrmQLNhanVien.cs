@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DoAnQLKaraokeBUS;
 using DoAnQLKaraokeDTO;
+using System.IO;
 
 namespace DoAnQLKaraoke
 {
@@ -17,6 +18,7 @@ namespace DoAnQLKaraoke
         public int trThai = 1;
         NhanVienDTO NVhienhanh;
         string maNVMoi;
+        string duongDanHA = @"hinh/hinhnv/";
         public FrmQLNhanVien()
         {
 
@@ -61,7 +63,10 @@ namespace DoAnQLKaraoke
                         txt_Email.Enabled = false;
                         cbo_TinhTrang.Enabled = true;
                         NVhienhanh = null;
-
+                        pbo_hinhanh.Image = null;
+                        ckh_doihinh.Checked = false;
+                        ckh_doihinh.Enabled = false;
+                        pbo_hinhanh.Enabled = false;
                         Bind();
 
                     }
@@ -82,6 +87,10 @@ namespace DoAnQLKaraoke
                         txt_Email.Enabled = true;
                         cbo_TinhTrang.Enabled = true;
                         NVhienhanh = null;
+                        pbo_hinhanh.Image = null;
+                        ckh_doihinh.Checked = true;
+                        ckh_doihinh.Enabled = false;
+                        pbo_hinhanh.Enabled =true;
                         Bind();
                     }
                     break;
@@ -101,6 +110,11 @@ namespace DoAnQLKaraoke
                         txt_Email.Enabled = true;
                         cbo_LoaiNV.Enabled = true;
                         cbo_TinhTrang.Enabled = true;
+                        pbo_hinhanh.Enabled = false;
+                        ckh_doihinh.Checked = false;
+                        ckh_doihinh.Enabled =true;
+                        pbo_hinhanh.Enabled = false;
+                        Bind();
 
                     }
                     break;
@@ -158,6 +172,18 @@ namespace DoAnQLKaraoke
                 txt_DiaChi.Text = NVhienhanh.DIACHI;
                 cbo_LoaiNV.SelectedValue = NVhienhanh.LOAINV;
                 cbo_TinhTrang.SelectedValue = NVhienhanh.TINHTRANG;
+                try
+                {
+                    pbo_hinhanh.Image = null;
+                    byte[] hA = File.ReadAllBytes(duongDanHA + NVhienhanh.MANV.Trim() + ".jpg");
+                    MemoryStream ms = new MemoryStream(hA);
+                    pbo_hinhanh.Image = Image.FromStream(ms);
+                    pbo_hinhanh.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                catch
+                {
+                    MessageBox.Show("Nhân viên chưa có hình ảnh vui lòng cập nhật hình ảnh cho nhân viên");
+                }
 
             }
             else
@@ -270,8 +296,17 @@ namespace DoAnQLKaraoke
                     {
 
                         bool kq = a.ThemNV(nhanvien);
+                        if(pbo_hinhanh.Image != null)
+                        {
+                            MessageBox.Show("Vui lòng chọn hình ảnh !");
+                            return;
+                        }
+
                         if (kq)
                         {
+                            pbo_hinhanh.Name = maNVMoi.Trim();
+                            MessageBox.Show(pbo_hinhanh.Name);
+                            pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
                             MessageBox.Show("Them thanh cong", maNVMoi);
                             trThai = 1;
                         }
@@ -290,13 +325,28 @@ namespace DoAnQLKaraoke
                 {
                     try
                     {
+                        if (nhanvien.LOAINV == 1 && (nhanvien.TINHTRANG == 2 || nhanvien.TINHTRANG == 3))
+                        {
+                            
+                            MessageBox.Show("Quản lý phải luôn hoạt động");
+                            trThai = 1;
+                            TrangThai();
+                            return;
+                        }
                         bool kt = a.CapNhatNV(nhanvien);
                         if (!kt)
-                        {
+                        { 
+
                             MessageBox.Show("Cập nhật thất bại");
                         }
                         else
                         {
+                            if (ckh_doihinh.Checked && pbo_hinhanh.Image != null)
+                            {
+                                pbo_hinhanh.Name = nhanvien.MANV;
+                                MessageBox.Show(pbo_hinhanh.Name);
+                                pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
+                            }
                             MessageBox.Show("Cập nhật thành công!");
                         }
                     }
@@ -346,7 +396,6 @@ namespace DoAnQLKaraoke
             ql.MdiParent = FrmChinh.ActiveForm;
             ql.Dock = DockStyle.Fill;
             ql.FormBorderStyle = FormBorderStyle.None;
-            ql.WindowState = FormWindowState.Maximized;
             ql.StartPosition = FormStartPosition.CenterScreen;
             ql.Show();
         }
@@ -398,6 +447,34 @@ namespace DoAnQLKaraoke
             catch
             {
 
+            }
+        }
+
+        private void pbo_hinhanh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.InitialDirectory = "C:\\";
+            open.Filter = "Hình Ảnh (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            DialogResult dr = open.ShowDialog();
+            if (dr != DialogResult.Cancel)
+            {
+                byte[] hA = File.ReadAllBytes(open.FileName);
+                MemoryStream ms = new MemoryStream(hA);
+                pbo_hinhanh.Image = Image.FromStream(ms);
+                pbo_hinhanh.SizeMode = PictureBoxSizeMode.StretchImage;
+       
+            }
+        }
+
+        private void ckh_doihinh_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckh_doihinh.Checked)
+            {
+                pbo_hinhanh.Enabled = true;
+            }
+            else
+            {
+                pbo_hinhanh.Enabled = false;
             }
         }
     }
