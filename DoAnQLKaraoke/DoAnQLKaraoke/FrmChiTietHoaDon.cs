@@ -31,13 +31,24 @@ namespace DoAnQLKaraoke
             txt_tenPhong.Text = FrmQLHoaDon.hdHienHanh.TENPHONG;
             dtp_thoiGianBatDau.Value = FrmQLHoaDon.hdHienHanh.THOIGIANBATDAU;
             txt_tenKH.Text = FrmQLHoaDon.hdHienHanh.HOTENKH;
-
+        
 
 
         }
 
         private void FrmChiTietHoaDon_Load(object sender, EventArgs e)
         {
+            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = frmmain.nvDangNhap.MAND,
+                MANV = frmmain.nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Chi Tiết HD"
+
+            };
+            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+
             loadHinhAnh();
             LoadData();
         }
@@ -122,7 +133,16 @@ namespace DoAnQLKaraoke
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-           
+            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = frmmain.nvDangNhap.MAND,
+                MANV = frmmain.nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Thêm " + txt_tenThucDon.Text.Trim() + " vào HD : " + txt_maHD.Text.Trim() + ",số lượng: " + txt_soLuong.Text.Trim() + "Giá : " + txt_gia.Text.Trim()
+
+            };
+            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
 
             if (ctHDHienHanh != null)
             {
@@ -184,6 +204,7 @@ namespace DoAnQLKaraoke
 
         private void btn_huy_Click(object sender, EventArgs e)
         {
+           
             if (dgv_CTHD.SelectedRows.Count > 0)
             {
                 ctHDHienHanh = (ChiTietHoaDonDTO)dgv_CTHD.SelectedRows[0].DataBoundItem;
@@ -191,7 +212,17 @@ namespace DoAnQLKaraoke
                      if(kt)
                     {
                     MessageBox.Show("Cap nhat thanh cong");
-                    }
+                    FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                    frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                    {
+                        MAND = frmmain.nvDangNhap.MAND,
+                        MANV = frmmain.nvDangNhap.MANV,
+                        THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                        SUKIEN = "Hủy " + ctHDHienHanh.TENTHUCDON + " vào HD : " + txt_maHD.Text.Trim() + ",số lượng: " + ctHDHienHanh.SOLUONG + "Giá : " + ctHDHienHanh.THANHTIEN
+
+                    };
+                    bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                }
             }
             LoadData();
         }
@@ -226,7 +257,7 @@ namespace DoAnQLKaraoke
 
         private void btn_trove_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Visible = true;
             FrmQLHoaDon f = new FrmQLHoaDon();
             f.MdiParent = this.MdiParent;
             f.Dock = DockStyle.Fill;

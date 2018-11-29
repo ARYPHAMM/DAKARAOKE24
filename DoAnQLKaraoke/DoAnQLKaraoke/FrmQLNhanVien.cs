@@ -26,7 +26,7 @@ namespace DoAnQLKaraoke
 
 
             dgv_NhanVien.AutoGenerateColumns = false;
-
+            dtp_NgaySinh.Value = new DateTime(2000, 01, 01);
             //MessageBox.Show(maNVMoi);
         }
 
@@ -34,6 +34,7 @@ namespace DoAnQLKaraoke
 
         private void FrmQLNhanVien_Load(object sender, EventArgs e)
         {
+
             LoadData();
             txt_MaNV.Enabled = false;
             TrangThai();
@@ -260,6 +261,7 @@ namespace DoAnQLKaraoke
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
+            NhanVienBUS a = new NhanVienBUS();
             NhanVienDTO nhanvien = new NhanVienDTO();
             try
             {
@@ -273,6 +275,8 @@ namespace DoAnQLKaraoke
                 nhanvien.EMAIL = txt_Email.Text.Trim();
                 nhanvien.LOAINV = int.Parse(cbo_LoaiNV.SelectedValue.ToString());
                 nhanvien.TINHTRANG = int.Parse(cbo_TinhTrang.SelectedValue.ToString());
+                
+           
 
             }
             catch
@@ -282,7 +286,15 @@ namespace DoAnQLKaraoke
 
             }
 
-            NhanVienBUS a = new NhanVienBUS();
+        
+            int kiemtrans = int.Parse(dtp_NgaySinh.Value.Year.ToString());
+            MessageBox.Show(kiemtrans.ToString());
+            if (kiemtrans > 2000)
+            {
+                MessageBox.Show("Phải từ 18 tuổi");
+                return;
+            }
+        
             if (txt_SDT.Text == string.Empty || txt_HoNV.Text == string.Empty || txt_TenNV.Text == string.Empty || txt_SDT.Text.Length > 11 || txt_SDT.Text.Length < 10)
             {
                 MessageBox.Show("Thông tin về nhân viên không hợp lệ !");
@@ -291,16 +303,21 @@ namespace DoAnQLKaraoke
             {
                 if (trThai == 2)
                 {
-
+                    if (pbo_hinhanh.Image == null)
+                    {
+                        MessageBox.Show("Vui lòng chọn hình ảnh !");
+                        return;
+                    }
+                    if (a.DanhSachNhanVien().Find(o => o.SDTNV.Trim() == nhanvien.SDTNV.Trim()) != null)
+                    {
+                        MessageBox.Show("Trùng SDT");
+                        return;
+                    }
                     try
                     {
-
+                     
                         bool kq = a.ThemNV(nhanvien);
-                        if(pbo_hinhanh.Image != null)
-                        {
-                            MessageBox.Show("Vui lòng chọn hình ảnh !");
-                            return;
-                        }
+                 
 
                         if (kq)
                         {
@@ -308,6 +325,16 @@ namespace DoAnQLKaraoke
                             MessageBox.Show(pbo_hinhanh.Name);
                             pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
                             MessageBox.Show("Them thanh cong", maNVMoi);
+                            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                            {
+                                MAND = frmmain.nvDangNhap.MAND,
+                                MANV = frmmain.nvDangNhap.MANV,
+                                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                                SUKIEN = "Nhân viên" + txt_MaNV.Text + " được thêm vào hệ thống" 
+
+                            };
+                            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                             trThai = 1;
                         }
                         else
@@ -315,7 +342,7 @@ namespace DoAnQLKaraoke
                     }
                     catch
                     {
-                        MessageBox.Show("Trùng số điện thoại!");
+                        
 
                     }
 
@@ -325,17 +352,23 @@ namespace DoAnQLKaraoke
                 {
                     try
                     {
+
                         if (nhanvien.LOAINV == 1 && (nhanvien.TINHTRANG == 2 || nhanvien.TINHTRANG == 3))
                         {
-                            
+
                             MessageBox.Show("Quản lý phải luôn hoạt động");
                             trThai = 1;
                             TrangThai();
                             return;
                         }
+                        if (a.DanhSachNhanVien().Find(o => o.SDTNV.Trim() == nhanvien.SDTNV.Trim() && o.MANV.Trim() != nhanvien.MANV.Trim()) != null)
+                        {
+                            MessageBox.Show("Trùng SDT");
+                            return;
+                        }
                         bool kt = a.CapNhatNV(nhanvien);
                         if (!kt)
-                        { 
+                        {
 
                             MessageBox.Show("Cập nhật thất bại");
                         }
@@ -348,12 +381,23 @@ namespace DoAnQLKaraoke
                                 pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
                             }
                             MessageBox.Show("Cập nhật thành công!");
+                            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                            {
+                                MAND = frmmain.nvDangNhap.MAND,
+                                MANV = frmmain.nvDangNhap.MANV,
+                                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                                SUKIEN = "Nhân viên" + txt_MaNV.Text + " được cập nhật"
+
+                            };
+                            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                         }
                     }
                     catch
                     {
-                        MessageBox.Show("Số điện thoại đã có hoặc Nhân viên sở hữu tài khoản đã nghỉ!");
+
                     }
+              
 
                     trThai = 1;
                 }
@@ -476,6 +520,36 @@ namespace DoAnQLKaraoke
             {
                 pbo_hinhanh.Enabled = false;
             }
+        }
+
+        private void txt_SDT_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                long a;
+                bool kt = long.TryParse(txt_SDT.Text, out a);
+                if (!kt)
+                {
+
+
+                    if (txt_SDT.TextLength > 0)
+                        txt_SDT.Text = txt_SDT.Text.Remove(txt_SDT.Text.Length - 1, 1);
+                    else
+                        txt_SDT.Text = txt_SDT.Text.Remove(0, 0);
+
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void dtp_NgaySinh_FormatChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

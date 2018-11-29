@@ -14,6 +14,8 @@ namespace DoAnQLKaraoke
 {
     public partial class FrmChinh : Form
     {
+        public LichSuNguoiDungDTO lsNDDTO;
+        public LichSuNguoiDungBUS lsNDBUS;
         public FrmDangNhap dn = null;
        public FrmQLNhanVien f1 = null;
         FrmQLTaiKhoan f2;
@@ -22,6 +24,7 @@ namespace DoAnQLKaraoke
         FrmThongKe f6;
         FrmQLKHACHHANG f8;
         FrmQLHoaDon f9;
+        FrmLichSuHoatDong f10;
         public  bool isDangNhap;
         public  TaiKhoanDTO nvDangNhap;
         public FrmChinh()
@@ -32,6 +35,15 @@ namespace DoAnQLKaraoke
 
         private void nHÂNVIÊNToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Quản Lý Nhân Viên"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             f1 = new FrmQLNhanVien();
             f1.MdiParent = this;
@@ -42,6 +54,16 @@ namespace DoAnQLKaraoke
 
         private void tAIKHOANNGƯƠIDUNGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Quản Lý Tài Khoản"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
+            lsNDBUS = new LichSuNguoiDungBUS();
             DongFrmCon();
             f2 = new FrmQLTaiKhoan();
             f2.MdiParent = this;
@@ -49,9 +71,21 @@ namespace DoAnQLKaraoke
             f2.Show();
         }
 
-       public  void XetTruyCap(int lOAIND)
+        public void XetTruyCap(int lOAIND)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Đăng nhập hệ thống"
 
+               };
+            lsNDBUS = new LichSuNguoiDungBUS();
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
+
+             
+             
 
             menuStrip1.Enabled = true;
             tAIKHOANCUATÔIToolStripMenuItem.Text = nvDangNhap.TAIKHOAN.Trim();
@@ -88,6 +122,15 @@ namespace DoAnQLKaraoke
 
         private void kHACHHANGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Quản Lý Khách Hàng"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             f8 = new FrmQLKHACHHANG();
             f8.MdiParent = this;
@@ -99,6 +142,15 @@ namespace DoAnQLKaraoke
 
         private void tHƯCĐƠNToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Quản Lý Thực Đơn"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             f4 = new FrmQLThucDon();
             f4.MdiParent = this;
@@ -108,6 +160,15 @@ namespace DoAnQLKaraoke
 
         private void pHONGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Quản Lý Phòng"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             f5 = new FrmQLPhong();
             f5.MdiParent = this;
@@ -117,6 +178,15 @@ namespace DoAnQLKaraoke
 
         private void bAOCAOToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Báo Cáo Thống Kê"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             f6 = new FrmThongKe();
             f6.MdiParent = this;
@@ -155,9 +225,18 @@ namespace DoAnQLKaraoke
 
         private void đĂNGXUÂTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Đăng Xuất Khỏi Hệ Thống"
+
+            };
+            bool ktls = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             dn = null;
-                 f1 = null;
+            f1 = null;
             FrmDangNhap fdn = new FrmDangNhap();
             fdn.MdiParent = this;
             fdn.Dock = DockStyle.Fill;
@@ -170,6 +249,15 @@ namespace DoAnQLKaraoke
 
         private void đĂTPHONGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Đặt Phòng"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             f9 = new FrmQLHoaDon();
             f9.MdiParent = this;
@@ -187,11 +275,36 @@ namespace DoAnQLKaraoke
 
         private void hOAĐƠNToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lsNDDTO = new LichSuNguoiDungDTO()
+            {
+                MAND = nvDangNhap.MAND,
+                MANV = nvDangNhap.MANV,
+                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                SUKIEN = "Đặt Phòng"
+
+            };
+            bool kt = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
             DongFrmCon();
             f9 = new FrmQLHoaDon();
             f9.MdiParent = this;
             f9.Dock = DockStyle.Fill;
             f9.Show();
+        }
+
+        private void FrmChinh_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (nvDangNhap != null)
+            {
+                đĂNGXUÂTToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+        private void lịchSửHoạtĐộngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            f10 = new FrmLichSuHoatDong();
+            f10.MdiParent = this;
+            f10.Dock = DockStyle.Fill;
+            f10.Show();
         }
     }
 }

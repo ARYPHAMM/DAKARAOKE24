@@ -155,6 +155,7 @@
     <Compile Include="ChiTietHoaDonDTO.cs" />
     <Compile Include="HoaDonDTO.cs" />
     <Compile Include="KhachHangDTO.cs" />
+    <Compile Include="LichSuNguoiDungDTO.cs" />
     <Compile Include="LoaiKhachHangDTO.cs" />
     <Compile Include="LoaiNhanVienDTO.cs" />
     <Compile Include="LoaiPhongDTO.cs" />

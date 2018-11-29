@@ -37,10 +37,11 @@
             this.nHÂNVIÊNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kHACHHANGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHONGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hOAĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tHƯCĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bAOCAOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đĂTPHONGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hOAĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lịchSửHoạtĐộngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             this.tAIKHOANCUATÔIToolStripMenuItem,
             this.qUANLYToolStripMenuItem,
             this.bAOCAOToolStripMenuItem,
-            this.đĂTPHONGToolStripMenuItem});
+            this.đĂTPHONGToolStripMenuItem,
+            this.lịchSửHoạtĐộngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 2);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -132,6 +134,13 @@
             this.pHONGToolStripMenuItem.Text = "PHÒNG";
             this.pHONGToolStripMenuItem.Click += new System.EventHandler(this.pHONGToolStripMenuItem_Click);
             // 
+            // hOAĐƠNToolStripMenuItem
+            // 
+            this.hOAĐƠNToolStripMenuItem.Name = "hOAĐƠNToolStripMenuItem";
+            this.hOAĐƠNToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
+            this.hOAĐƠNToolStripMenuItem.Text = "HÓA ĐƠN";
+            this.hOAĐƠNToolStripMenuItem.Click += new System.EventHandler(this.hOAĐƠNToolStripMenuItem_Click);
+            // 
             // tHƯCĐƠNToolStripMenuItem
             // 
             this.tHƯCĐƠNToolStripMenuItem.Name = "tHƯCĐƠNToolStripMenuItem";
@@ -155,12 +164,12 @@
             this.đĂTPHONGToolStripMenuItem.Text = "ĐẶT PHÒNG";
             this.đĂTPHONGToolStripMenuItem.Click += new System.EventHandler(this.đĂTPHONGToolStripMenuItem_Click);
             // 
-            // hOAĐƠNToolStripMenuItem
+            // lịchSửHoạtĐộngToolStripMenuItem
             // 
-            this.hOAĐƠNToolStripMenuItem.Name = "hOAĐƠNToolStripMenuItem";
-            this.hOAĐƠNToolStripMenuItem.Size = new System.Drawing.Size(329, 32);
-            this.hOAĐƠNToolStripMenuItem.Text = "HÓA ĐƠN";
-            this.hOAĐƠNToolStripMenuItem.Click += new System.EventHandler(this.hOAĐƠNToolStripMenuItem_Click);
+            this.lịchSửHoạtĐộngToolStripMenuItem.Name = "lịchSửHoạtĐộngToolStripMenuItem";
+            this.lịchSửHoạtĐộngToolStripMenuItem.Size = new System.Drawing.Size(195, 59);
+            this.lịchSửHoạtĐộngToolStripMenuItem.Text = "Lịch Sử Hoạt Động";
+            this.lịchSửHoạtĐộngToolStripMenuItem.Click += new System.EventHandler(this.lịchSửHoạtĐộngToolStripMenuItem_Click);
             // 
             // FrmChinh
             // 
@@ -174,6 +183,7 @@
             this.Name = "FrmChinh";
             this.Text = "Quản Lý Karaoke 3T";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmChinh_FormClosing);
             this.Load += new System.EventHandler(this.FrmChinh_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -196,6 +206,7 @@
         private System.Windows.Forms.ToolStripMenuItem bAOCAOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đĂTPHONGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hOAĐƠNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lịchSửHoạtĐộngToolStripMenuItem;
     }
 }
 

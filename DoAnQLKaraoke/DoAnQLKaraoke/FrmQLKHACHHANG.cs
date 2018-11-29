@@ -79,7 +79,7 @@ namespace DoAnQLKaraoke
                         btn_capNhat.Enabled = false;
                         btn_luu.Visible = true;
                         txt_Ten.Enabled = true;
-
+                        txt_MaKH.Enabled = false;
                         cbo_LoaiKH.Enabled = true;
                         txt_SDT.Enabled = true;
                         cbo_TinhTrang.Enabled = true;
@@ -95,7 +95,7 @@ namespace DoAnQLKaraoke
                         btn_capNhat.Text = "Hủy";
                         btn_capNhat.Image = Properties.Resources.cancel;
                         btn_luu.Visible = true;
-
+                        txt_MaKH.Enabled = false;
                         txt_Ten.Enabled = true;
                         txt_SDT.Enabled = true;
                         cbo_LoaiKH.Enabled = true;
@@ -225,6 +225,16 @@ namespace DoAnQLKaraoke
                         {
                             //MessageBox.Show("Them thanh cong", maKHMoi);
                             trThai = 1;
+                            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                            {
+                                MAND = frmmain.nvDangNhap.MAND,
+                                MANV = frmmain.nvDangNhap.MANV,
+                                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                                SUKIEN = "Khách hàng " + khachhang.TENKH + " SDT :" + khachhang.SDT + "được thêm vào hệ thống"
+
+                            };
+                            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                         }
                         else
                             MessageBox.Show("Them that bai !");
@@ -248,6 +258,16 @@ namespace DoAnQLKaraoke
                         else
                         {
                             MessageBox.Show("Cập nhật thành công!");
+                            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                            {
+                                MAND = frmmain.nvDangNhap.MAND,
+                                MANV = frmmain.nvDangNhap.MANV,
+                                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                                SUKIEN = "Khách hàng " + khachhang.TENKH + " SDT :" + khachhang.SDT + "được cập nhật"
+
+                            };
+                            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                         }
                     }
                     catch
@@ -327,7 +347,7 @@ namespace DoAnQLKaraoke
                 XuLyTraCuu(int.Parse(cbo_LoaiKH.SelectedValue.ToString()), int.Parse(cbo_TinhTrang.SelectedValue.ToString()));
     
             }
-            catch(Exception ex1)
+            catch
             {
                 if (txt_SDT.Text != string.Empty)
                     XuLyTraCuu(txt_SDT.Text);

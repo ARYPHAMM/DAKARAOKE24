@@ -261,6 +261,16 @@ namespace DoAnQLKaraoke
                         if (kq)
                         {
                             MessageBox.Show("Them thanh cong", manvmoi);
+                            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                            {
+                                MAND = frmmain.nvDangNhap.MAND,
+                                MANV = frmmain.nvDangNhap.MANV,
+                                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                                SUKIEN = "Tài khoản " + txt_TK.Text + " được thêm vào hệ thống "
+
+                            };
+                            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                             trThai = 1;
                         }
                         else
@@ -311,6 +321,16 @@ namespace DoAnQLKaraoke
                         else
                         {
                             MessageBox.Show("Cập nhật thành công!");
+                            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                            {
+                                MAND = frmmain.nvDangNhap.MAND,
+                                MANV = frmmain.nvDangNhap.MANV,
+                                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                                SUKIEN = "Tài khoản " + txt_TK.Text + " được chỉnh sửa"
+
+                            };
+                            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                             trThai = 1;
                         }
                     }

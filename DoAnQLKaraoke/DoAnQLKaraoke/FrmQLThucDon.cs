@@ -284,20 +284,30 @@ namespace DoAnQLKaraoke
             if (trThai == 2)
             {
 
-
-
-                bool kq = a.Them(TD);
-                if (pbo_hinhanh.Image != null)
+                if (pbo_hinhanh.Image == null)
                 {
                     MessageBox.Show("Vui lòng chọn hình ảnh !");
                     return;
                 }
+
+                bool kq = a.Them(TD);
+           
 
                 if (kq)
                 {
                     pbo_hinhanh.Name = maTDMoi.Trim();
                     MessageBox.Show(pbo_hinhanh.Name);
                     pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
+                    FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                    frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                    {
+                        MAND = frmmain.nvDangNhap.MAND,
+                        MANV = frmmain.nvDangNhap.MANV,
+                        THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                        SUKIEN = "Thực đơn " + txt_TenTD.Text + " được thêm vào hệ thống"
+
+                    };
+                    bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                     trThai = 1;
                 }
                 else
@@ -321,6 +331,16 @@ namespace DoAnQLKaraoke
                         pbo_hinhanh.Image.Save(duongDanHA + pbo_hinhanh.Name + ".jpg");
                     }
                     MessageBox.Show("Cập nhật thành công!");
+                    FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                    frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                    {
+                        MAND = frmmain.nvDangNhap.MAND,
+                        MANV = frmmain.nvDangNhap.MANV,
+                        THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                        SUKIEN = "Thực đơn " + txt_TenTD.Text + " được cập nhật"
+
+                    };
+                    bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                 }
 
                 trThai = 1;

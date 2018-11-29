@@ -75,14 +75,6 @@ namespace DoAnQLKaraoke
                     f.XemHoaDon(hd);
                     f.Show();
                 }
-                //if (txt_MAHD.Text.Trim() != hdHienHanh.MAHD.Trim() && txt_MAHD.Text != "")
-                //{
-                //    hdBus = new HoaDonBUS();
-                //    HoaDonDTO hd = hdBus.DanhSachHoaDon().Find(o => o.MAHD.Trim() == txt_MAHD.Text.Trim());
-                //    FrmXemBaoCao f = new FrmXemBaoCao();
-                //    f.XemHoaDon(hd);
-                //    f.Show();
-                //}
                 else
                 {
                     FrmXemBaoCao f = new FrmXemBaoCao();
@@ -133,8 +125,34 @@ namespace DoAnQLKaraoke
             hd.FormBorderStyle = FormBorderStyle.None;
             hd.StartPosition = FormStartPosition.CenterScreen;
             hd.Show();
-           
 
+
+        }
+
+        private void btn_capNhat_Click(object sender, EventArgs e)
+        {
+
+            if (hdHienHanh != null)
+            {
+                FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                {
+                    MAND = frmmain.nvDangNhap.MAND,
+                    MANV = frmmain.nvDangNhap.MANV,
+                    THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                    SUKIEN = "HD: " + hdHienHanh.MAHD + " được chỉnh sửa với tình trạng đã thanh toán"
+
+                };
+                bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                this.Visible = true;
+                FrmQLHoaDon.hdHienHanh = hdHienHanh;
+                FrmChiTietHoaDon cthd = new FrmChiTietHoaDon();
+                cthd.MdiParent = FrmChinh.ActiveForm;
+                cthd.Dock = DockStyle.Fill;
+                cthd.FormBorderStyle = FormBorderStyle.None;
+                cthd.StartPosition = FormStartPosition.CenterScreen;
+                cthd.Show();
+            }
         }
     }
 }

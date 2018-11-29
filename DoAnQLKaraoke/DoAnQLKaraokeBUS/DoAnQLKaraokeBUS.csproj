@@ -156,6 +156,7 @@
     <Compile Include="ChiTietHoaDonBUS.cs" />
     <Compile Include="HoaDonBUS.cs" />
     <Compile Include="KhachHangBUS.cs" />
+    <Compile Include="LichSuNguoiDungBUS.cs" />
     <Compile Include="LoaiKhachHangBUS.cs" />
     <Compile Include="LoaiNhanVienBUS.cs" />
     <Compile Include="LoaiPhongBUS.cs" />

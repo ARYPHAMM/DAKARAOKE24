@@ -167,6 +167,16 @@ namespace DoAnQLKaraoke
                 else
                 {
                     MessageBox.Show("Cập nhật thành công!");
+                    FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                    frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                    {
+                        MAND = frmmain.nvDangNhap.MAND,
+                        MANV = frmmain.nvDangNhap.MANV,
+                        THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                        SUKIEN = "Loại khách hàng cập nhật" + loaiNV.TENLOAI + " => :" + loai.TENLOAI
+
+                    };
+                    bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                     trThai = 1;
                     loaiNV = null;
                 }

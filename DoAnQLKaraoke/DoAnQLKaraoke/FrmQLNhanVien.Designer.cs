@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.colHONV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ckh_doihinh = new System.Windows.Forms.CheckBox();
+            this.pbo_hinhanh = new System.Windows.Forms.PictureBox();
             this.btn_qlLoaiKH = new System.Windows.Forms.Button();
             this.btn_lamMoi = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
@@ -64,11 +66,9 @@
             this.colEMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pbo_hinhanh = new System.Windows.Forms.PictureBox();
-            this.ckh_doihinh = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,6 +126,27 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // ckh_doihinh
+            // 
+            this.ckh_doihinh.AutoSize = true;
+            this.ckh_doihinh.Location = new System.Drawing.Point(1144, 194);
+            this.ckh_doihinh.Name = "ckh_doihinh";
+            this.ckh_doihinh.Size = new System.Drawing.Size(136, 21);
+            this.ckh_doihinh.TabIndex = 35;
+            this.ckh_doihinh.Text = "Cập nhật lại hình";
+            this.ckh_doihinh.UseVisualStyleBackColor = true;
+            this.ckh_doihinh.CheckedChanged += new System.EventHandler(this.ckh_doihinh_CheckedChanged);
+            // 
+            // pbo_hinhanh
+            // 
+            this.pbo_hinhanh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pbo_hinhanh.Location = new System.Drawing.Point(1108, 17);
+            this.pbo_hinhanh.Name = "pbo_hinhanh";
+            this.pbo_hinhanh.Size = new System.Drawing.Size(196, 173);
+            this.pbo_hinhanh.TabIndex = 34;
+            this.pbo_hinhanh.TabStop = false;
+            this.pbo_hinhanh.Click += new System.EventHandler(this.pbo_hinhanh_Click);
             // 
             // btn_qlLoaiKH
             // 
@@ -229,7 +250,8 @@
             this.dtp_NgaySinh.Name = "dtp_NgaySinh";
             this.dtp_NgaySinh.Size = new System.Drawing.Size(200, 22);
             this.dtp_NgaySinh.TabIndex = 20;
-            this.dtp_NgaySinh.Value = new System.DateTime(2018, 12, 8, 0, 0, 0, 0);
+            this.dtp_NgaySinh.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.dtp_NgaySinh.FormatChanged += new System.EventHandler(this.dtp_NgaySinh_FormatChanged);
             // 
             // cbo_LoaiNV
             // 
@@ -264,6 +286,7 @@
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.Size = new System.Drawing.Size(213, 22);
             this.txt_SDT.TabIndex = 18;
+            this.txt_SDT.TextChanged += new System.EventHandler(this.txt_SDT_TextChanged);
             // 
             // txt_DiaChi
             // 
@@ -445,27 +468,6 @@
             this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // pbo_hinhanh
-            // 
-            this.pbo_hinhanh.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pbo_hinhanh.Location = new System.Drawing.Point(1108, 17);
-            this.pbo_hinhanh.Name = "pbo_hinhanh";
-            this.pbo_hinhanh.Size = new System.Drawing.Size(196, 173);
-            this.pbo_hinhanh.TabIndex = 34;
-            this.pbo_hinhanh.TabStop = false;
-            this.pbo_hinhanh.Click += new System.EventHandler(this.pbo_hinhanh_Click);
-            // 
-            // ckh_doihinh
-            // 
-            this.ckh_doihinh.AutoSize = true;
-            this.ckh_doihinh.Location = new System.Drawing.Point(1144, 194);
-            this.ckh_doihinh.Name = "ckh_doihinh";
-            this.ckh_doihinh.Size = new System.Drawing.Size(136, 21);
-            this.ckh_doihinh.TabIndex = 35;
-            this.ckh_doihinh.Text = "Cập nhật lại hình";
-            this.ckh_doihinh.UseVisualStyleBackColor = true;
-            this.ckh_doihinh.CheckedChanged += new System.EventHandler(this.ckh_doihinh_CheckedChanged);
-            // 
             // FrmQLNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -482,8 +484,8 @@
             this.Load += new System.EventHandler(this.FrmQLNhanVien_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NhanVien)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -63,7 +63,7 @@ namespace DoAnQLKaraokeDAO
                                      + "@SDTNV,"
                                      + "@DIACHI,"
                                      + "@EMAIL,"
-                                      + "@TINHTRANG)";
+                                      + "1)";
             //SqlParameter[] arrParams = new SqlParameter[7];
 
             List<SqlParameter> lsparams = new List<SqlParameter>();

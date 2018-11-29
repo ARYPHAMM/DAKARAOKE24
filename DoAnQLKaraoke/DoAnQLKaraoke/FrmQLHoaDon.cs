@@ -38,7 +38,7 @@ namespace DoAnQLKaraoke
 
         private void FrmQLHoaDon_Load(object sender, EventArgs e)
         {
-
+   
             loaddata();
             TrangThai();
         }
@@ -298,6 +298,16 @@ namespace DoAnQLKaraoke
                         {
                             MessageBox.Show("Một khách hàng vừa được thêm vào hệ thống");
                             btn_traCuuSDT_Click(sender, e);
+                            FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                            frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                            {
+                                MAND = frmmain.nvDangNhap.MAND,
+                                MANV = frmmain.nvDangNhap.MANV,
+                                THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                                SUKIEN = "Khách hàng " + khDTO.TENKH + " SDT :" + khDTO.SDT + "được thêm vào hệ thống"
+
+                            };
+                            bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
 
                         }
                     }
@@ -342,6 +352,16 @@ namespace DoAnQLKaraoke
                     {
                         MessageBox.Show("Them hoa don than cong !");
                         trThai = 1;
+                        FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                        frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                        {
+                            MAND = frmmain.nvDangNhap.MAND,
+                            MANV = frmmain.nvDangNhap.MANV,
+                            THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                            SUKIEN = "Hóa đơn " + hd.MAHD + "được lập"
+
+                        };
+                        bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                     }
                     else
                     {
@@ -428,7 +448,7 @@ namespace DoAnQLKaraoke
     
             if (hdHienHanh != null)
             {
-                
+                this.Visible = true;
                 FrmChiTietHoaDon cthd = new FrmChiTietHoaDon();
                 cthd.MdiParent = FrmChinh.ActiveForm;
                 cthd.Dock = DockStyle.Fill;
@@ -462,7 +482,16 @@ namespace DoAnQLKaraoke
             bool ktThanhToan = hdBUS.ThanhToan(hdHienHanh);
             if (ktThanhToan)
             {
+                FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                {
+                    MAND = frmmain.nvDangNhap.MAND,
+                    MANV = frmmain.nvDangNhap.MANV,
+                    THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                    SUKIEN = "Hóa đơn " + hdHienHanh.MAHD + "được thanh toán"
 
+                };
+                bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                 f.XemHoaDon(hdHienHanh);
                 loaddata();
             }

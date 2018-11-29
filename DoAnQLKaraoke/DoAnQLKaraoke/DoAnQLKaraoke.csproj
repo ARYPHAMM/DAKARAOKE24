@@ -193,6 +193,12 @@
     <Compile Include="FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLichSuHoatDong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLichSuHoatDong.Designer.cs">
+      <DependentUpon>FrmLichSuHoatDong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQLHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLichSuHoatDong.resx">
+      <DependentUpon>FrmLichSuHoatDong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQLHoaDon.resx">
       <DependentUpon>FrmQLHoaDon.cs</DependentUpon>
