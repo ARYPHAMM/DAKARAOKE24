@@ -8,7 +8,7 @@ namespace DoAnQLKaraokeDTO
 {
     public class LichSuNguoiDungDTO
     {
-        public string  MAHD { get;set;}
+        public int  MAHD { get;set;}
         public string MAND{ get;set;}
         public string MANV { get;set;}
         public DateTime THOIGIAN { get;set;}

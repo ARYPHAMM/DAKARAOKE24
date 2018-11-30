@@ -288,7 +288,6 @@ namespace DoAnQLKaraoke
 
         
             int kiemtrans = int.Parse(dtp_NgaySinh.Value.Year.ToString());
-            MessageBox.Show(kiemtrans.ToString());
             if (kiemtrans > 2000)
             {
                 MessageBox.Show("Phải từ 18 tuổi");
@@ -449,18 +448,26 @@ namespace DoAnQLKaraoke
             try
             {
 
-                long a;
-                bool kt = long.TryParse(txt_HoNV.Text, out a);
-                if (kt)
+                int a;
+                foreach (char s in txt_HoNV.Text)
                 {
+                    bool kt = int.TryParse(s.ToString(), out a);
+                    if (kt)
+                    {
 
 
-                    if (txt_HoNV.TextLength > 0)
-                        txt_HoNV.Text = txt_HoNV.Text.Remove(txt_HoNV.Text.Length - 1, 1);
-                    else
-                        txt_HoNV.Text = txt_HoNV.Text.Remove(0, 0);
+                        if (txt_HoNV.TextLength > 0)
+                        {
+                            txt_HoNV.Text = txt_HoNV.Text.Remove(txt_HoNV.Text.Length - 1, 1);
+                            txt_HoNV.SelectionStart = txt_HoNV.Text.Length;
+                        }
+                        else
+                        {
+                            txt_HoNV.Text = txt_HoNV.Text.Remove(0, 0);
+                        }
 
 
+                    }
                 }
             }
             catch
@@ -474,18 +481,26 @@ namespace DoAnQLKaraoke
             try
             {
 
-                long a;
-                bool kt = long.TryParse(txt_TenNV.Text, out a);
-                if (kt)
+                int a;
+                foreach (char s in txt_TenNV.Text)
                 {
+                    bool kt = int.TryParse(s.ToString(), out a);
+                    if (kt)
+                    {
 
 
-                    if (txt_TenNV.TextLength > 0)
-                        txt_TenNV.Text = txt_TenNV.Text.Remove(txt_TenNV.Text.Length - 1, 1);
-                    else
-                        txt_TenNV.Text = txt_TenNV.Text.Remove(0, 0);
+                        if (txt_TenNV.TextLength > 0)
+                        {
+                            txt_TenNV.Text = txt_TenNV.Text.Remove(txt_TenNV.Text.Length - 1, 1);
+                            txt_TenNV.SelectionStart = txt_TenNV.Text.Length;
+                        }
+                        else
+                        {
+                            txt_TenNV.Text = txt_TenNV.Text.Remove(0, 0);
+                        }
 
 
+                    }
                 }
             }
             catch
@@ -528,17 +543,25 @@ namespace DoAnQLKaraoke
             {
 
                 long a;
-                bool kt = long.TryParse(txt_SDT.Text, out a);
-                if (!kt)
+                foreach (char s in txt_SDT.Text)
                 {
+                    bool kt = long.TryParse(s.ToString(), out a);
+                    if (!kt)
+                    {
 
 
-                    if (txt_SDT.TextLength > 0)
-                        txt_SDT.Text = txt_SDT.Text.Remove(txt_SDT.Text.Length - 1, 1);
-                    else
-                        txt_SDT.Text = txt_SDT.Text.Remove(0, 0);
+                        if (txt_SDT.TextLength > 0)
+                        {
+                            txt_SDT.Text = txt_SDT.Text.Remove(txt_SDT.Text.Length - 1, 1);
+                            txt_SDT.SelectionStart = txt_SDT.Text.Length;
+                        }
+                        else
+                        {
+                            txt_SDT.Text = txt_SDT.Text.Remove(0, 0);
+                        }
 
 
+                    }
                 }
             }
             catch
@@ -548,6 +571,11 @@ namespace DoAnQLKaraoke
         }
 
         private void dtp_NgaySinh_FormatChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Email_TextChanged(object sender, EventArgs e)
         {
 
         }

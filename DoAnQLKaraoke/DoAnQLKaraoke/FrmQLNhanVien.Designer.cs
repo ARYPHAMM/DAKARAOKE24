@@ -303,6 +303,7 @@
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(213, 22);
             this.txt_Email.TabIndex = 18;
+            this.txt_Email.TextChanged += new System.EventHandler(this.txt_Email_TextChanged);
             // 
             // txt_MaNV
             // 

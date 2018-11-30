@@ -251,6 +251,7 @@
             this.txt_tenKH.Name = "txt_tenKH";
             this.txt_tenKH.Size = new System.Drawing.Size(146, 39);
             this.txt_tenKH.TabIndex = 1;
+            this.txt_tenKH.TextChanged += new System.EventHandler(this.txt_tenKH_TextChanged);
             // 
             // txt_sdt
             // 

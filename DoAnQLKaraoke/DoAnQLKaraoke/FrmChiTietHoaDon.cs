@@ -266,5 +266,30 @@ namespace DoAnQLKaraoke
             f.Show();
 
         }
+
+        private void txt_soLuong_TextChanged_1(object sender, EventArgs e)
+        {
+            long a;
+            foreach (char s in txt_soLuong.Text)
+            {
+                bool kt = long.TryParse(s.ToString(), out a);
+                if (!kt)
+                {
+
+
+                    if (txt_soLuong.TextLength > 0)
+                    {
+                        txt_soLuong.Text = txt_soLuong.Text.Remove(txt_soLuong.Text.Length - 1, 1);
+                        txt_soLuong.SelectionStart = txt_soLuong.Text.Length;
+                    }
+                    else
+                    {
+                        txt_soLuong.Text = txt_soLuong.Text.Remove(0, 0);
+                    }
+
+
+                }
+            }
+        }
     }
 }

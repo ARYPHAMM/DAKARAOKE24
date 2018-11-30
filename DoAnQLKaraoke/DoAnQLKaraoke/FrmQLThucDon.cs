@@ -228,6 +228,7 @@ namespace DoAnQLKaraoke
         {
             TDhienhanh = null;
             Bind();
+            LoadData();
         }
 
         private void btn_them_Click(object sender, EventArgs e)

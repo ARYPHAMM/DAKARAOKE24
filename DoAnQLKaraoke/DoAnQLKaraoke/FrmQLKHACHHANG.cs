@@ -382,18 +382,26 @@ namespace DoAnQLKaraoke
             try
             {
 
-                long a;
-                bool kt = long.TryParse(txt_Ten.Text, out a);
-                if (kt)
+                int a;
+                foreach (char s in txt_Ten.Text)
                 {
+                    bool kt = int.TryParse(s.ToString(), out a);
+                    if (kt)
+                    {
 
 
-                    if (txt_Ten.TextLength > 0)
-                        txt_Ten.Text = txt_Ten.Text.Remove(txt_Ten.Text.Length - 1, 1);
-                    else
-                        txt_Ten.Text = txt_Ten.Text.Remove(0, 0);
+                        if (txt_Ten.TextLength > 0)
+                        {
+                            txt_Ten.Text = txt_Ten.Text.Remove(txt_Ten.Text.Length - 1, 1);
+                            txt_Ten.SelectionStart = txt_Ten.Text.Length;
+                        }
+                        else
+                        {
+                            txt_Ten.Text = txt_Ten.Text.Remove(0, 0);
+                        }
 
 
+                    }
                 }
             }
             catch
@@ -408,17 +416,25 @@ namespace DoAnQLKaraoke
             {
 
                 long a;
-                bool kt = long.TryParse(txt_SDT.Text, out a);
-                if (!kt)
+                foreach (char s in txt_SDT.Text)
                 {
+                    bool kt = long.TryParse(s.ToString(), out a);
+                    if (!kt)
+                    {
 
 
-                    if (txt_SDT.TextLength > 0)
-                        txt_SDT.Text = txt_SDT.Text.Remove(txt_SDT.Text.Length - 1, 1);
-                    else
-                        txt_SDT.Text = txt_SDT.Text.Remove(0, 0);
+                        if (txt_SDT.TextLength > 0)
+                        {
+                            txt_SDT.Text = txt_SDT.Text.Remove(txt_SDT.Text.Length - 1, 1);
+                            txt_SDT.SelectionStart = txt_SDT.Text.Length;
+                        }
+                        else
+                        {
+                            txt_SDT.Text = txt_SDT.Text.Remove(0, 0);
+                        }
 
 
+                    }
                 }
             }
             catch

@@ -23,7 +23,7 @@ namespace DoAnQLKaraokeDAO
             {
                 LichSuNguoiDungDTO a = new LichSuNguoiDungDTO()
                 {
-                    MAHD = sdr.GetString(0),
+                    MAHD = sdr.GetInt32(0),
                     MAND = sdr.GetString(1),
                     MANV = sdr.GetString(2),
                     THOIGIAN = DateTime.Parse(sdr.GetDateTime(3).ToString("dd/MM/yyyy HH:mm")),
@@ -38,24 +38,21 @@ namespace DoAnQLKaraokeDAO
         }
         public bool ThemLichSuNguoiDung(LichSuNguoiDungDTO ls)
         {
-            ls.MAHD = MaHanhDongMoi();
+            
 
 
             string insert = "INSERT INTO LICHSUNGUOIDUNGHETHONG"
-                                      + " (MAHD"
-                                       + "  ,MAND"
+                                      + " (MAND"
                                        + "  ,MANV"
                                         + " ,THOIGIAN"
                                         + " ,SUKIEN)"
                                   + " VALUES"
-                                       + " (@MAHD"
-                                       + "  ,@MAND"
+                                       + " (@MAND"
                                             + ",@MANV"
                                         + " ,@THOIGIAN"
                                         + " ,@SUKIEN)";
 
             List<SqlParameter> lsparams = new List<SqlParameter>();
-            lsparams.Add(new SqlParameter("@MAHD", ls.MAHD));
             lsparams.Add(new SqlParameter("@MAND", ls.MAND));
             lsparams.Add(new SqlParameter("@MANV", ls.MANV));
             lsparams.Add(new SqlParameter("@THOIGIAN", ls.THOIGIAN));

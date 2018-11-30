@@ -26,7 +26,7 @@ namespace DoAnQLKaraokeDAO
                 NhanVienDTO a = new NhanVienDTO()
                 {
 
-                    MANV = sdr.GetString(0),
+                    MANV = sdr.GetString(0).Trim(),
                     HONV = sdr.GetString(1),
                     TENV = sdr.GetString(2),
                     NAMSINH = Convert.ToDateTime(sdr.GetDateTime(3).ToString("dd/MM/yyyy")),

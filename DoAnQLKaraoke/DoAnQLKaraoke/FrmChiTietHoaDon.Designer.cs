@@ -34,6 +34,8 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imageList_Large = new System.Windows.Forms.ImageList(this.components);
+            this.imageList_Small = new System.Windows.Forms.ImageList(this.components);
             this.btn_trove = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,8 +64,6 @@
             this.colSOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTHANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imageList_Large = new System.Windows.Forms.ImageList(this.components);
-            this.imageList_Small = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CTHD)).BeginInit();
@@ -96,6 +96,18 @@
             this.lv_thucDon.TabIndex = 35;
             this.lv_thucDon.UseCompatibleStateImageBehavior = false;
             this.lv_thucDon.SelectedIndexChanged += new System.EventHandler(this.lv_thucDon_SelectedIndexChanged);
+            // 
+            // imageList_Large
+            // 
+            this.imageList_Large.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList_Large.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageList_Large.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // imageList_Small
+            // 
+            this.imageList_Small.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
+            this.imageList_Small.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList_Small.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // btn_trove
             // 
@@ -302,6 +314,7 @@
             this.txt_soLuong.Name = "txt_soLuong";
             this.txt_soLuong.Size = new System.Drawing.Size(160, 22);
             this.txt_soLuong.TabIndex = 47;
+            this.txt_soLuong.TextChanged += new System.EventHandler(this.txt_soLuong_TextChanged_1);
             // 
             // label3
             // 
@@ -384,18 +397,6 @@
             this.colTHANHTIEN.DataPropertyName = "THANHTIEN";
             this.colTHANHTIEN.HeaderText = "Thành Tiền";
             this.colTHANHTIEN.Name = "colTHANHTIEN";
-            // 
-            // imageList_Large
-            // 
-            this.imageList_Large.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList_Large.ImageSize = new System.Drawing.Size(32, 32);
-            this.imageList_Large.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // imageList_Small
-            // 
-            this.imageList_Small.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
-            this.imageList_Small.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList_Small.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // FrmChiTietHoaDon
             // 

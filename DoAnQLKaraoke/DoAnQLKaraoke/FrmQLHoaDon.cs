@@ -209,17 +209,25 @@ namespace DoAnQLKaraoke
             {
 
                 long a;
-                bool kt = long.TryParse(txt_sdt.Text, out a);
-                if (!kt)
+                foreach (char s in txt_sdt.Text)
                 {
+                    bool kt = long.TryParse(s.ToString(), out a);
+                    if (!kt)
+                    {
 
 
-                    if (txt_sdt.TextLength > 0)
-                        txt_sdt.Text = txt_sdt.Text.Remove(txt_sdt.Text.Length - 1, 1);
-                    else
-                        txt_sdt.Text = txt_sdt.Text.Remove(0, 0);
+                        if (txt_sdt.TextLength > 0)
+                        {
+                            txt_sdt.Text = txt_sdt.Text.Remove(txt_sdt.Text.Length - 1, 1);
+                            txt_sdt.SelectionStart = txt_sdt.Text.Length;
+                        }
+                        else
+                        {
+                            txt_sdt.Text = txt_sdt.Text.Remove(0, 0);
+                        }
 
 
+                    }
                 }
             }
             catch
@@ -508,6 +516,40 @@ namespace DoAnQLKaraoke
             tchd.StartPosition = FormStartPosition.CenterScreen;
             tchd.Show();
         
+        }
+
+        private void txt_tenKH_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int a;
+                foreach(char s in txt_tenKH.Text)
+                {
+                    bool kt = int.TryParse(s.ToString(), out a);
+                    if (kt)
+                    {
+
+
+                        if (txt_tenKH.TextLength > 0)
+                        {
+                            txt_tenKH.Text = txt_tenKH.Text.Remove(txt_tenKH.Text.Length - 1, 1);
+                            txt_tenKH.SelectionStart = txt_tenKH.Text.Length;
+                        }
+                        else
+                        {
+                            txt_tenKH.Text = txt_tenKH.Text.Remove(0, 0);
+                        }
+
+
+                    }
+                }
+               
+            }
+            catch
+            {
+
+            }
         }
     }
 
