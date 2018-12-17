@@ -98,7 +98,8 @@ namespace DoAnQLKaraoke
                 nHÂNVIÊNToolStripMenuItem.Enabled = false;
                 tAIKHOANNGƯƠIDUNGToolStripMenuItem.Enabled = false;
                 bAOCAOToolStripMenuItem.Enabled = false;
-
+                lịchSửHoạtĐộngToolStripMenuItem.Enabled = false;
+                
 
             }
             else if(lOAIND == 1)
@@ -233,8 +234,21 @@ namespace DoAnQLKaraoke
                 SUKIEN = "Đăng Xuất Khỏi Hệ Thống"
 
             };
-            bool ktls = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
-            DongFrmCon();
+            try
+            {
+                List<LichSuNguoiDungDTO> LichSuSauMotNgay = lsNDBUS.DSLichSuHoatDong().FindAll(o => o.THOIGIAN.Day < lsNDDTO.THOIGIAN.Day);
+                if (LichSuSauMotNgay != null)
+                {
+                    lsNDBUS.GhiFile(LichSuSauMotNgay, Utils.MaHoaMD5(LichSuSauMotNgay[LichSuSauMotNgay.Count() - 1].THOIGIAN.ToString()));
+                }
+
+                bool ktls = lsNDBUS.ThemLichSuNguoiDung(lsNDDTO);
+            }
+            catch
+            {
+
+            }
+         
             dn = null;
             f1 = null;
             FrmDangNhap fdn = new FrmDangNhap();
@@ -249,6 +263,9 @@ namespace DoAnQLKaraoke
 
         private void đĂTPHONGToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+
+
             lsNDDTO = new LichSuNguoiDungDTO()
             {
                 MAND = nvDangNhap.MAND,

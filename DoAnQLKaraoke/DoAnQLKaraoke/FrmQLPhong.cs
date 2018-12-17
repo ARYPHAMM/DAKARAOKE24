@@ -192,6 +192,9 @@ namespace DoAnQLKaraoke
         private void btn_lamMoi_Click(object sender, EventArgs e)
         {
             phongHienHanh = null;
+            trThai = 1;
+            LoadData();
+            TrangThai();
             Bind();
         }
 

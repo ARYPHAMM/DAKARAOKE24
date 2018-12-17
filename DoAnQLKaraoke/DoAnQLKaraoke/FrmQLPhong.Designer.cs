@@ -305,6 +305,7 @@
             // colLOAIPHONG
             // 
             this.colLOAIPHONG.DataPropertyName = "LOAIPHONG";
+            this.colLOAIPHONG.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.colLOAIPHONG.HeaderText = "Loại Phòng";
             this.colLOAIPHONG.Name = "colLOAIPHONG";
             this.colLOAIPHONG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -319,6 +320,7 @@
             // colTINHTRANG
             // 
             this.colTINHTRANG.DataPropertyName = "TINHTRANG";
+            this.colTINHTRANG.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.colTINHTRANG.HeaderText = "Tình Trạng";
             this.colTINHTRANG.Name = "colTINHTRANG";
             this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -362,11 +364,11 @@
         private System.Windows.Forms.Button btn_them;
         private System.Windows.Forms.ComboBox cbo_loaiPhong;
         private System.Windows.Forms.Button btn_lamMoi;
+        private System.Windows.Forms.Button btn_qlLoaiPhong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMAPHONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTENPHONG;
         private System.Windows.Forms.DataGridViewComboBoxColumn colLOAIPHONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGIAPHONG;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
-        private System.Windows.Forms.Button btn_qlLoaiPhong;
     }
 }

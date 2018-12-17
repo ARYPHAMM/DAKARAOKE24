@@ -48,5 +48,11 @@ namespace DoAnQLKaraokeBUS
             HoaDonDAO a = new HoaDonDAO();
             return a.ThemHD(hd);
         }
+
+        public void HuyHD(string mAHD)
+        {
+            HoaDonDAO a = new HoaDonDAO();
+          a.HuyHD(mAHD);
+        }
     }
 }

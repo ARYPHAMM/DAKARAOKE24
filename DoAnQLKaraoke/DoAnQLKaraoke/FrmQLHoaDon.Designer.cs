@@ -64,6 +64,7 @@
             this.btn_InHD = new System.Windows.Forms.Button();
             this.btn_thanhtoan = new System.Windows.Forms.Button();
             this.btn_TraCuu = new System.Windows.Forms.Button();
+            this.btn_huyHD = new System.Windows.Forms.Button();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -380,7 +381,7 @@
             this.btn_TraCuu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TraCuu.Image = global::DoAnQLKaraoke.Properties.Resources.search;
             this.btn_TraCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TraCuu.Location = new System.Drawing.Point(1018, 434);
+            this.btn_TraCuu.Location = new System.Drawing.Point(904, 437);
             this.btn_TraCuu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_TraCuu.Name = "btn_TraCuu";
             this.btn_TraCuu.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -391,6 +392,21 @@
             this.btn_TraCuu.UseVisualStyleBackColor = true;
             this.btn_TraCuu.Click += new System.EventHandler(this.btn_TraCuu_Click);
             // 
+            // btn_huyHD
+            // 
+            this.btn_huyHD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_huyHD.Image = global::DoAnQLKaraoke.Properties.Resources.minus;
+            this.btn_huyHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_huyHD.Location = new System.Drawing.Point(1035, 433);
+            this.btn_huyHD.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_huyHD.Name = "btn_huyHD";
+            this.btn_huyHD.Size = new System.Drawing.Size(98, 56);
+            this.btn_huyHD.TabIndex = 17;
+            this.btn_huyHD.Text = "Hủy HD";
+            this.btn_huyHD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_huyHD.UseVisualStyleBackColor = true;
+            this.btn_huyHD.Click += new System.EventHandler(this.btn_huyHD_Click);
+            // 
             // FrmQLHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -398,6 +414,7 @@
             this.ClientSize = new System.Drawing.Size(1146, 499);
             this.Controls.Add(this.btn_thanhtoan);
             this.Controls.Add(this.btn_InHD);
+            this.Controls.Add(this.btn_huyHD);
             this.Controls.Add(this.lv_HoaDonChuaThanhToan);
             this.Controls.Add(this.btn_TraCuu);
             this.Controls.Add(this.lbldanhsachnv);
@@ -450,5 +467,6 @@
         private System.Windows.Forms.Button btn_thanhtoan;
         private System.Windows.Forms.Button btn_InHD;
         private System.Windows.Forms.Button btn_TraCuu;
+        private System.Windows.Forms.Button btn_huyHD;
     }
 }

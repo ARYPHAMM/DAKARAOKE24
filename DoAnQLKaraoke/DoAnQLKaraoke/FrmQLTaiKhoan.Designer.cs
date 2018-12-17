@@ -29,13 +29,7 @@
         private void InitializeComponent()
         {
             this.lbldanhsachnv = new System.Windows.Forms.Label();
-            this.colLOAIND = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colMATKHAU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTAIKHOAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMAND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_TaiKhoan = new System.Windows.Forms.DataGridView();
-            this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cbo_manv = new System.Windows.Forms.ComboBox();
             this.txt_MaND = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,13 +43,19 @@
             this.btn_them = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.grbdstknv = new System.Windows.Forms.GroupBox();
+            this.ckh_doimk = new System.Windows.Forms.CheckBox();
             this.cbo_LoaiND = new System.Windows.Forms.ComboBox();
             this.txtMK = new System.Windows.Forms.TextBox();
             this.txt_TK = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ckh_doimk = new System.Windows.Forms.CheckBox();
+            this.colMAND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTAIKHOAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMATKHAU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLOAIND = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TaiKhoan)).BeginInit();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
@@ -71,38 +71,6 @@
             this.lbldanhsachnv.TabIndex = 6;
             this.lbldanhsachnv.Text = "Quản Lý Tài Khoản Nhân Viên";
             this.lbldanhsachnv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // colLOAIND
-            // 
-            this.colLOAIND.DataPropertyName = "LOAIND";
-            this.colLOAIND.HeaderText = "Loại Người Dùng";
-            this.colLOAIND.Name = "colLOAIND";
-            this.colLOAIND.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colLOAIND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // colMATKHAU
-            // 
-            this.colMATKHAU.DataPropertyName = "MATKHAU";
-            this.colMATKHAU.HeaderText = "Mật Khẩu";
-            this.colMATKHAU.Name = "colMATKHAU";
-            // 
-            // colTAIKHOAN
-            // 
-            this.colTAIKHOAN.DataPropertyName = "TAIKHOAN";
-            this.colTAIKHOAN.HeaderText = "Tài Khoản";
-            this.colTAIKHOAN.Name = "colTAIKHOAN";
-            // 
-            // MANV
-            // 
-            this.MANV.DataPropertyName = "MANV";
-            this.MANV.HeaderText = "MANV";
-            this.MANV.Name = "MANV";
-            // 
-            // colMAND
-            // 
-            this.colMAND.DataPropertyName = "MAND";
-            this.colMAND.HeaderText = "MAND";
-            this.colMAND.Name = "colMAND";
             // 
             // dgv_TaiKhoan
             // 
@@ -123,14 +91,6 @@
             this.dgv_TaiKhoan.Size = new System.Drawing.Size(1215, 212);
             this.dgv_TaiKhoan.TabIndex = 7;
             this.dgv_TaiKhoan.SelectionChanged += new System.EventHandler(this.dgv_TaiKhoan_SelectionChanged);
-            // 
-            // colTINHTRANG
-            // 
-            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
-            this.colTINHTRANG.HeaderText = "Tình Trạng";
-            this.colTINHTRANG.Name = "colTINHTRANG";
-            this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // cbo_manv
             // 
@@ -301,6 +261,17 @@
             this.grbdstknv.TabStop = false;
             this.grbdstknv.Text = "Thông tin";
             // 
+            // ckh_doimk
+            // 
+            this.ckh_doimk.AutoSize = true;
+            this.ckh_doimk.Location = new System.Drawing.Point(236, 165);
+            this.ckh_doimk.Name = "ckh_doimk";
+            this.ckh_doimk.Size = new System.Drawing.Size(75, 21);
+            this.ckh_doimk.TabIndex = 32;
+            this.ckh_doimk.Text = "Đổi MK";
+            this.ckh_doimk.UseVisualStyleBackColor = true;
+            this.ckh_doimk.CheckedChanged += new System.EventHandler(this.ckh_doimk_CheckedChanged);
+            // 
             // cbo_LoaiND
             // 
             this.cbo_LoaiND.FormattingEnabled = true;
@@ -356,16 +327,47 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Tài Khoản";
             // 
-            // ckh_doimk
+            // colMAND
             // 
-            this.ckh_doimk.AutoSize = true;
-            this.ckh_doimk.Location = new System.Drawing.Point(236, 165);
-            this.ckh_doimk.Name = "ckh_doimk";
-            this.ckh_doimk.Size = new System.Drawing.Size(75, 21);
-            this.ckh_doimk.TabIndex = 32;
-            this.ckh_doimk.Text = "Đổi MK";
-            this.ckh_doimk.UseVisualStyleBackColor = true;
-            this.ckh_doimk.CheckedChanged += new System.EventHandler(this.ckh_doimk_CheckedChanged);
+            this.colMAND.DataPropertyName = "MAND";
+            this.colMAND.HeaderText = "MAND";
+            this.colMAND.Name = "colMAND";
+            // 
+            // MANV
+            // 
+            this.MANV.DataPropertyName = "MANV";
+            this.MANV.HeaderText = "MANV";
+            this.MANV.Name = "MANV";
+            // 
+            // colTAIKHOAN
+            // 
+            this.colTAIKHOAN.DataPropertyName = "TAIKHOAN";
+            this.colTAIKHOAN.HeaderText = "Tài Khoản";
+            this.colTAIKHOAN.Name = "colTAIKHOAN";
+            // 
+            // colMATKHAU
+            // 
+            this.colMATKHAU.DataPropertyName = "MATKHAU";
+            this.colMATKHAU.HeaderText = "Mật Khẩu";
+            this.colMATKHAU.Name = "colMATKHAU";
+            // 
+            // colLOAIND
+            // 
+            this.colLOAIND.DataPropertyName = "LOAIND";
+            this.colLOAIND.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colLOAIND.HeaderText = "Loại Người Dùng";
+            this.colLOAIND.Name = "colLOAIND";
+            this.colLOAIND.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colLOAIND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // colTINHTRANG
+            // 
+            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
+            this.colTINHTRANG.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colTINHTRANG.HeaderText = "Tình Trạng";
+            this.colTINHTRANG.Name = "colTINHTRANG";
+            this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmQLTaiKhoan
             // 
@@ -389,13 +391,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbldanhsachnv;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colLOAIND;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMATKHAU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTAIKHOAN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MANV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMAND;
         private System.Windows.Forms.DataGridView dgv_TaiKhoan;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
         private System.Windows.Forms.ComboBox cbo_manv;
         private System.Windows.Forms.TextBox txt_MaND;
         private System.Windows.Forms.Label label7;
@@ -416,5 +412,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox ckh_doimk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMAND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MANV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTAIKHOAN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMATKHAU;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colLOAIND;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
     }
 }

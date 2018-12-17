@@ -40,6 +40,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbldanhsachnv = new System.Windows.Forms.Label();
             this.grb_TTTD = new System.Windows.Forms.GroupBox();
+            this.ckh_doihinh = new System.Windows.Forms.CheckBox();
+            this.pbo_hinhanh = new System.Windows.Forms.PictureBox();
             this.btn_qlLoai = new System.Windows.Forms.Button();
             this.btn_lamMoi = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
@@ -52,11 +54,9 @@
             this.colTENTHUCDON = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ckh_doihinh = new System.Windows.Forms.CheckBox();
-            this.pbo_hinhanh = new System.Windows.Forms.PictureBox();
             this.grb_TTTD.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ThucDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ThucDon)).BeginInit();
             this.SuspendLayout();
             // 
             // cbo_TT
@@ -194,6 +194,27 @@
             this.grb_TTTD.TabStop = false;
             this.grb_TTTD.Text = "Thông tin";
             // 
+            // ckh_doihinh
+            // 
+            this.ckh_doihinh.AutoSize = true;
+            this.ckh_doihinh.Location = new System.Drawing.Point(1204, 168);
+            this.ckh_doihinh.Name = "ckh_doihinh";
+            this.ckh_doihinh.Size = new System.Drawing.Size(136, 21);
+            this.ckh_doihinh.TabIndex = 37;
+            this.ckh_doihinh.Text = "Cập nhật lại hình";
+            this.ckh_doihinh.UseVisualStyleBackColor = true;
+            this.ckh_doihinh.CheckedChanged += new System.EventHandler(this.ckh_doihinh_CheckedChanged);
+            // 
+            // pbo_hinhanh
+            // 
+            this.pbo_hinhanh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pbo_hinhanh.Location = new System.Drawing.Point(1177, 33);
+            this.pbo_hinhanh.Name = "pbo_hinhanh";
+            this.pbo_hinhanh.Size = new System.Drawing.Size(179, 133);
+            this.pbo_hinhanh.TabIndex = 36;
+            this.pbo_hinhanh.TabStop = false;
+            this.pbo_hinhanh.Click += new System.EventHandler(this.pbo_hinhanh_Click);
+            // 
             // btn_qlLoai
             // 
             this.btn_qlLoai.Location = new System.Drawing.Point(357, 84);
@@ -306,6 +327,7 @@
             // colLOAITD
             // 
             this.colLOAITD.DataPropertyName = "LOAITD";
+            this.colLOAITD.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.colLOAITD.HeaderText = "Loại Thực Đơn";
             this.colLOAITD.Name = "colLOAITD";
             this.colLOAITD.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -326,31 +348,11 @@
             // colTINHTRANG
             // 
             this.colTINHTRANG.DataPropertyName = "TINHTRANG";
+            this.colTINHTRANG.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.colTINHTRANG.HeaderText = "Tình Trạng";
             this.colTINHTRANG.Name = "colTINHTRANG";
             this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // ckh_doihinh
-            // 
-            this.ckh_doihinh.AutoSize = true;
-            this.ckh_doihinh.Location = new System.Drawing.Point(1204, 168);
-            this.ckh_doihinh.Name = "ckh_doihinh";
-            this.ckh_doihinh.Size = new System.Drawing.Size(136, 21);
-            this.ckh_doihinh.TabIndex = 37;
-            this.ckh_doihinh.Text = "Cập nhật lại hình";
-            this.ckh_doihinh.UseVisualStyleBackColor = true;
-            this.ckh_doihinh.CheckedChanged += new System.EventHandler(this.ckh_doihinh_CheckedChanged);
-            // 
-            // pbo_hinhanh
-            // 
-            this.pbo_hinhanh.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pbo_hinhanh.Location = new System.Drawing.Point(1177, 33);
-            this.pbo_hinhanh.Name = "pbo_hinhanh";
-            this.pbo_hinhanh.Size = new System.Drawing.Size(179, 133);
-            this.pbo_hinhanh.TabIndex = 36;
-            this.pbo_hinhanh.TabStop = false;
-            this.pbo_hinhanh.Click += new System.EventHandler(this.pbo_hinhanh_Click);
             // 
             // FrmQLThucDon
             // 
@@ -368,8 +370,8 @@
             this.Load += new System.EventHandler(this.FrmQLThucDon_Load);
             this.grb_TTTD.ResumeLayout(false);
             this.grb_TTTD.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ThucDon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbo_hinhanh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ThucDon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,12 +397,12 @@
         private System.Windows.Forms.Button btn_traCuu;
         private System.Windows.Forms.Button btn_capNhat;
         private System.Windows.Forms.Button btn_them;
+        private System.Windows.Forms.CheckBox ckh_doihinh;
+        private System.Windows.Forms.PictureBox pbo_hinhanh;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMATD;
         private System.Windows.Forms.DataGridViewComboBoxColumn colLOAITD;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTENTHUCDON;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGIA;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
-        private System.Windows.Forms.CheckBox ckh_doihinh;
-        private System.Windows.Forms.PictureBox pbo_hinhanh;
     }
 }

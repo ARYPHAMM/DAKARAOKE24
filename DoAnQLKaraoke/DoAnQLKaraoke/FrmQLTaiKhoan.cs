@@ -177,6 +177,8 @@ namespace DoAnQLKaraoke
         private void btn_lamMoi_Click(object sender, EventArgs e)
         {
             tk = null;
+            trThai = 1;
+            trangthai();
             Bind();
             LoadNguoiDung();
 
@@ -249,9 +251,10 @@ namespace DoAnQLKaraoke
                 TaiKhoanBUS a = new TaiKhoanBUS();
                 if (trThai == 2)
                 {
-                    if (txtMK.Text == string.Empty || txtMK.Text.Length < 6)
+                    if (txtMK.Text == string.Empty || txtMK.Text.Length < 6 || txtMK.TextLength < 4)
                     {
-                        MessageBox.Show("Thông tin về nhân viên không hợp lệ !");
+                        MessageBox.Show("Thông tin về nhân viên không hợp lệ !" + Environment.NewLine + "Mật khẩu phải lớn hơn 6 ký tự!" + Environment.NewLine + "Tài Khoản phải lớn hơn 4 ký tự!");
+                        return;
                     }
 
                     try
@@ -272,6 +275,10 @@ namespace DoAnQLKaraoke
                             };
                             bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                             trThai = 1;
+                            tk = null;
+                            Bind();
+                            LoadNguoiDung();
+                            trangthai();
                         }
                         else
                             MessageBox.Show("Them that bai !");
@@ -332,6 +339,10 @@ namespace DoAnQLKaraoke
                             };
                             bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                             trThai = 1;
+                            tk = null;
+                            Bind();
+                            LoadNguoiDung();
+                            trangthai();
                         }
                     }
                     catch (Exception ex)
@@ -341,10 +352,7 @@ namespace DoAnQLKaraoke
                         return;
                     }
                 }
-                tk = null;  
-                Bind();
-                LoadNguoiDung();
-                trangthai();
+         
             }
     
 
@@ -361,6 +369,11 @@ namespace DoAnQLKaraoke
         {
             try
             {
+                if (cbo_manv.SelectedIndex > 0)
+                {
+                    XuLyTraCuu(cbo_manv.SelectedValue.ToString());
+                    return;
+                }
                 XuLyTraCuu(int.Parse(cbo_LoaiND.SelectedValue.ToString()), int.Parse(cbo_TT.SelectedValue.ToString()));
            
 
@@ -375,6 +388,12 @@ namespace DoAnQLKaraoke
         {
             TaiKhoanBUS b = new TaiKhoanBUS();
             List<TaiKhoanDTO> lst = b.DanhSachTaiKhoan().FindAll(o => o.LOAIND == loaind && o.TINHTRANG == tinhtrang);
+            dgv_TaiKhoan.DataSource = lst;
+        }
+        private void XuLyTraCuu(string maNV)
+        {
+            TaiKhoanBUS b = new TaiKhoanBUS();
+            List<TaiKhoanDTO> lst = b.DanhSachTaiKhoan().FindAll(o => o.MANV.Trim() == maNV.Trim());
             dgv_TaiKhoan.DataSource = lst;
         }
 

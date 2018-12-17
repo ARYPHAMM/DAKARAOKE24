@@ -24,6 +24,7 @@ namespace DoAnQLKaraoke
         {
             LichSuNguoiDungBUS a = new LichSuNguoiDungBUS();
             dgv_lichsu.DataSource = a.DSLichSuHoatDong();
+            dgv_lichsu.ReadOnly = true;
         }
     }
 }

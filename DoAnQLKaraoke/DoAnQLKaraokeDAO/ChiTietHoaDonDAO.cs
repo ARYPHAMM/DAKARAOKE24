@@ -47,6 +47,13 @@ namespace DoAnQLKaraokeDAO
             return thucthi;
         }
 
+       public void HuyCTHD(string maHD)
+        {
+            SqlConnection con = DataProvider.TaoKetNoi();
+            string huyCTHD = "delete from CTHD where MAHD = '" + maHD + "'";
+            bool thucthip = DataProvider.ThucThi(huyCTHD, con);
+        }
+
         public bool CapNhatCTHD(ChiTietHoaDonDTO ctHDHienHanh)
         {
           

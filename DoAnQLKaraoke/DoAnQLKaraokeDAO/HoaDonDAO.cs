@@ -47,16 +47,29 @@ namespace DoAnQLKaraokeDAO
             return ds;
         }
 
+        public void HuyHD(string mAHD)
+        {
+            SqlConnection con = DataProvider.TaoKetNoi();
+            try
+            {
+                ChiTietHoaDonDAO a = new ChiTietHoaDonDAO();
+                a.HuyCTHD(mAHD);
+            }
+            catch
+            {
+
+            }    
+            string capnhatphong = "delete from HOADON where MAHD = '" + mAHD + "'";
+            bool thucthip = DataProvider.ThucThi(capnhatphong, con);
+        }
+
         public bool CapNhatHD(HoaDonDTO hd)
         {
             DateTime aDateTime = DateTime.Now;
-
-
             //MessageBox.Show(aDateTime.ToString("dd/MM/yyyy HH:mm:ss.fff"));
             DateTime y2K = hd.THOIGIANBATDAU;
-
-
             TimeSpan interval = aDateTime.Subtract(y2K);
+            
 
 
             SqlConnection con = DataProvider.TaoKetNoi();
@@ -69,7 +82,7 @@ namespace DoAnQLKaraokeDAO
             {
                 gio = 0; // hat chua den 1h
             }
-            //MessageBox.Show(gio.ToString());
+            MessageBox.Show(gio.ToString());
 
             string capnhatphong = "UPDATE PHONG SET TINHTRANG = 2 where MAPHONG = '" + hd.MAPHONG + "'";
             bool thucthip = DataProvider.ThucThi(capnhatphong, con);

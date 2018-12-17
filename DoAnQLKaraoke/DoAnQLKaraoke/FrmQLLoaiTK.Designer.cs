@@ -199,7 +199,7 @@
             this.dgv_dsloaiTK.Location = new System.Drawing.Point(12, 337);
             this.dgv_dsloaiTK.Name = "dgv_dsloaiTK";
             this.dgv_dsloaiTK.RowTemplate.Height = 24;
-            this.dgv_dsloaiTK.Size = new System.Drawing.Size(1162, 185);
+            this.dgv_dsloaiTK.Size = new System.Drawing.Size(1028, 185);
             this.dgv_dsloaiTK.TabIndex = 26;
             this.dgv_dsloaiTK.SelectionChanged += new System.EventHandler(this.dgv_dsloaiTK_SelectionChanged);
             // 

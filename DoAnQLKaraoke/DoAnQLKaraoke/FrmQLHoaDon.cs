@@ -85,6 +85,7 @@ namespace DoAnQLKaraoke
             {
                 case 1: // mac dinh
                     {
+                        btn_huyHD.Enabled = false;
                         btn_traCuuSDT.Enabled = false;
                         btn_luu.Text = "Lưu";
                         btn_luu.Image = Properties.Resources.save;
@@ -276,6 +277,22 @@ namespace DoAnQLKaraoke
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
+            if (dtp_thoiGianBatDau.Value.Hour < DateTime.Now.Hour)
+            {
+                MessageBox.Show("Thời gian bắt đầu phải là thời gian hiện tại hoặc lớn hơn");
+                return;
+            }
+            else if (dtp_thoiGianBatDau.Value.Hour == DateTime.Now.Hour && dtp_thoiGianBatDau.Value.Minute < DateTime.Now.Minute)
+            {
+                MessageBox.Show("Thời gian bắt đầu phải là thời gian hiện tại hoặc lớn hơn");
+                return;
+            }
+            else if(dtp_thoiGianBatDau.Value.Hour > DateTime.Now.Hour + 2)
+            {
+                MessageBox.Show("Chỉ cho đặt phòng trong 2 tiếng trở lại");
+                return;
+            }// kiem tra thoi gian
+
             if (txt_sdt.Text == string.Empty || txt_tenKH.Text == string.Empty || txt_sdt.Text.Length > 11 || txt_sdt.Text.Length < 10)
             {
                 MessageBox.Show("Thông tin về khách hàng không hợp lệ !");
@@ -384,6 +401,8 @@ namespace DoAnQLKaraoke
 
         private void lv_HoaDonChuaThanhToan_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
+            btn_huyHD.Enabled = true;
             btn_capNhat.Enabled = true;
             pBUS = new PhongBUS();
             lpBUS = new LoaiPhongBUS();
@@ -418,7 +437,8 @@ namespace DoAnQLKaraoke
                 };
           
             }
-   
+
+
             Bind();
 
         }
@@ -456,6 +476,12 @@ namespace DoAnQLKaraoke
     
             if (hdHienHanh != null)
             {
+
+                //if (hdHienHanh.THOIGIANBATDAU.Hour >= DateTime.Now.Hour)
+                //{
+                //    MessageBox.Show("Khách hàng chưa đến");
+                //    return;
+                //}
                 this.Visible = true;
                 FrmChiTietHoaDon cthd = new FrmChiTietHoaDon();
                 cthd.MdiParent = FrmChinh.ActiveForm;
@@ -479,7 +505,16 @@ namespace DoAnQLKaraoke
         private void btn_InHD_Click(object sender, EventArgs e)
         {
             FrmXemBaoCao f = new FrmXemBaoCao();
-            f.XemHoaDon(hdHienHanh);
+            try
+            {
+               
+                f.XemHoaDon(hdHienHanh);
+            }
+            catch
+            {
+                MessageBox.Show("Chưa chọn hóa đơn");
+            }
+          
             f.Show();
         }
 
@@ -487,22 +522,31 @@ namespace DoAnQLKaraoke
         {
             FrmXemBaoCao f = new FrmXemBaoCao();
             HoaDonBUS hdBUS = new HoaDonBUS();
-            bool ktThanhToan = hdBUS.ThanhToan(hdHienHanh);
-            if (ktThanhToan)
+         
+            try
             {
-                FrmChinh frmmain = (FrmChinh)this.MdiParent;
-                frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                bool ktThanhToan = hdBUS.ThanhToan(hdHienHanh);
+                if (ktThanhToan)
                 {
-                    MAND = frmmain.nvDangNhap.MAND,
-                    MANV = frmmain.nvDangNhap.MANV,
-                    THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
-                    SUKIEN = "Hóa đơn " + hdHienHanh.MAHD + "được thanh toán"
+                    FrmChinh frmmain = (FrmChinh)this.MdiParent;
+                    frmmain.lsNDDTO = new LichSuNguoiDungDTO()
+                    {
+                        MAND = frmmain.nvDangNhap.MAND,
+                        MANV = frmmain.nvDangNhap.MANV,
+                        THOIGIAN = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyy HH:mm")),
+                        SUKIEN = "Hóa đơn " + hdHienHanh.MAHD + "được thanh toán"
 
-                };
-                bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
-                f.XemHoaDon(hdHienHanh);
-                loaddata();
+                    };
+                    bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                    f.XemHoaDon(hdHienHanh);
+                    loaddata();
+                }
             }
+            catch
+            {
+                MessageBox.Show("Chưa chọn hóa đơn");
+            }
+            hdHienHanh = null;
             f.Show();
         }
 
@@ -549,6 +593,26 @@ namespace DoAnQLKaraoke
             catch
             {
 
+            }
+        }
+
+        private void btn_huyHD_Click(object sender, EventArgs e)
+        {
+            if (hdHienHanh != null)
+            {
+                hdBUS = new HoaDonBUS();
+                DialogResult kt = MessageBox.Show("Bạn chắc chắn xóa HD này", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(kt == DialogResult.Yes)
+                {
+                    MessageBox.Show(hdHienHanh.MAHD);
+                    hdBUS.HuyHD(hdHienHanh.MAHD);
+                    trThai = 1;
+                    hdHienHanh = null;
+                    Bind();
+                    TrangThai();
+                    loaddata();
+                }
+              
             }
         }
     }

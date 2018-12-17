@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.colHONV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ckh_doihinh = new System.Windows.Forms.CheckBox();
             this.pbo_hinhanh = new System.Windows.Forms.PictureBox();
@@ -59,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgv_NhanVien = new System.Windows.Forms.DataGridView();
             this.colMANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHONV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTENV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNAMSINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLOAINV = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -82,12 +82,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Quản Lý Nhân Viên";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // colHONV
-            // 
-            this.colHONV.DataPropertyName = "HONV";
-            this.colHONV.HeaderText = "Họ";
-            this.colHONV.Name = "colHONV";
             // 
             // groupBox1
             // 
@@ -423,6 +417,12 @@
             this.colMANV.HeaderText = "MANV";
             this.colMANV.Name = "colMANV";
             // 
+            // colHONV
+            // 
+            this.colHONV.DataPropertyName = "HONV";
+            this.colHONV.HeaderText = "Họ";
+            this.colHONV.Name = "colHONV";
+            // 
             // colTENV
             // 
             this.colTENV.DataPropertyName = "TENV";
@@ -438,6 +438,7 @@
             // colLOAINV
             // 
             this.colLOAINV.DataPropertyName = "LOAINV";
+            this.colLOAINV.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.colLOAINV.HeaderText = "Loại NV";
             this.colLOAINV.Name = "colLOAINV";
             this.colLOAINV.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -464,6 +465,7 @@
             // colTINHTRANG
             // 
             this.colTINHTRANG.DataPropertyName = "TINHTRANG";
+            this.colTINHTRANG.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.colTINHTRANG.HeaderText = "Tình Trạng";
             this.colTINHTRANG.Name = "colTINHTRANG";
             this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -494,7 +496,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHONV;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_qlLoaiKH;
         private System.Windows.Forms.Button btn_lamMoi;
@@ -521,7 +522,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgv_NhanVien;
+        private System.Windows.Forms.PictureBox pbo_hinhanh;
+        private System.Windows.Forms.CheckBox ckh_doihinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMANV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHONV;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTENV;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNAMSINH;
         private System.Windows.Forms.DataGridViewComboBoxColumn colLOAINV;
@@ -529,7 +533,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEMAIL;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDIACHI;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
-        private System.Windows.Forms.PictureBox pbo_hinhanh;
-        private System.Windows.Forms.CheckBox ckh_doihinh;
     }
 }

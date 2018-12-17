@@ -19,6 +19,7 @@ namespace DoAnQLKaraoke
         public FrmQLLoaiTK()
         {
             InitializeComponent();
+            dgv_dsloaiTK.AutoGenerateColumns = false;
         }
         private void FrmQLLoaiTK_Load(object sender, EventArgs e)
         {

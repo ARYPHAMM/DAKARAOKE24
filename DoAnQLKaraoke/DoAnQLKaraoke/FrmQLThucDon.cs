@@ -198,7 +198,7 @@ namespace DoAnQLKaraoke
                 }
                 catch
                 {
-                    MessageBox.Show("Thực đơn chưa có hình ảnh vui lòng cập nhật hình ảnh cho nhân viên");
+                    MessageBox.Show("Thực đơn chưa có hình ảnh vui lòng cập nhật hình ảnh cho thực đơn");
                 }
 
             }
@@ -227,6 +227,8 @@ namespace DoAnQLKaraoke
         private void btn_lamMoi_Click(object sender, EventArgs e)
         {
             TDhienhanh = null;
+            trThai = 1;
+            TrangThai();
             Bind();
             LoadData();
         }
@@ -310,6 +312,10 @@ namespace DoAnQLKaraoke
                     };
                     bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                     trThai = 1;
+                    TDhienhanh = null;
+                    LoadData();
+                    TrangThai();
+                    Bind();
                 }
                 else
                     MessageBox.Show("Them that bai !");
@@ -342,14 +348,16 @@ namespace DoAnQLKaraoke
 
                     };
                     bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                    trThai = 1;
+                    TDhienhanh = null;
+                    LoadData();
+                    TrangThai();
+                    Bind();
                 }
 
-                trThai = 1;
+ 
             }
-            TDhienhanh = null;
-            LoadData();
-            TrangThai();
-            Bind();
+          
 
 
 

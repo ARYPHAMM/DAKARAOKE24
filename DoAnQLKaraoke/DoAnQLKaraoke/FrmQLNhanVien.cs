@@ -24,7 +24,7 @@ namespace DoAnQLKaraoke
 
             InitializeComponent();
 
-
+            
             dgv_NhanVien.AutoGenerateColumns = false;
             dtp_NgaySinh.Value = new DateTime(2000, 01, 01);
             //MessageBox.Show(maNVMoi);
@@ -227,6 +227,9 @@ namespace DoAnQLKaraoke
         {
             NVhienhanh = null;
             Bind();
+            trThai = 1;
+            LoadData();
+            TrangThai();
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -285,6 +288,10 @@ namespace DoAnQLKaraoke
                 return;
 
             }
+            if(txt_DiaChi.Text == string.Empty)
+            {
+                MessageBox.Show("Bắt buộc phải có địa chỉ !");
+            }
 
         
             int kiemtrans = int.Parse(dtp_NgaySinh.Value.Year.ToString());
@@ -335,6 +342,10 @@ namespace DoAnQLKaraoke
                             };
                             bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                             trThai = 1;
+                            NVhienhanh = null;
+                            TrangThai();
+                            Bind();
+                            LoadData();
                         }
                         else
                             MessageBox.Show("Them that bai !");
@@ -390,6 +401,11 @@ namespace DoAnQLKaraoke
 
                             };
                             bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                            trThai = 1;
+                            NVhienhanh = null;
+                            TrangThai();
+                            Bind();
+                            LoadData();
                         }
                     }
                     catch
@@ -398,12 +414,9 @@ namespace DoAnQLKaraoke
                     }
               
 
-                    trThai = 1;
+            
                 }
-                NVhienhanh = null;
-                TrangThai();
-                Bind();
-                LoadData();
+            
             }
 
 

@@ -42,17 +42,21 @@ namespace DoAnQLKaraokeDAO
 
 
             string insert = "INSERT INTO LICHSUNGUOIDUNGHETHONG"
-                                      + " (MAND"
+                                      + " (MAHD"
+                                      + " ,MAND"
                                        + "  ,MANV"
                                         + " ,THOIGIAN"
                                         + " ,SUKIEN)"
                                   + " VALUES"
-                                       + " (@MAND"
+                                       + " (@MAHD"
+                                         + ",@MAND"
                                             + ",@MANV"
                                         + " ,@THOIGIAN"
                                         + " ,@SUKIEN)";
+            ls.MAHD = MaHanhDongMoi();
 
             List<SqlParameter> lsparams = new List<SqlParameter>();
+            lsparams.Add(new SqlParameter("@MAHD", ls.MAHD));
             lsparams.Add(new SqlParameter("@MAND", ls.MAND));
             lsparams.Add(new SqlParameter("@MANV", ls.MANV));
             lsparams.Add(new SqlParameter("@THOIGIAN", ls.THOIGIAN));
@@ -62,47 +66,39 @@ namespace DoAnQLKaraokeDAO
             bool thucthi = DataProvider.ThucThi(insert, lsparams.ToArray(), con);
             return thucthi;
         }
-        public string MaHanhDongMoi()
+
+        public void xoalichsu()
+        {
+            string strtruyvan = "Delete from LICHSUNGUOIDUNGHETHONG";
+            SqlConnection conn = DataProvider.TaoKetNoi();
+            bool kq = DataProvider.ThucThi(strtruyvan, conn);
+        }
+
+        public static int MaHanhDongMoi()
         {
             string strtruyvan = "Select max(MAHD) From LICHSUNGUOIDUNGHETHONG";
             SqlConnection conn = DataProvider.TaoKetNoi();
             SqlDataReader sdr = DataProvider.TruyVanDuLieu(strtruyvan, conn);
 
-            string mHDmoi = null;
+            int maHDmoi = 0;
             if (sdr.Read())
             {
                 try
                 {
-                    mHDmoi = sdr.GetString(0);
-                //MessageBox.Show(masuamax);
-
-            }
+                    maHDmoi = sdr.GetInt32(0);
+                }
                 catch
-            {
-                mHDmoi = null;
+                {
+                    maHDmoi = 0;
+                } 
+
             }
+            return ++maHDmoi;
+               
 
 
 
         }
-            sdr.Close();
-            conn.Close();
-            if (string.IsNullOrEmpty(mHDmoi))
-            {
-                return "HDO01";
 
-            }
-            else
-            {
-                int masotiep = int.Parse(mHDmoi.Substring(3));/*MaSPLonNhat.Replace('S', '')*/
-                //return string.Format("S{0:4}", masotiep + 1);
-                ++masotiep;
-                return "HDO" + masotiep.ToString("00");
-            }
-
-
-
-
-        }
     }
 }

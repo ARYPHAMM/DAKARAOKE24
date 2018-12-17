@@ -235,6 +235,11 @@ namespace DoAnQLKaraoke
 
                             };
                             bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                            trThai = 1;
+                            LoadData();
+                            KHhienhanh = null;
+                            TrangThai();
+                            Bind();
                         }
                         else
                             MessageBox.Show("Them that bai !");
@@ -268,18 +273,19 @@ namespace DoAnQLKaraoke
 
                             };
                             bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                            trThai = 1;
+                            LoadData();
+                            KHhienhanh = null;
+                            TrangThai();
+                            Bind();
                         }
+                    
                     }
                     catch
                     {
                         MessageBox.Show("Trùng số điện thoại!");
                     }
-                    trThai = 1;
                 }
-                LoadData();
-                KHhienhanh = null;
-                TrangThai();
-                Bind();
             }
 
 
@@ -288,7 +294,10 @@ namespace DoAnQLKaraoke
         private void btn_lamMoi_Click_1(object sender, EventArgs e)
         {
             KHhienhanh = null;
+            trThai = 1;
+            TrangThai();
             Bind();
+            LoadData();
         }
 
         private void btn_them_Click_1(object sender, EventArgs e)

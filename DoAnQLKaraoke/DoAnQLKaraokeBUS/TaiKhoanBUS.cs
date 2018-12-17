@@ -21,6 +21,7 @@ namespace DoAnQLKaraokeBUS
             return b.dsTaiKhoan();
         }
         public TaiKhoanDTO LayThongTinTaiKhoan(string taikhoan, string matkhau)
+
         {
 
             TaiKhoanDAO b = new TaiKhoanDAO();
