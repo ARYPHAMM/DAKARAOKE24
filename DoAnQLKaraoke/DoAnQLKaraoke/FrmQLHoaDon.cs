@@ -18,6 +18,7 @@ namespace DoAnQLKaraoke
         string maHDmoi = null;
         HoaDonBUS hdBUS = null;
         KhachHangBUS khBUS = null;
+        NhanVienBUS nvBUS = null;
         LoaiPhongBUS lpBUS = null;
         PhongBUS pBUS = null;
         KhachHangDTO khHienHanh = null;
@@ -38,9 +39,11 @@ namespace DoAnQLKaraoke
 
         private void FrmQLHoaDon_Load(object sender, EventArgs e)
         {
-   
-            loaddata();
-            TrangThai();
+
+
+                loaddata();
+                TrangThai();
+
         }
 
         private void loaddata()
@@ -48,11 +51,13 @@ namespace DoAnQLKaraoke
             lv_HoaDonChuaThanhToan.Items.Clear();
 
             LoaiPhongBUS lp = new LoaiPhongBUS();
+            
             cbo_loaiPhong.DataSource = lp.DanhSachLoaiPhong().FindAll(o => o.TINHTRANG == true);
             cbo_loaiPhong.ValueMember = "MALOAIPHONG";
             cbo_loaiPhong.DisplayMember = "TENLOAIPHONG";
             cbo_loaiPhong.SelectedIndex = -1;
-            
+            khBUS = new KhachHangBUS();
+            nvBUS = new NhanVienBUS();
 
             HoaDonBUS hdBus = new HoaDonBUS();
             lsHoaDonHienHanh = hdBus.DanhSachHoaDon().FindAll(o=>o.TINHTRANG == false);
@@ -64,9 +69,9 @@ namespace DoAnQLKaraoke
                 item.SubItems.Add(a.MAHD);
                 item.SubItems.Add(a.MAPHONG);
                 item.SubItems.Add(a.MANV);
-                item.SubItems.Add(a.NGUOILAPHD);
+                item.SubItems.Add(nvBUS.DanhSachNhanVien().Find(o => o.MANV.Trim() == a.MANV.Trim()).HOTENNV);
                 item.SubItems.Add(a.MAKH);
-                item.SubItems.Add(a.HOTENKH);
+                item.SubItems.Add(khBUS.DanhSachKhachHang().Find(o=>o.MAKH.Trim() == a.MAKH.Trim()).TENKH);
                 item.SubItems.Add(a.THOIGIANBATDAU.ToString("dd/MM/yyyy HH:mm"));
                 item.SubItems.Add(a.THOIGIANKETTHUC.ToString("dd/MM/yyyy HH:mm"));
                 item.SubItems.Add(a.TONGTHANHTOAN);
@@ -86,6 +91,7 @@ namespace DoAnQLKaraoke
                 case 1: // mac dinh
                     {
                         btn_huyHD.Enabled = false;
+                        btn_traCuuSDT.Enabled = false;
                         btn_traCuuSDT.Enabled = false;
                         btn_luu.Text = "Lưu";
                         btn_luu.Image = Properties.Resources.save;
@@ -186,10 +192,7 @@ namespace DoAnQLKaraoke
         {
             PhongBUS a = new PhongBUS();
             PhongDTO b = new PhongDTO();
-
-
-         
-                b = a.DanhSachPhong().Find(o => o.LOAIPHONG == int.Parse(cbo_loaiPhong.SelectedValue.ToString()) && o.TINHTRANG == 2);
+            b = a.DanhSachPhong().Find(o => o.LOAIPHONG == int.Parse(cbo_loaiPhong.SelectedValue.ToString()) && o.TINHTRANG == 2);
 
             if (b != null)
             {
@@ -201,7 +204,7 @@ namespace DoAnQLKaraoke
                 txt_tenPhong.Text = "Không còn phòng";
                 txt_gia.Text = string.Empty;
             }
-
+            txt_soNGUOI.Text = string.Empty;
         }
 
         private void txt_sdt_TextChanged(object sender, EventArgs e)
@@ -538,6 +541,7 @@ namespace DoAnQLKaraoke
 
                     };
                     bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
+                    hdHienHanh = hdBUS.DanhSachHoaDon().Find(o => o.MAHD.Trim() == hdHienHanh.MAHD.Trim());
                     f.XemHoaDon(hdHienHanh);
                     loaddata();
                 }
@@ -614,6 +618,71 @@ namespace DoAnQLKaraoke
                 }
               
             }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_soNGUOI_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int a;
+                foreach (char s in txt_soNGUOI.Text)
+                {
+                    bool kt = int.TryParse(s.ToString(), out a);
+                    if (!kt)
+                    {
+
+
+                        if (txt_soNGUOI.TextLength > 0)
+                        {
+                            txt_soNGUOI.Text = txt_soNGUOI.Text.Remove(txt_soNGUOI.Text.Length - 1, 1);
+                            txt_soNGUOI.SelectionStart = txt_soNGUOI.Text.Length;
+                        }
+                        else
+                        {
+                            txt_soNGUOI.Text = txt_soNGUOI.Text.Remove(0, 0);
+                        }
+
+
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        private void btn_tracuuPSONGUOI_Click(object sender, EventArgs e)
+        {
+            PhongBUS a = new PhongBUS();
+            List<PhongDTO> b = new List<PhongDTO>();
+            b = a.DanhSachPhong().FindAll(o => o.SONGUOI >= int.Parse(txt_soNGUOI.Text));
+            try
+            {
+                if (b != null)
+                {
+                    txt_tenPhong.Text = b[0].TENPHONG;
+                    txt_gia.Text = b[0].GIAPHONG.ToString();
+                }
+                else
+                {
+                    txt_tenPhong.Text = "Không còn phòng";
+                    txt_gia.Text = string.Empty;
+                }
+            }
+            catch
+            {
+                txt_tenPhong.Text = "Không tìm thấy";
+                txt_gia.Text = string.Empty;
+            }
+            cbo_loaiPhong.SelectedIndex = -1;
         }
     }
 

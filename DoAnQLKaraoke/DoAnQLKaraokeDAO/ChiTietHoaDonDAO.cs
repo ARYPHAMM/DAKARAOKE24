@@ -18,16 +18,18 @@ namespace DoAnQLKaraokeDAO
 
             string sql = "select * from CTHD where MAHD = '"+MAHD.Trim()+"'";
             SqlDataReader sdr = DataProvider.TruyVanDuLieu(sql, conn);
+
+            ThucDonDAO td = new ThucDonDAO();
             while (sdr.Read())
             {
                 ChiTietHoaDonDTO a = new ChiTietHoaDonDTO()
                 {
                     MAHD = sdr.GetString(0),
                     MATD = sdr.GetString(1),
-                    TENTHUCDON = sdr.GetString(2),
-                    SOLUONG = sdr.GetInt32(3),
-                    GIA = sdr.GetDecimal(4).ToString("0,00 VNĐ"),
-                    THANHTIEN = sdr.GetDecimal(5).ToString("0,00 VNĐ")
+                    TENTHUCDON = td.dsThucDon().Find(o => o.MATD.Trim() == sdr.GetString(1).Trim()).TENTHUCDON,
+                    SOLUONG = sdr.GetInt32(2),
+                    GIA = sdr.GetDecimal(3).ToString("0,00 VNĐ"),
+                    THANHTIEN = sdr.GetDecimal(4).ToString("0,00 VNĐ")
 
                 };
                 ds.Add(a);
@@ -71,12 +73,11 @@ namespace DoAnQLKaraokeDAO
             SqlConnection con = DataProvider.TaoKetNoi();
             string updatehd = "update HOADON set TONGTHANHTOAN = TONGTHANHTOAN + " + ctHDHienHanh.THANHTIEN.Replace("VNĐ", "").Replace(".", "") + " where MAHD = '" + ctHDHienHanh.MAHD + "'";
             bool kq = DataProvider.ThucThi(updatehd, con);
-            string insert = "insert into CTHD(MAHD,MATD,TENTHUCDON,SOLUONG,GIA,THANHTIEN)VALUES(@MAHD,@MATD,@TENTHUCDON,@SOLUONG,@GIA,@THANHTIEN)";
+            string insert = "insert into CTHD(MAHD,MATD,SOLUONG,GIA,THANHTIEN)VALUES(@MAHD,@MATD,@SOLUONG,@GIA,@THANHTIEN)";
 
             List<SqlParameter> lsparams = new List<SqlParameter>();
             lsparams.Add(new SqlParameter("@MAHD", ctHDHienHanh.MAHD));
             lsparams.Add(new SqlParameter("@MATD", ctHDHienHanh.MATD));
-            lsparams.Add(new SqlParameter("@TENTHUCDON", ctHDHienHanh.TENTHUCDON));
             lsparams.Add(new SqlParameter("@SOLUONG", ctHDHienHanh.SOLUONG));
             lsparams.Add(new SqlParameter("@GIA", ctHDHienHanh.GIA));
             lsparams.Add(new SqlParameter("@THANHTIEN", ctHDHienHanh.THANHTIEN));

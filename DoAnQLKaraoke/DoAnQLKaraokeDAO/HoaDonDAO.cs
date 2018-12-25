@@ -21,6 +21,7 @@ namespace DoAnQLKaraokeDAO
 
           string sql = "select * from HOADON";
             SqlDataReader sdr = DataProvider.TruyVanDuLieu(sql, conn);
+
             while (sdr.Read())
             {
                 HoaDonDTO a = new HoaDonDTO()
@@ -28,18 +29,18 @@ namespace DoAnQLKaraokeDAO
                     MAHD = sdr.GetString(0),
                     MAPHONG = sdr.GetString(1),
                     MANV = sdr.GetString(2),
-                    NGUOILAPHD = sdr.GetString(3),
-                    MAKH = sdr.GetString(4),
-                    HOTENKH = sdr.GetString(5),
+                    MAKH = sdr.GetString(3),
+              
 
-                    THOIGIANBATDAU = DateTime.Parse(sdr.GetDateTime(6).ToString("dd/MM/yyyy HH:mm")),
+
+                    THOIGIANBATDAU = DateTime.Parse(sdr.GetDateTime(4).ToString("dd/MM/yyyy HH:mm")),
                 
-                    THOIGIANKETTHUC = DateTime.Parse(sdr.GetDateTime(7).ToString("dd/MM/yyyy HH:mm")),
+                    THOIGIANKETTHUC = DateTime.Parse(sdr.GetDateTime(5).ToString("dd/MM/yyyy HH:mm")),
 
-                    TONGTHANHTOAN =sdr.GetDecimal(8).ToString("0,00"),
+                    TONGTHANHTOAN =sdr.GetDecimal(6).ToString("0,00"),
 
-                    TINHTRANG = sdr.GetBoolean(9),
-                    GIAPHONG = sdr.GetDecimal(10).ToString("0,00"),
+                    TINHTRANG = sdr.GetBoolean(7),
+                    GIAPHONG = sdr.GetDecimal(8).ToString("0,00"),
 
                 };
                 ds.Add(a);
@@ -74,10 +75,6 @@ namespace DoAnQLKaraokeDAO
 
             SqlConnection con = DataProvider.TaoKetNoi();
             int gio = interval.Hours;
-            //if (gio > 1)
-            //{
-            //    gio = gio - 1; // neu hat tren 2h
-            //}
             if (gio == 1)
             {
                 gio = 0; // hat chua den 1h
@@ -102,9 +99,7 @@ namespace DoAnQLKaraokeDAO
             {
                 try
                 {
-                    maHDmoi = sdr.GetString(0);
-                    //MessageBox.Show(masuamax);
-              
+                    maHDmoi = sdr.GetString(0);              
                 }
                 catch
                 {
@@ -124,9 +119,7 @@ namespace DoAnQLKaraokeDAO
                                                                        + "(MAHD,"
                                                                        + " MAPHONG,"
                                                                       + "  MANV,"
-                                                                       + " NGUOILAPHD,"
                                                                        + " MAKH,"
-                                                                       + " HOTENKH,"
                                                                        + " THOIGIANBATDAU,"
                                                                        + " THOIGIANKETTHUC,"
                                                                        + " TONGTHANHTOAN,"
@@ -136,9 +129,7 @@ namespace DoAnQLKaraokeDAO
                                        + " (@MAHD,"
             + " @MAPHONG,"
             + " @MANV,"
-            + " @NGUOILAPHD,"
            + "  @MAKH,"
-            + " @HOTENKH,"
             + " @THOIGIANBATDAU,"
             + " @THOIGIANKETTHUC,"
             + " @TONGTHANHTOAN,"
@@ -149,9 +140,7 @@ namespace DoAnQLKaraokeDAO
             lsparams.Add(new SqlParameter("@MAHD", hd.MAHD.Trim()));
             lsparams.Add(new SqlParameter("@MAPHONG", hd.MAPHONG.Trim()));
             lsparams.Add(new SqlParameter("@MANV", hd.MANV));
-            lsparams.Add(new SqlParameter("@NGUOILAPHD", hd.NGUOILAPHD));
             lsparams.Add(new SqlParameter("@MAKH", hd.MAKH));
-            lsparams.Add(new SqlParameter("@HOTENKH", hd.HOTENKH));
             lsparams.Add(new SqlParameter("@THOIGIANBATDAU", hd.THOIGIANBATDAU));
             lsparams.Add(new SqlParameter("@THOIGIANKETTHUC", hd.THOIGIANBATDAU));
             lsparams.Add(new SqlParameter("@TINHTRANG", hd.TINHTRANG));

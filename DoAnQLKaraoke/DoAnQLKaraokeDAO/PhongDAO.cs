@@ -28,7 +28,8 @@ namespace DoAnQLKaraokeDAO
                     TENPHONG = sdr.GetString(1),
                     LOAIPHONG = sdr.GetInt32(2),
                     GIAPHONG = sdr.GetDecimal(3).ToString("0,00 VNĐ"),
-                    TINHTRANG = sdr.GetInt32(4)
+                    TINHTRANG = sdr.GetInt32(4),
+                    SONGUOI = sdr.GetInt32(5)
                 };
                 ds.Add(a);
             }
@@ -44,13 +45,15 @@ namespace DoAnQLKaraokeDAO
                                        + ", TENPHONG"
                                        + "  , LOAIPHONG"
                                         + " , GIAPHONG"
-                                        + " , TINHTRANG)"
+                                        + " , TINHTRANG"
+                                                 + " , SONGUOI)"
                                   + " VALUES"
                                      + "(@MAPHONG,"
                                      + "@TENPHONG,"
                                      + "@LOAIPHONG,"
                                      + "@GIAPHONG,"
-                                      + "@TINHTRANG)";
+                                      + "@TINHTRANG"
+                                       +" ,@SONGUOI)";
             //SqlParameter[] arrParams = new SqlParameter[7];
             string gia = null;
             foreach (char a in phong.GIAPHONG.ToString())
@@ -67,6 +70,7 @@ namespace DoAnQLKaraokeDAO
             lsparams.Add(new SqlParameter("@GIAPHONG", phong.GIAPHONG));
             lsparams.Add(new SqlParameter("@LOAIPHONG", phong.LOAIPHONG));
             lsparams.Add(new SqlParameter("@TINHTRANG", phong.TINHTRANG));
+            lsparams.Add(new SqlParameter("@SONGUOI", phong.SONGUOI));
 
             SqlConnection con = DataProvider.TaoKetNoi();
             bool thucthi = DataProvider.ThucThi(insert, lsparams.ToArray(), con);
@@ -104,6 +108,7 @@ namespace DoAnQLKaraokeDAO
                               + " LOAIPHONG = @LOAIPHONG"
                               + ",GIAPHONG = @GIAPHONG"
                               + " , TINHTRANG = @TINHTRANG"
+                               + " , SONGUOI = @SONGUOI"
                               + " WHERE MAPHONG = @MAPHONG";
             //SqlParameter[] arrParams = new SqlParameter[7];
             string gia = null;
@@ -121,6 +126,7 @@ namespace DoAnQLKaraokeDAO
             lsparams.Add(new SqlParameter("@GIAPHONG", phong.GIAPHONG));
             lsparams.Add(new SqlParameter("@LOAIPHONG", phong.LOAIPHONG));
             lsparams.Add(new SqlParameter("@TINHTRANG", phong.TINHTRANG));
+            lsparams.Add(new SqlParameter("@SONGUOI", phong.SONGUOI));
 
             SqlConnection con = DataProvider.TaoKetNoi();
             bool thucthi = DataProvider.ThucThi(update, lsparams.ToArray(), con);

@@ -74,7 +74,7 @@
             this.lbldanhsachnv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldanhsachnv.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldanhsachnv.ForeColor = System.Drawing.Color.Salmon;
-            this.lbldanhsachnv.Location = new System.Drawing.Point(392, -12);
+            this.lbldanhsachnv.Location = new System.Drawing.Point(427, 41);
             this.lbldanhsachnv.Name = "lbldanhsachnv";
             this.lbldanhsachnv.Size = new System.Drawing.Size(473, 74);
             this.lbldanhsachnv.TabIndex = 30;
@@ -89,7 +89,7 @@
             this.columnHeader2,
             this.columnHeader3});
             this.lv_thucDon.LargeImageList = this.imageList_Large;
-            this.lv_thucDon.Location = new System.Drawing.Point(32, 128);
+            this.lv_thucDon.Location = new System.Drawing.Point(67, 181);
             this.lv_thucDon.Name = "lv_thucDon";
             this.lv_thucDon.Size = new System.Drawing.Size(387, 375);
             this.lv_thucDon.SmallImageList = this.imageList_Small;
@@ -114,7 +114,7 @@
             this.btn_trove.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_trove.Image = global::DoAnQLKaraoke.Properties.Resources.cancel;
             this.btn_trove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_trove.Location = new System.Drawing.Point(1159, 13);
+            this.btn_trove.Location = new System.Drawing.Point(1194, 66);
             this.btn_trove.Margin = new System.Windows.Forms.Padding(4);
             this.btn_trove.Name = "btn_trove";
             this.btn_trove.Size = new System.Drawing.Size(43, 37);
@@ -135,7 +135,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(23, 56);
+            this.groupBox1.Location = new System.Drawing.Point(58, 109);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1129, 55);
             this.groupBox1.TabIndex = 44;
@@ -236,7 +236,7 @@
             this.groupBox2.Controls.Add(this.txt_tenThucDon);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dgv_CTHD);
-            this.groupBox2.Location = new System.Drawing.Point(440, 125);
+            this.groupBox2.Location = new System.Drawing.Point(475, 178);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(806, 378);
             this.groupBox2.TabIndex = 45;
@@ -402,7 +402,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1258, 515);
+            this.ClientSize = new System.Drawing.Size(1328, 620);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_trove);

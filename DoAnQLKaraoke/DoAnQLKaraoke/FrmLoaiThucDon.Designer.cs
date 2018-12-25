@@ -43,7 +43,7 @@
             this.btn_quayve = new System.Windows.Forms.Button();
             this.colMALOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTENLOAIPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTINHTRANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTINHTRANG = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LoaiTD)).BeginInit();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
@@ -230,6 +230,8 @@
             this.colTINHTRANG.DataPropertyName = "TINHTRANG";
             this.colTINHTRANG.HeaderText = "Tình Trạng";
             this.colTINHTRANG.Name = "colTINHTRANG";
+            this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmLoaiThucDon
             // 
@@ -269,6 +271,6 @@
         private System.Windows.Forms.Button btn_capNhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMALOAI;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTENLOAIPHONG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTINHTRANG;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colTINHTRANG;
     }
 }

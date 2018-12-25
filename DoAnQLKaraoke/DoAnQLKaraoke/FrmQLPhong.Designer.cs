@@ -50,8 +50,11 @@
             this.colMAPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTENPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLOAIPHONG = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colSONGUOI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGIAPHONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.txt_soNGUOI = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.grbdstknv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_phong)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +72,7 @@
             // cbo_tinhtrang
             // 
             this.cbo_tinhtrang.FormattingEnabled = true;
-            this.cbo_tinhtrang.Location = new System.Drawing.Point(680, 88);
+            this.cbo_tinhtrang.Location = new System.Drawing.Point(681, 129);
             this.cbo_tinhtrang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbo_tinhtrang.Name = "cbo_tinhtrang";
             this.cbo_tinhtrang.Size = new System.Drawing.Size(121, 24);
@@ -104,7 +107,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label8.Location = new System.Drawing.Point(581, 88);
+            this.label8.Location = new System.Drawing.Point(581, 131);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 20);
             this.label8.TabIndex = 0;
@@ -156,6 +159,7 @@
             // grbdstknv
             // 
             this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbdstknv.Controls.Add(this.txt_soNGUOI);
             this.grbdstknv.Controls.Add(this.btn_qlLoaiPhong);
             this.grbdstknv.Controls.Add(this.btn_lamMoi);
             this.grbdstknv.Controls.Add(this.cbo_loaiPhong);
@@ -169,6 +173,7 @@
             this.grbdstknv.Controls.Add(this.txt_tenPhONG);
             this.grbdstknv.Controls.Add(this.txt_maPhong);
             this.grbdstknv.Controls.Add(this.label8);
+            this.grbdstknv.Controls.Add(this.label2);
             this.grbdstknv.Controls.Add(this.label7);
             this.grbdstknv.Controls.Add(this.label6);
             this.grbdstknv.Controls.Add(this.label5);
@@ -280,6 +285,7 @@
             this.colMAPHONG,
             this.colTENPHONG,
             this.colLOAIPHONG,
+            this.colSONGUOI,
             this.colGIAPHONG,
             this.colTINHTRANG});
             this.dgv_phong.Location = new System.Drawing.Point(58, 360);
@@ -311,6 +317,12 @@
             this.colLOAIPHONG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colLOAIPHONG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // colSONGUOI
+            // 
+            this.colSONGUOI.DataPropertyName = "SONGUOI";
+            this.colSONGUOI.HeaderText = "Số người";
+            this.colSONGUOI.Name = "colSONGUOI";
+            // 
             // colGIAPHONG
             // 
             this.colGIAPHONG.DataPropertyName = "GIAPHONG";
@@ -324,6 +336,24 @@
             this.colTINHTRANG.HeaderText = "Tình Trạng";
             this.colTINHTRANG.Name = "colTINHTRANG";
             this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // txt_soNGUOI
+            // 
+            this.txt_soNGUOI.Location = new System.Drawing.Point(681, 86);
+            this.txt_soNGUOI.Name = "txt_soNGUOI";
+            this.txt_soNGUOI.Size = new System.Drawing.Size(100, 22);
+            this.txt_soNGUOI.TabIndex = 22;
+            this.txt_soNGUOI.TextChanged += new System.EventHandler(this.txt_soNGUOI_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(581, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Số Người";
             // 
             // FrmQLPhong
             // 
@@ -368,7 +398,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMAPHONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTENPHONG;
         private System.Windows.Forms.DataGridViewComboBoxColumn colLOAIPHONG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSONGUOI;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGIAPHONG;
         private System.Windows.Forms.DataGridViewComboBoxColumn colTINHTRANG;
+        private System.Windows.Forms.TextBox txt_soNGUOI;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -13,5 +13,6 @@ namespace DoAnQLKaraokeDTO
         public int LOAIPHONG { get; set; }
         public string GIAPHONG { get; set; }
         public int TINHTRANG { get; set; }
+        public int SONGUOI { get; set; }
     }
 }

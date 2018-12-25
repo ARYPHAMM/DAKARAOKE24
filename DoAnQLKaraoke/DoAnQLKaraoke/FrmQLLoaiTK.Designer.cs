@@ -40,10 +40,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgv_dsloaiTK = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             this.colMALOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTENLOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTINHTRANG = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
             this.grbdstknv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dsloaiTK)).BeginInit();
             this.SuspendLayout();
@@ -203,9 +203,22 @@
             this.dgv_dsloaiTK.TabIndex = 26;
             this.dgv_dsloaiTK.SelectionChanged += new System.EventHandler(this.dgv_dsloaiTK_SelectionChanged);
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Salmon;
+            this.label2.Location = new System.Drawing.Point(2, 34);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1161, 55);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Quản Lý Loại Người Dùng";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // colMALOAI
             // 
-            this.colMALOAI.DataPropertyName = "MALOAI";
+            this.colMALOAI.DataPropertyName = "MALOAIND";
             this.colMALOAI.HeaderText = "Mã Loại";
             this.colMALOAI.Name = "colMALOAI";
             // 
@@ -220,19 +233,6 @@
             this.colTINHTRANG.DataPropertyName = "TINHTRANG";
             this.colTINHTRANG.HeaderText = "Tình Trạng";
             this.colTINHTRANG.Name = "colTINHTRANG";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Salmon;
-            this.label2.Location = new System.Drawing.Point(13, 9);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1161, 55);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Quản Lý Loại Tài Khoản Nhân Viên ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FrmQLLoaiTK
             // 
@@ -266,9 +266,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgv_dsloaiTK;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMALOAI;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTENLOAI;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colTINHTRANG;
-        private System.Windows.Forms.Label label2;
     }
 }

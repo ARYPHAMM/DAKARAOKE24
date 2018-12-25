@@ -40,11 +40,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgv_LoaiNV = new System.Windows.Forms.DataGridView();
-            this.colMaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTINHTRANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_quayve = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.colMaLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenLoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTINHTRANG = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grbdstknv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LoaiNV)).BeginInit();
             this.SuspendLayout();
@@ -200,24 +200,6 @@
             this.dgv_LoaiNV.TabIndex = 30;
             this.dgv_LoaiNV.SelectionChanged += new System.EventHandler(this.dgv_LoaiNV_SelectionChanged);
             // 
-            // colMaLoai
-            // 
-            this.colMaLoai.DataPropertyName = "MALOAI";
-            this.colMaLoai.HeaderText = "Mã Loại NV";
-            this.colMaLoai.Name = "colMaLoai";
-            // 
-            // colTenLoai
-            // 
-            this.colTenLoai.DataPropertyName = "TENLOAI";
-            this.colTenLoai.HeaderText = "Tên Loại NV";
-            this.colTenLoai.Name = "colTenLoai";
-            // 
-            // colTINHTRANG
-            // 
-            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
-            this.colTINHTRANG.HeaderText = "Tình Trạng";
-            this.colTINHTRANG.Name = "colTINHTRANG";
-            // 
             // btn_quayve
             // 
             this.btn_quayve.Image = global::DoAnQLKaraoke.Properties.Resources.DangXuat;
@@ -244,6 +226,26 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btn_quayve_Click);
+            // 
+            // colMaLoai
+            // 
+            this.colMaLoai.DataPropertyName = "MALOAI";
+            this.colMaLoai.HeaderText = "Mã Loại NV";
+            this.colMaLoai.Name = "colMaLoai";
+            // 
+            // colTenLoai
+            // 
+            this.colTenLoai.DataPropertyName = "TENLOAI";
+            this.colTenLoai.HeaderText = "Tên Loại NV";
+            this.colTenLoai.Name = "colTenLoai";
+            // 
+            // colTINHTRANG
+            // 
+            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
+            this.colTINHTRANG.HeaderText = "Tình Trạng";
+            this.colTINHTRANG.Name = "colTINHTRANG";
+            this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmQLLoaiNhanVien
             // 
@@ -283,9 +285,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgv_LoaiNV;
         private System.Windows.Forms.Button btn_quayve;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTenLoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTINHTRANG;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colTINHTRANG;
     }
 }

@@ -30,6 +30,12 @@
         {
             this.lbldanhsachnv = new System.Windows.Forms.Label();
             this.dgv_TaiKhoan = new System.Windows.Forms.DataGridView();
+            this.colMAND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTAIKHOAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMATKHAU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLOAIND = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.cbo_manv = new System.Windows.Forms.ComboBox();
             this.txt_MaND = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,12 +56,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.colMAND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTAIKHOAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMATKHAU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLOAIND = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colTINHTRANG = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_TaiKhoan)).BeginInit();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             this.lbldanhsachnv.Name = "lbldanhsachnv";
             this.lbldanhsachnv.Size = new System.Drawing.Size(1252, 68);
             this.lbldanhsachnv.TabIndex = 6;
-            this.lbldanhsachnv.Text = "Quản Lý Tài Khoản Nhân Viên";
+            this.lbldanhsachnv.Text = "Quản Lý Người Dùng";
             this.lbldanhsachnv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgv_TaiKhoan
@@ -91,6 +91,48 @@
             this.dgv_TaiKhoan.Size = new System.Drawing.Size(1215, 212);
             this.dgv_TaiKhoan.TabIndex = 7;
             this.dgv_TaiKhoan.SelectionChanged += new System.EventHandler(this.dgv_TaiKhoan_SelectionChanged);
+            // 
+            // colMAND
+            // 
+            this.colMAND.DataPropertyName = "MAND";
+            this.colMAND.HeaderText = "MAND";
+            this.colMAND.Name = "colMAND";
+            // 
+            // MANV
+            // 
+            this.MANV.DataPropertyName = "MANV";
+            this.MANV.HeaderText = "MANV";
+            this.MANV.Name = "MANV";
+            // 
+            // colTAIKHOAN
+            // 
+            this.colTAIKHOAN.DataPropertyName = "TAIKHOAN";
+            this.colTAIKHOAN.HeaderText = "Tài Khoản";
+            this.colTAIKHOAN.Name = "colTAIKHOAN";
+            // 
+            // colMATKHAU
+            // 
+            this.colMATKHAU.DataPropertyName = "MATKHAU";
+            this.colMATKHAU.HeaderText = "Mật Khẩu";
+            this.colMATKHAU.Name = "colMATKHAU";
+            // 
+            // colLOAIND
+            // 
+            this.colLOAIND.DataPropertyName = "LOAIND";
+            this.colLOAIND.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colLOAIND.HeaderText = "Loại Người Dùng";
+            this.colLOAIND.Name = "colLOAIND";
+            this.colLOAIND.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colLOAIND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // colTINHTRANG
+            // 
+            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
+            this.colTINHTRANG.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colTINHTRANG.HeaderText = "Tình Trạng";
+            this.colTINHTRANG.Name = "colTINHTRANG";
+            this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // cbo_manv
             // 
@@ -326,48 +368,6 @@
             this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tài Khoản";
-            // 
-            // colMAND
-            // 
-            this.colMAND.DataPropertyName = "MAND";
-            this.colMAND.HeaderText = "MAND";
-            this.colMAND.Name = "colMAND";
-            // 
-            // MANV
-            // 
-            this.MANV.DataPropertyName = "MANV";
-            this.MANV.HeaderText = "MANV";
-            this.MANV.Name = "MANV";
-            // 
-            // colTAIKHOAN
-            // 
-            this.colTAIKHOAN.DataPropertyName = "TAIKHOAN";
-            this.colTAIKHOAN.HeaderText = "Tài Khoản";
-            this.colTAIKHOAN.Name = "colTAIKHOAN";
-            // 
-            // colMATKHAU
-            // 
-            this.colMATKHAU.DataPropertyName = "MATKHAU";
-            this.colMATKHAU.HeaderText = "Mật Khẩu";
-            this.colMATKHAU.Name = "colMATKHAU";
-            // 
-            // colLOAIND
-            // 
-            this.colLOAIND.DataPropertyName = "LOAIND";
-            this.colLOAIND.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.colLOAIND.HeaderText = "Loại Người Dùng";
-            this.colLOAIND.Name = "colLOAIND";
-            this.colLOAIND.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colLOAIND.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // colTINHTRANG
-            // 
-            this.colTINHTRANG.DataPropertyName = "TINHTRANG";
-            this.colTINHTRANG.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.colTINHTRANG.HeaderText = "Tình Trạng";
-            this.colTINHTRANG.Name = "colTINHTRANG";
-            this.colTINHTRANG.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colTINHTRANG.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FrmQLTaiKhoan
             // 

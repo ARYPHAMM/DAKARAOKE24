@@ -97,6 +97,7 @@ namespace DoAnQLKaraoke
                 lv_thucDon.Items.Add(item);
 
             }
+            // ten thuc don
 
         }
 
@@ -224,6 +225,7 @@ namespace DoAnQLKaraoke
                     bool ktls = frmmain.lsNDBUS.ThemLichSuNguoiDung(frmmain.lsNDDTO);
                 }
             }
+
             LoadData();
         }
 
@@ -239,31 +241,26 @@ namespace DoAnQLKaraoke
 
         private void btn_InHD_Click(object sender, EventArgs e)
         {
-            //FrmXemBaoCao f = new FrmXemBaoCao();
-            //HoaDonBUS hdBUS = new HoaDonBUS();
-            //HoaDonDTO a = FrmQLHoaDon.hdHienHanh;
-
-            //bool ktThanhToan = hdBUS.ThanhToan(a);
-            //if (ktThanhToan)
-            //{
-              
-            //    f.XemHoaDon(a);
-            //}
-            //f.Show();
-            
-
 
         }
 
         private void btn_trove_Click(object sender, EventArgs e)
         {
-            this.Visible = true;
-            FrmQLHoaDon f = new FrmQLHoaDon();
-            f.MdiParent = this.MdiParent;
-            f.Dock = DockStyle.Fill;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.Show();
+            try
+            {
+
+                this.Visible = true;
+                FrmQLHoaDon f = new FrmQLHoaDon();
+                f.MdiParent = this.MdiParent;
+                f.Dock = DockStyle.Fill;
+                f.FormBorderStyle = FormBorderStyle.None;
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show();
+            }
+            catch
+            {
+
+            }
 
         }
 

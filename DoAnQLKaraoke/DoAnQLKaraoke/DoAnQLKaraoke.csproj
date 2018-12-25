@@ -373,6 +373,7 @@
     <EmbeddedResource Include="RptHoaDon.rdlc" />
     <EmbeddedResource Include="RptSubSDT.rdlc" />
     <EmbeddedResource Include="RptSubTenPhong.rdlc" />
+    <EmbeddedResource Include="RptSubTenTD.rdlc" />
     <None Include="csdlDAKARAOKEDataSet.xsc">
       <DependentUpon>csdlDAKARAOKEDataSet.xsd</DependentUpon>
     </None>

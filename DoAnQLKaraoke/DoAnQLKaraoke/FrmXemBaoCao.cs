@@ -54,30 +54,18 @@ namespace DoAnQLKaraoke
                 ctHDbus = new ChiTietHoaDonBUS();
                 this.rpcBaoCao.LocalReport.ReportEmbeddedResource = "DoAnQLKaraoke.RptDoanhThu.rdlc";
                 this.rpcBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(SubSDT);
-            this.rpcBaoCao.LocalReport.DataSources.Add(new ReportDataSource("dsHoaDon", ngay));
+                this.rpcBaoCao.LocalReport.DataSources.Add(new ReportDataSource("dsHoaDon", ngay));
                 this.rpcBaoCao.LocalReport.SetParameters(new ReportParameter("paNgay", thoigian));
-
-            this.rpcBaoCao.RefreshReport();
+                this.rpcBaoCao.RefreshReport();
         }
 
 
 
         private void SubSDT(object sender, SubreportProcessingEventArgs e)
-        {
-            //PhongBUS Phong = new PhongBUS();
-            //string ma = e.Parameters["paMaPhong"].Values[0].ToString();
-            //// tim danh sach truyen theo nxb
-            ////MessageBox.Show(ma.ToString());
-            //List<PhongDTO> lsPhong = Phong.DanhSachPhong().FindAll(o => o.MAPHONG.Trim() == ma.Trim());
-            //// do vao subreport
-            //e.DataSources.Add(new ReportDataSource("dsPhong", lsPhong));
-   
+        {  
             KhachHangBUS khBUS = new KhachHangBUS();
             string makh = e.Parameters["paSDT"].Values[0].ToString();
-            // tim danh sach truyen theo nxb
-            //MessageBox.Show(ma.ToString());
             List<KhachHangDTO> lsKH = khBUS.DanhSachKhachHang().FindAll(o => o.MAKH.Trim() == makh.Trim());
-            // do vao subreport
             e.DataSources.Add(new ReportDataSource("dsKH", lsKH));
 
         }
@@ -92,10 +80,13 @@ namespace DoAnQLKaraoke
         {
             hdBUS = new HoaDonBUS();
             ctHDbus = new ChiTietHoaDonBUS();
-            HoaDonDTO hd = hdBUS.DanhSachHoaDon().Find(o => o.MAHD == hdHienHanh.MAHD);
+            hdHienHanh.HOTENKH = new KhachHangBUS().DanhSachKhachHang().Find(o => o.MAKH.Trim() == hdHienHanh.MAKH.Trim()).TENKH;
+            hdHienHanh.NGUOILAPHD = new NhanVienBUS().DanhSachNhanVien().Find(o => o.MANV.Trim() == hdHienHanh.MANV.Trim()).HOTENNV;
+            HoaDonDTO hd = hdHienHanh;
             List<ChiTietHoaDonDTO> dsCTHD = ctHDbus.DanhSachChiTietHD(hd.MAHD);
 
             this.rpcBaoCao.LocalReport.ReportEmbeddedResource = "DoAnQLKaraoke.RptHoaDon.rdlc";
+            this.rpcBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(subTenTD);
             this.rpcBaoCao.LocalReport.DataSources.Add(new ReportDataSource("dsCTHD", dsCTHD));
             this.rpcBaoCao.LocalReport.SetParameters(new ReportParameter("paMAHD", hd.MAHD));
             this.rpcBaoCao.LocalReport.SetParameters(new ReportParameter("paLOAIPHONG",hdHienHanh.MALOAIPHONG == 1?"vip":"thường"));
@@ -109,6 +100,14 @@ namespace DoAnQLKaraoke
             this.rpcBaoCao.RefreshReport();
 
 
+        }
+
+        private void subTenTD(object sender, SubreportProcessingEventArgs e)
+        {
+            ThucDonBUS tdBUS = new ThucDonBUS();
+            string matd = e.Parameters["paMATD"].Values[0].ToString();
+            List<ThucDonDTO> lsTD = tdBUS.DanhSachTD().FindAll(o => o.MATD.Trim() == matd.Trim());
+            e.DataSources.Add(new ReportDataSource("ThucDon", lsTD));
         }
     }
 }

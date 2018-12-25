@@ -47,7 +47,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lv_HoaDonChuaThanhToan = new System.Windows.Forms.ListView();
@@ -65,6 +64,11 @@
             this.btn_thanhtoan = new System.Windows.Forms.Button();
             this.btn_TraCuu = new System.Windows.Forms.Button();
             this.btn_huyHD = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_soNGUOI = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_tracuuPSONGUOI = new System.Windows.Forms.Button();
             this.grbdstknv.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +77,7 @@
             this.lbldanhsachnv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbldanhsachnv.Font = new System.Drawing.Font("Harlow Solid Italic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbldanhsachnv.ForeColor = System.Drawing.Color.Salmon;
-            this.lbldanhsachnv.Location = new System.Drawing.Point(361, 6);
+            this.lbldanhsachnv.Location = new System.Drawing.Point(351, 9);
             this.lbldanhsachnv.Name = "lbldanhsachnv";
             this.lbldanhsachnv.Size = new System.Drawing.Size(473, 74);
             this.lbldanhsachnv.TabIndex = 8;
@@ -83,12 +87,15 @@
             // grbdstknv
             // 
             this.grbdstknv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grbdstknv.Controls.Add(this.label8);
             this.grbdstknv.Controls.Add(this.label7);
             this.grbdstknv.Controls.Add(this.dtp_thoiGianBatDau);
             this.grbdstknv.Controls.Add(this.btn_them);
             this.grbdstknv.Controls.Add(this.btn_lamMoi);
             this.grbdstknv.Controls.Add(this.cbo_loaiPhong);
             this.grbdstknv.Controls.Add(this.btn_luu);
+            this.grbdstknv.Controls.Add(this.btn_tracuuPSONGUOI);
+            this.grbdstknv.Controls.Add(this.button1);
             this.grbdstknv.Controls.Add(this.btn_traCuuSDT);
             this.grbdstknv.Controls.Add(this.btn_capNhat);
             this.grbdstknv.Controls.Add(this.label1);
@@ -96,6 +103,7 @@
             this.grbdstknv.Controls.Add(this.txt_maHD);
             this.grbdstknv.Controls.Add(this.txt_tenKH);
             this.grbdstknv.Controls.Add(this.txt_sdt);
+            this.grbdstknv.Controls.Add(this.txt_soNGUOI);
             this.grbdstknv.Controls.Add(this.txt_tenPhong);
             this.grbdstknv.Controls.Add(this.label6);
             this.grbdstknv.Controls.Add(this.label2);
@@ -103,11 +111,11 @@
             this.grbdstknv.Controls.Add(this.label9);
             this.grbdstknv.Controls.Add(this.label3);
             this.grbdstknv.Controls.Add(this.label5);
-            this.grbdstknv.Location = new System.Drawing.Point(19, 79);
+            this.grbdstknv.Location = new System.Drawing.Point(9, 82);
             this.grbdstknv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grbdstknv.Name = "grbdstknv";
             this.grbdstknv.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grbdstknv.Size = new System.Drawing.Size(614, 343);
+            this.grbdstknv.Size = new System.Drawing.Size(614, 378);
             this.grbdstknv.TabIndex = 9;
             this.grbdstknv.TabStop = false;
             this.grbdstknv.Text = "Thông tin";
@@ -137,7 +145,7 @@
             this.btn_them.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_them.Image = global::DoAnQLKaraoke.Properties.Resources.add;
             this.btn_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_them.Location = new System.Drawing.Point(116, 259);
+            this.btn_them.Location = new System.Drawing.Point(116, 276);
             this.btn_them.Margin = new System.Windows.Forms.Padding(4);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(90, 56);
@@ -152,7 +160,7 @@
             this.btn_lamMoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_lamMoi.Image = global::DoAnQLKaraoke.Properties.Resources.refresh;
             this.btn_lamMoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_lamMoi.Location = new System.Drawing.Point(328, 263);
+            this.btn_lamMoi.Location = new System.Drawing.Point(328, 280);
             this.btn_lamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_lamMoi.Name = "btn_lamMoi";
             this.btn_lamMoi.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -179,7 +187,7 @@
             this.btn_luu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_luu.Image = global::DoAnQLKaraoke.Properties.Resources.save;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_luu.Location = new System.Drawing.Point(29, 263);
+            this.btn_luu.Location = new System.Drawing.Point(29, 280);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(76, 52);
             this.btn_luu.TabIndex = 18;
@@ -192,7 +200,7 @@
             // 
             this.btn_traCuuSDT.Image = global::DoAnQLKaraoke.Properties.Resources.search;
             this.btn_traCuuSDT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_traCuuSDT.Location = new System.Drawing.Point(269, 132);
+            this.btn_traCuuSDT.Location = new System.Drawing.Point(269, 164);
             this.btn_traCuuSDT.Margin = new System.Windows.Forms.Padding(4);
             this.btn_traCuuSDT.Name = "btn_traCuuSDT";
             this.btn_traCuuSDT.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -207,7 +215,7 @@
             this.btn_capNhat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_capNhat.Image = global::DoAnQLKaraoke.Properties.Resources.edit;
             this.btn_capNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_capNhat.Location = new System.Drawing.Point(214, 263);
+            this.btn_capNhat.Location = new System.Drawing.Point(214, 280);
             this.btn_capNhat.Margin = new System.Windows.Forms.Padding(4);
             this.btn_capNhat.Name = "btn_capNhat";
             this.btn_capNhat.Size = new System.Drawing.Size(106, 52);
@@ -221,7 +229,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(25, 215);
+            this.label1.Location = new System.Drawing.Point(25, 247);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 20);
             this.label1.TabIndex = 6;
@@ -229,7 +237,7 @@
             // 
             // txt_gia
             // 
-            this.txt_gia.Location = new System.Drawing.Point(116, 215);
+            this.txt_gia.Location = new System.Drawing.Point(116, 247);
             this.txt_gia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_gia.Name = "txt_gia";
             this.txt_gia.Size = new System.Drawing.Size(146, 22);
@@ -246,7 +254,7 @@
             // 
             // txt_tenKH
             // 
-            this.txt_tenKH.Location = new System.Drawing.Point(116, 163);
+            this.txt_tenKH.Location = new System.Drawing.Point(116, 195);
             this.txt_tenKH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tenKH.Multiline = true;
             this.txt_tenKH.Name = "txt_tenKH";
@@ -256,7 +264,7 @@
             // 
             // txt_sdt
             // 
-            this.txt_sdt.Location = new System.Drawing.Point(116, 132);
+            this.txt_sdt.Location = new System.Drawing.Point(116, 164);
             this.txt_sdt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_sdt.Name = "txt_sdt";
             this.txt_sdt.Size = new System.Drawing.Size(146, 22);
@@ -265,7 +273,7 @@
             // 
             // txt_tenPhong
             // 
-            this.txt_tenPhong.Location = new System.Drawing.Point(116, 96);
+            this.txt_tenPhong.Location = new System.Drawing.Point(116, 128);
             this.txt_tenPhong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tenPhong.Name = "txt_tenPhong";
             this.txt_tenPhong.Size = new System.Drawing.Size(148, 22);
@@ -294,27 +302,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label4.Location = new System.Drawing.Point(23, 162);
+            this.label4.Location = new System.Drawing.Point(23, 194);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 40);
             this.label4.TabIndex = 0;
             this.label4.Text = "Tên Khách\r\n        Hàng";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.Location = new System.Drawing.Point(21, 64);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 20);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Loại phòng";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(20, 132);
+            this.label3.Location = new System.Drawing.Point(20, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 20);
             this.label3.TabIndex = 0;
@@ -324,7 +322,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label5.Location = new System.Drawing.Point(18, 96);
+            this.label5.Location = new System.Drawing.Point(18, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 20);
             this.label5.TabIndex = 0;
@@ -345,9 +343,9 @@
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10});
-            this.lv_HoaDonChuaThanhToan.Location = new System.Drawing.Point(639, 83);
+            this.lv_HoaDonChuaThanhToan.Location = new System.Drawing.Point(629, 86);
             this.lv_HoaDonChuaThanhToan.Name = "lv_HoaDonChuaThanhToan";
-            this.lv_HoaDonChuaThanhToan.Size = new System.Drawing.Size(500, 339);
+            this.lv_HoaDonChuaThanhToan.Size = new System.Drawing.Size(500, 374);
             this.lv_HoaDonChuaThanhToan.TabIndex = 10;
             this.lv_HoaDonChuaThanhToan.UseCompatibleStateImageBehavior = false;
             this.lv_HoaDonChuaThanhToan.SelectedIndexChanged += new System.EventHandler(this.lv_HoaDonChuaThanhToan_SelectedIndexChanged);
@@ -356,7 +354,7 @@
             // 
             this.btn_InHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_InHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_InHD.Location = new System.Drawing.Point(171, 435);
+            this.btn_InHD.Location = new System.Drawing.Point(171, 465);
             this.btn_InHD.Name = "btn_InHD";
             this.btn_InHD.Size = new System.Drawing.Size(96, 52);
             this.btn_InHD.TabIndex = 44;
@@ -368,7 +366,7 @@
             // btn_thanhtoan
             // 
             this.btn_thanhtoan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_thanhtoan.Location = new System.Drawing.Point(48, 435);
+            this.btn_thanhtoan.Location = new System.Drawing.Point(48, 465);
             this.btn_thanhtoan.Name = "btn_thanhtoan";
             this.btn_thanhtoan.Size = new System.Drawing.Size(106, 52);
             this.btn_thanhtoan.TabIndex = 45;
@@ -381,7 +379,7 @@
             this.btn_TraCuu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TraCuu.Image = global::DoAnQLKaraoke.Properties.Resources.search;
             this.btn_TraCuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TraCuu.Location = new System.Drawing.Point(904, 437);
+            this.btn_TraCuu.Location = new System.Drawing.Point(904, 467);
             this.btn_TraCuu.Margin = new System.Windows.Forms.Padding(4);
             this.btn_TraCuu.Name = "btn_TraCuu";
             this.btn_TraCuu.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -397,7 +395,7 @@
             this.btn_huyHD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_huyHD.Image = global::DoAnQLKaraoke.Properties.Resources.minus;
             this.btn_huyHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_huyHD.Location = new System.Drawing.Point(1035, 433);
+            this.btn_huyHD.Location = new System.Drawing.Point(1035, 463);
             this.btn_huyHD.Margin = new System.Windows.Forms.Padding(4);
             this.btn_huyHD.Name = "btn_huyHD";
             this.btn_huyHD.Size = new System.Drawing.Size(98, 56);
@@ -407,11 +405,69 @@
             this.btn_huyHD.UseVisualStyleBackColor = true;
             this.btn_huyHD.Click += new System.EventHandler(this.btn_huyHD_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label9.Location = new System.Drawing.Point(21, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Loại phòng";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label8.Location = new System.Drawing.Point(22, 97);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 20);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Số Người";
+            // 
+            // txt_soNGUOI
+            // 
+            this.txt_soNGUOI.Location = new System.Drawing.Point(114, 95);
+            this.txt_soNGUOI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_soNGUOI.Name = "txt_soNGUOI";
+            this.txt_soNGUOI.Size = new System.Drawing.Size(148, 22);
+            this.txt_soNGUOI.TabIndex = 1;
+            this.txt_soNGUOI.TextChanged += new System.EventHandler(this.txt_soNGUOI_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::DoAnQLKaraoke.Properties.Resources.search;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(269, 64);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(37, 26);
+            this.button1.TabIndex = 15;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btn_traCuuSDT_Click);
+            // 
+            // btn_tracuuPSONGUOI
+            // 
+            this.btn_tracuuPSONGUOI.Image = global::DoAnQLKaraoke.Properties.Resources.search;
+            this.btn_tracuuPSONGUOI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_tracuuPSONGUOI.Location = new System.Drawing.Point(269, 98);
+            this.btn_tracuuPSONGUOI.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_tracuuPSONGUOI.Name = "btn_tracuuPSONGUOI";
+            this.btn_tracuuPSONGUOI.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btn_tracuuPSONGUOI.Size = new System.Drawing.Size(37, 26);
+            this.btn_tracuuPSONGUOI.TabIndex = 15;
+            this.btn_tracuuPSONGUOI.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_tracuuPSONGUOI.UseVisualStyleBackColor = true;
+            this.btn_tracuuPSONGUOI.Click += new System.EventHandler(this.btn_tracuuPSONGUOI_Click);
+            // 
             // FrmQLHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 499);
+            this.ClientSize = new System.Drawing.Size(1146, 558);
             this.Controls.Add(this.btn_thanhtoan);
             this.Controls.Add(this.btn_InHD);
             this.Controls.Add(this.btn_huyHD);
@@ -450,7 +506,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_tenKH;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker dtp_thoiGianBatDau;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListView lv_HoaDonChuaThanhToan;
@@ -468,5 +523,10 @@
         private System.Windows.Forms.Button btn_InHD;
         private System.Windows.Forms.Button btn_TraCuu;
         private System.Windows.Forms.Button btn_huyHD;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txt_soNGUOI;
+        private System.Windows.Forms.Button btn_tracuuPSONGUOI;
+        private System.Windows.Forms.Button button1;
     }
 }

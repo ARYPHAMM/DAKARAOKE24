@@ -29,17 +29,6 @@
         private void InitializeComponent()
         {
             this.dgv_hoadon = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dpt_HoaDonBD = new System.Windows.Forms.DateTimePicker();
             this.dpt_HoaDonKT = new System.Windows.Forms.DateTimePicker();
             this.txt_MAHD = new System.Windows.Forms.TextBox();
@@ -56,6 +45,15 @@
             this.btn_InHD = new System.Windows.Forms.Button();
             this.btn_trove = new System.Windows.Forms.Button();
             this.btn_capNhat = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoadon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,9 +67,7 @@
             this.Column2,
             this.Column11,
             this.Column3,
-            this.Column4,
             this.MAKH,
-            this.Column6,
             this.Column7,
             this.Column8,
             this.Column9,
@@ -82,74 +78,6 @@
             this.dgv_hoadon.Size = new System.Drawing.Size(1093, 329);
             this.dgv_hoadon.TabIndex = 0;
             this.dgv_hoadon.SelectionChanged += new System.EventHandler(this.dgv_hoadon_SelectionChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaHD";
-            this.Column1.HeaderText = "MaHD";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "MAPHONG";
-            this.Column2.HeaderText = "MAPHONG";
-            this.Column2.Name = "Column2";
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "GIAPHONG";
-            this.Column11.HeaderText = "Giá phòng";
-            this.Column11.Name = "Column11";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MANV";
-            this.Column3.HeaderText = "MANV";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "NGUOILAPHD";
-            this.Column4.HeaderText = "Người lập";
-            this.Column4.Name = "Column4";
-            // 
-            // MAKH
-            // 
-            this.MAKH.DataPropertyName = "MAKH";
-            this.MAKH.HeaderText = "MAKH";
-            this.MAKH.Name = "MAKH";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "HOTENKH";
-            this.Column6.HeaderText = "Họ tên KH";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "THOIGIANBATDAU";
-            this.Column7.HeaderText = "Thời gian bắt đầu";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "THOIGIANKETTHUC";
-            this.Column8.HeaderText = "Thời gian kết thúc";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "TONGTHANHTOAN";
-            this.Column9.HeaderText = "Tổng thanh toán";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "TINHTRANG";
-            this.Column10.HeaderText = "Tình trạng thanh toán";
-            this.Column10.Name = "Column10";
-            this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // dpt_HoaDonBD
             // 
@@ -324,6 +252,62 @@
             this.btn_capNhat.UseVisualStyleBackColor = true;
             this.btn_capNhat.Click += new System.EventHandler(this.btn_capNhat_Click);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaHD";
+            this.Column1.HeaderText = "MaHD";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MAPHONG";
+            this.Column2.HeaderText = "MAPHONG";
+            this.Column2.Name = "Column2";
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "GIAPHONG";
+            this.Column11.HeaderText = "Giá phòng";
+            this.Column11.Name = "Column11";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MANV";
+            this.Column3.HeaderText = "MANV";
+            this.Column3.Name = "Column3";
+            // 
+            // MAKH
+            // 
+            this.MAKH.DataPropertyName = "MAKH";
+            this.MAKH.HeaderText = "MAKH";
+            this.MAKH.Name = "MAKH";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "THOIGIANBATDAU";
+            this.Column7.HeaderText = "Thời gian bắt đầu";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "THOIGIANKETTHUC";
+            this.Column8.HeaderText = "Thời gian kết thúc";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "TONGTHANHTOAN";
+            this.Column9.HeaderText = "Tổng thanh toán";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "TINHTRANG";
+            this.Column10.HeaderText = "Tình trạng thanh toán";
+            this.Column10.Name = "Column10";
+            this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // FrmTraCuuHD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -372,19 +356,17 @@
         private System.Windows.Forms.Button btn_timsdt;
         private System.Windows.Forms.Button btn_timtheoma;
         private System.Windows.Forms.Button btn_lammoi;
+        private System.Windows.Forms.Button btn_InHD;
+        private System.Windows.Forms.Button btn_trove;
+        private System.Windows.Forms.Button btn_capNhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column10;
-        private System.Windows.Forms.Button btn_InHD;
-        private System.Windows.Forms.Button btn_trove;
-        private System.Windows.Forms.Button btn_capNhat;
     }
 }

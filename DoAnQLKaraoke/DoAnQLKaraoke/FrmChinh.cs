@@ -174,6 +174,8 @@ namespace DoAnQLKaraoke
             f5 = new FrmQLPhong();
             f5.MdiParent = this;
             f5.Dock = DockStyle.Fill;
+            f5.FormBorderStyle = FormBorderStyle.None;
+            f5.StartPosition = FormStartPosition.CenterScreen;
             f5.Show();
         }
 
@@ -210,6 +212,8 @@ namespace DoAnQLKaraoke
                 FrmDangNhap fdn = new FrmDangNhap();
                 fdn.MdiParent = this;
                 fdn.Dock = DockStyle.Fill;
+                fdn.FormBorderStyle = FormBorderStyle.None;
+                fdn.StartPosition = FormStartPosition.CenterScreen;
                 fdn.Show();
             }
             else
@@ -226,6 +230,7 @@ namespace DoAnQLKaraoke
 
         private void đĂNGXUÂTToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DongFrmCon();
             lsNDDTO = new LichSuNguoiDungDTO()
             {
                 MAND = nvDangNhap.MAND,
@@ -254,6 +259,8 @@ namespace DoAnQLKaraoke
             FrmDangNhap fdn = new FrmDangNhap();
             fdn.MdiParent = this;
             fdn.Dock = DockStyle.Fill;
+            fdn.FormBorderStyle = FormBorderStyle.None;
+            fdn.StartPosition = FormStartPosition.CenterScreen;
             fdn.Show();
             đĂNGXUÂTToolStripMenuItem.Visible = false;
             menuStrip1.Enabled = false;
@@ -321,6 +328,8 @@ namespace DoAnQLKaraoke
             f10 = new FrmLichSuHoatDong();
             f10.MdiParent = this;
             f10.Dock = DockStyle.Fill;
+            f10.FormBorderStyle = FormBorderStyle.None;
+            f10.StartPosition = FormStartPosition.CenterScreen;
             f10.Show();
         }
     }
